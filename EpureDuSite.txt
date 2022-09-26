@@ -10,6 +10,8 @@
                         -A Propos
                         -Nous contacter
                         -inscription/login (connexion)
+                        
+                        -colortheme 
                 
                         // utilisateurs
                 
@@ -22,6 +24,8 @@
                         -Reserver --> Liens vers planity
                         -Logout
                 
+                        -colortheme 
+                        
                         // Administrateur
                 
                         -Acceuil
@@ -33,6 +37,8 @@
                         -Reserver --> Liens vers planity
                         -dashbord (admin)
                         -Logout
+                        
+                        -colortheme 
                         
 // Pages Admin:         // prestations
 
