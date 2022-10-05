@@ -5,9 +5,11 @@ import bcrypt from 'bcrypt'
 
 const SubmitConnectionController = (req, res) => {
     
+    const validRegex = /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/
+    
         // Requete à la base de données
     let connection = "SELECT mdp, role_id FROM user WHERE user.email = ?"
-    
+    if(req.body.email.match(validRegex)){
     pool.query(connection,[req.body.email], (err,user) => {
         if (err) throw err
         if(user[0]){
@@ -20,15 +22,17 @@ const SubmitConnectionController = (req, res) => {
                     req.session.admin = admin
                     req.session.user = !admin
                     
-                    res.json({response:true, message:"connecter", admin})
+                    res.json({response:true, message:"connecter",admin, user })
                 } else {
-                    res.json({response:false, message:"error"})
+                    res.json({response:false})
                 }
             })
         } else {
-            res.json({response:false, message:"error2"})
+            res.json({response:false})
         }
     })
-    
+    }else{
+        res.json({response:false})
+    }
 }
 export default SubmitConnectionController

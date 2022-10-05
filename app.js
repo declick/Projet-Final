@@ -18,8 +18,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended:true }))
 
 //initialisation du système de sessions
-// création de 24h à partir des millisecondes
-const oneDay = 1000 * 60 * 60 * 24
+
+// création de 24h à partir des millisecondes // cookie va expirer dans 24h
+const oneDay = 60 * 60 * 24
 
 // Session middleware
 app.use(session({
@@ -48,6 +49,7 @@ app.use(session({
 //         next()
 //     }
 // })
+
 
 // Creation de la variable locale pour l'utilisation des sessions
 app.use((req, res, next) => {
