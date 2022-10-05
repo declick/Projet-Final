@@ -18,6 +18,7 @@ export const routes = [
     { path:'/Apropos', element:<Apropos /> },
     { path:'/Contact', element:<Contact /> },
     { path:'/Reserver', element:<Reserver /> },
+    
     { path:'/Inscription', element:<Inscription /> },
     { path:'/Connexion', element:<Connexion /> },
     { path:'/Profil', element:<Profil /> },
@@ -34,3 +35,7 @@ export const userPath = [
 export const adminPath = [
     '/Admin'
 ]
+
+
+
+        

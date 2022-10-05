@@ -1,38 +1,301 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*
+
+Ultime version de la feuille de style commune (à réutiliser dans les modules 4 et 5)
+
+Ajout de la marge entre les sections
+Ajout des la section form depuis le corrigé de l'exercice "form" du module 2
+Ajout de la section table (version proche du corrigé de l'exercice "table" du module 2 mais avec quelques ajustements)
+
+*/
+/* *****************************************************************
+TOOLS
+***************************************************************** */
+
+* {
+  margin: 0;
+  padding:0;
+  font-family: 'Poopins', sans-serif;
+	box-sizing: border-box; /* On spécifie que la largeur (width) de chaque boîte comprend le padding et la bordure (par défaut, c'est seulement la largeur du contenu) */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+	font-size: 62.5%; /* 1rem = 10px (la formule est 10/16*100) la taille par défaut étant 16px */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+   
+  background:#dee1e2;
+  min-height : 100vh;
+  overflow-x: hidden;
+	font-size: 1.6rem; /* on remets la taille du texte par défaut pour le body à 16px en utilisant les rem comme unité) */
+}
+/* *****************************************************************
+CONTAINER
+***************************************************************** */
+
+/* Le container permet de limiter la largeur d'un contenu */
+.container {
+	max-width: 100vh; /* On donne une largeur au container */
+	margin-left: auto; /* On centre son contenu */
+	margin-right: auto;
+}
+/* *****************************************************************
+NAVIGATION
+***************************************************************** */
+
+.nav_checkbox{
+    display: grid;
+    align-items: center;
+    justify-items: end;
+    justify-content: space-between;
+    padding: 25px 40px;
+    background: #fff;
+    box-shadow: 0 15px 15px rgba(0,0,0,0.05);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo{
+    text-decoration: none;
+    color: #333;
+    font-size:1.5em;
+    font-weight:700;
+    text-transform: uppercase;
+    letter-spacing:0.1em;
 }
 
-.App-link {
-  color: #61dafb;
+.tab-nav{
+    outline: none;
+    display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.label{
+    display: none;
+    color: #fff;
+}
+
+.burger{
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin-top: 5px;
+    transition:all 0.5s ease;
+}
+
+input[type=checkbox]:checked ~ .label #burg0{
+  opacity:0;
+}
+
+input[type=checkbox]:checked ~ .label #burg1{
+  transform: rotate(45deg) translate(7px, 7px);
+  opacity: 1;
+}
+input[type=checkbox]:checked ~ .label #burg2{
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.content_nav{
+    grid-column: 3;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.content_nav li{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.content_nav li a{
+    font-family: 'Poppins' sans-serif;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    font-size:1em;
+    text-transform:uppercase;
+    letter-spacing:0.2em;
+}
+
+.content_nav li a::after{
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform-origin: left;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 0.5s;
+}
+
+.content_nav li a:hover::after{
+    transform: scale(1, 1);
+}
+
+/* *****************************************************************
+NAVIGATION BURGER
+***************************************************************** */
+
+@media screen and (max-width: 900px){
+
+.label{
+    display: grid;
+    justify-content: end;
+    cursor: pointer;
+    grid-column: 3;
+    padding-right: 10px;
+    }
+
+.content_nav{
+    display: grid;
+    grid-column: 1/4;
+    text-align: center;
+    max-height: 0;
+    justify-items: end;
+    overflow: hidden;
+    transition: all ease-in-out 0.6s;
+}
+
+
+.nav_checkbox input:checked ~ .content_nav{
+     max-height: 1280px;
+}
+
+.content_nav li{
+    padding: 15px 0px;
+}
+
+}
+/* *****************************************************************
+SWITCH COLOR TEMPLATE
+***************************************************************** */
+/* la boîte autour du curseur */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Masquer la case à cocher HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Le slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 7px;
+  left: 5px;
+  right: 5px;
+  bottom: 7px;
+  background-color: #ccc;
+  transition: .2s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: .2s;
+}
+
+input:checked + .slider {
+  background-color: #333;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #333;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* curseurs arrondis */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* *****************************************************************
+COLOR THEME
+***************************************************************** */
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+.dark p{
+  color: #fff;
+}
+.dark form{
+   background-color: #333;
+}
+.light {
+  background-color: #fff;
+  color: #333;
+}
+
+/* *****************************************************************
+FORMULAIRE
+***************************************************************** */
+form {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    
+       display: grid;
+    /* align-items: flex-end; */
+    justify-content: center;
+    justify-items: center;
+}
+
+#container h1{
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #53af57;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;
+    border: 1px solid #53af57;
+}
+textarea{
+    width: 30em;
+    height: 15em;
 }

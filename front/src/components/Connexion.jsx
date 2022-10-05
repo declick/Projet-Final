@@ -3,9 +3,12 @@ import axios from 'axios'
 import BASE_URL from '../config.js'
 import {ReducerContext} from "./reducer/reducer"
 import {CONNEXION, ADMIN, USER} from './config/constance.js'
+import { useNavigate } from 'react-router-dom'
 
 
 const Connexion = () => {
+   
+     const navigate = useNavigate()
    
     const [email, setEmail] = React.useState("")
     const [mdp, setMdp] = React.useState("")
@@ -14,39 +17,48 @@ const Connexion = () => {
         { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
         const submit = (e) => {
         e.preventDefault()
+        if (email === "" || mdp === "") {
+            console.log("Merci de compléter correctement le formulaire.")
+        }else{
+        if (email.length <= 255){
         axios.post(`${BASE_URL}/Connexion`,{
             email,
             mdp
         })
         .then((res) => {
-
             res.data.response && dispatch({type:CONNEXION})
             res.data.admin && dispatch({type:ADMIN})
             res.data.user && dispatch({type:USER})
-            console.log(res)
+            if(res.data.response === true) {
+                        navigate("/")
+            }
         })
         .catch((err) => {
             console.log(err)
         })
-    }
+            }
+        }
+        }
     
     return(
         
             <React.Fragment>
-                <h1>Connexion</h1>
-          
+                <fieldset>
                <form>
-                <label>email de connection : 
-                  <div>  <input type="email" id='email' placeholder="Entrer votre adress mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div> 
+                <label><p>email de connection : </p>
+                  <div><input pattern=".+@gmail.com" type="email" placeholder="Entrer votre adress mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div> 
                 </label>
             
-                <label>Mot de passe :
-                  <div>  <input type="password" id='mdp' placeholder="Entrer le mot de passe" name="mdp" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> </div>
+                <label><p>Mot de passe :</p>
+                  <div><input type="password" placeholder="Entrer le mot de passe" name="mdp" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> </div>
                 </label>
                 
-                    <button onClick={submit}>Valider</button>
+                 <label>
+                        <input type="submit" onClick={submit} value="Valider" />
+                   </label>
+       
                 </form>
-               
+               </fieldset>
             </React.Fragment>
     )
 }

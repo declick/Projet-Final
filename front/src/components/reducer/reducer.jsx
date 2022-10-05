@@ -18,6 +18,7 @@ export const reducer = (state, action) => {
              return {...state, user:true}
         case LOGOUT :
             return {...state, connexion:false,  admin:false, user:false}
+            
         default: return state 
     }
 }

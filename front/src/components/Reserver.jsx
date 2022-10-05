@@ -1,15 +1,12 @@
+import React, { useEffect } from 'react'
 
-        
-     import { useNavigate } from 'react-router-dom';
+const Reserver = ({ url }) => {
+  useEffect(() => {
+    window.location.href = 'http://www.google.com'
+  }, []);
 
-const Reserver = () => {
-    const navigate = useNavigate();
-    return (
-   
-        <button onClick={() => navigate('/Home')} />
-     
-    )
-}
-        
+  return <h5>Redirecting...</h5>
+};
 
 export default Reserver
+

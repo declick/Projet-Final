@@ -1,6 +1,97 @@
+import React from "react"
+import axios from "axios"
+import BASE_URL from '../config.js'
+import { useNavigate } from 'react-router-dom'
+
+
 const Contact = () => {
+    
+    const navigate = useNavigate()
+    
+    { /* Chaque appel à un crochet obtient un état isolé */ }
+    const [nom, setNom] = React.useState("")
+    const [prenom, setPrenom] = React.useState("")
+    const [email, setEmail] = React.useState("")
+    const [text, setText] = React.useState("")
+    const [captcha, setCaptcha] = React.useState("") 
+     
+     const submit = (e) => {
+         const data= { 
+                prenom,
+                nom,
+                email,
+                text,
+                captcha
+            }                               
+            
+          e.preventDefault()
+          
+             if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || text.trim() === "" || captcha === "") {
+                console.log("Merci de compléter correctement le formulaire.")
+                }else{
+                  if (prenom.length <= 30 && nom.length <= 30 && email.length <= 50 && text.length >= 1 && captcha == 20){
+                
+                      axios.post(`${BASE_URL}/Contact`, data)
+                          .then((res) => {
+                              if(res.data.response === true) {
+                              navigate("/")
+                              } else{
+                              navigate("/Contact") 
+                              console.log(res)
+                              }
+                          })
+                          .catch((err) => {
+                          console.log(err);
+                          })
+                  }
+                }
+     }
+    
     return(
-        <h1>Contact</h1>    
+        
+            <React.Fragment>
+            
+              <fieldset>
+                <form>
+                    <label><p>Prenom :</p>
+                      <div>  
+                        <input type="text" placeholder="Entrer le nom d'utilisateur"  maxLength="30" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> 
+                      </div>
+                    </label>
+                    
+                    <label><p>Nom : </p>
+                      <div>  
+                        <input type="text" placeholder="Entrer le nom d'utilisateur" maxLength="30"  value="" value={nom} onChange={(e) => setNom(e.target.value)} required />
+                      </div>
+                    </label>
+                    
+                    <label><p>Email : </p>
+                      <div>  
+                        <input type="email" placeholder="Entrer votre adress mail" maxLength="50" value={email} onChange={(e) => setEmail(e.target.value)} required /> 
+                      </div>
+                    </label>
+                    
+                    <label><p>votre message :</p>
+                      <div>
+                        <textarea type="text" placeholder="entrez votre texte ..." value={text} onChange={(e) => setText(e.target.value)} required /> 
+                      </div>
+                    </label>
+                    
+                    <label><p>Captcha : ( 12 + 8 = ? )</p>
+                      <div>
+                        <input type="number" placeholder="entrez le resultat ..." value={captcha} onChange={(e) => setCaptcha(e.target.value)} required /> 
+                      </div>
+                    </label>
+                    
+                    <label>
+                        <input type="submit" onClick={submit} value="Envoyer" />
+                   </label>
+                   
+                </form> 
+              </fieldset>
+               
+            </React.Fragment>
+        
     )
 }
 
