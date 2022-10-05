@@ -4,36 +4,45 @@ import { NavLink } from "react-router-dom"
 import React, { useState,useEffect } from "react"
 
 const Navbar = () => {
-    
+     
+    // const [state, setState] = useState({
+    //     admin:"",
+    //     user:""
+    // 
+
     // Crée une variable d'état appelée theme. 
     // La variable de thème suit le thème actuel de l'application, que le code définit par défaut sur "light"
     const [theme, setTheme] = useState(
         // l'API localStorage inclut la possibilité de conserver le thème après l'actualisation de la page.
         localStorage.getItem('theme') || 'light')
-    
-    // const [state, setState] = useState({
-    //     admin:"",
-    //     user:""
-    // })
-    
+        
+   const [checkbox, setCheckbox] = useState(
+       localStorage.getItem('checkbox') || 'light')
+   
           const toggleTheme = () => {
               
-            if (theme === 'light') {
+            if (theme === 'light' && checkbox === 'light') {
               setTheme('dark')
+              setCheckbox('dark')
             } else {
               setTheme('light')
+              setCheckbox('light')
             }
           }
+          
           // UseEffect pour mettre à jour dynamiquement le thème de l'application en fonction de la variable d'état du thème.
           useEffect(() => {
               // l'API localStorage inclut la possibilité de conserver le thème après l'actualisation de la page.
               localStorage.setItem('theme', theme)
-            // useEffect pour mettre à jour le nom de classe de l'élément document.body en fonction de la variable d'état du thème. 
+            // useEffect pour mettre à jour le nom de classe de l'élément document.body en fonction de la variable d'état du thème.
+              localStorage.setItem('checkbox', checkbox)
             // Cela permet de mettre à jour dynamiquement le CSS de l'application en fonction du thème  
             document.body.className = theme
-          }, [theme])
+            if (theme === 'dark' && !document.getElementById('idCheckbox').checked ){
+                document.getElementById("idCheckbox").checked = true
+            }
+          }, [theme],[checkbox])
           
-  
     return(
         
                 <React.Fragment> 
@@ -43,14 +52,12 @@ const Navbar = () => {
                         
                         <label className="switch">
                             { /* bouton qui bascule entre les modes clair et sombre */ }
-                            <div className={`App ${theme}`}> </div>
+                            <div className={`App ${theme}${checkbox}`}> </div>
                                 { /*  inclut une fonction toggleTheme pour changer la variable d'état du thème entre clair et sombre */ }
-                                <input type="checkbox" onClick={toggleTheme} />  
+                                <input type="checkbox" id="idCheckbox" onClick={toggleTheme} />  
                                 <span className="slider round"></span>
                         </label>
 
-                        
-                        
                         { /* Menu Burger */ }
                          <input type="checkbox" id="tab-nav" className="tab-nav" />
                             <label htmlFor="tab-nav" className="label">
@@ -75,7 +82,6 @@ const Navbar = () => {
                            <li> <NavLink to="/Inscription">Inscription</NavLink></li>
                            <li> <NavLink to="/Connexion">Connexion</NavLink></li>
                            <li> <NavLink to="/Profil">Profil</NavLink></li>
-                           <li> <NavLink to="/Admin">Admin</NavLink></li>
                            <li> <NavLink to="/Logout">Logout</NavLink></li>
 
                          { /*  </React.Fragment>
@@ -86,7 +92,6 @@ const Navbar = () => {
                             <li> <NavLink to="/Admin">Admin</NavLink></li>
                         </React.Fragment>
                         
-                        
                   { /*  )} */ }
 
                         </ul>
@@ -95,6 +100,5 @@ const Navbar = () => {
                 </React.Fragment>
     )
 }
-
 
 export default Navbar

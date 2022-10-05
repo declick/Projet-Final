@@ -243,6 +243,7 @@ COLOR THEME
 .dark form{
    background-color: #333;
 }
+
 .light {
   background-color: #fff;
   color: #333;
@@ -299,3 +300,16 @@ textarea{
     width: 30em;
     height: 15em;
 }
+
+/* *****************************************************************
+TOOLS
+***************************************************************** */
+input .invalid[type=text]{
+  border:1px solid red;
+}
+input .invalid[type=text]{
+   border:1px solid green;
+}
+/* *****************************************************************
+@MEDIA
+***************************************************************** */

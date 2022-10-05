@@ -47,30 +47,28 @@ const Inscription = () => {
     return (
         
             <React.Fragment>
-            
-              <fieldset>
                 <form>
-                    <label><p>Prenom :</p>
+                    <label>
                       <div>  
-                        <input type="text" placeholder="Entrer le nom d'utilisateur" name="prenom" maxLength="255" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> 
+                        <input type="text" placeholder="PRENOM :" name="prenom" maxLength="255" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> 
                       </div>
                     </label>
                     
-                    <label><p>Nom : </p>
+                    <label>
                       <div>  
-                        <input type="text" placeholder="Entrer le nom d'utilisateur" name="nom" maxLength="255"  value="" value={nom} onChange={(e) => setNom(e.target.value)} required />
+                        <input type="text" placeholder="NOM :" name="nom" maxLength="255"  value="" value={nom} onChange={(e) => setNom(e.target.value)} required />
                       </div>
                     </label>
                     
-                    <label><p>Email : </p>
+                    <label>
                       <div>  
-                        <input type="email" placeholder="Entrer votre adress mail" name="email" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required /> 
+                        <input type="email" placeholder="@EMAIL :" name="email" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required /> 
                       </div>
                     </label>
                     
-                    <label><p>Mot de passe (8 caracteres minimum) :</p>
+                    <label>
                       <div>
-                        <input type="password" placeholder="Entrer le mot de passe" name="mdp" minLength="8" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
+                        <input type="password" placeholder="MOT DE PASSE :" name="mdp" minLength="8" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
                       </div>
                     </label>
                     
@@ -79,8 +77,6 @@ const Inscription = () => {
                    </label>
                    
                 </form> 
-              </fieldset>
-               
             </React.Fragment>
     )
 }

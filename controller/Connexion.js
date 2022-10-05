@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt'
 
 const SubmitConnectionController = (req, res) => {
     
-    const validRegex = /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/
+    const validRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
     
         // Requete à la base de données
     let connection = "SELECT mdp, role_id FROM user WHERE user.email = ?"

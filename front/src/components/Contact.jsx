@@ -46,40 +46,37 @@ const Contact = () => {
                   }
                 }
      }
-    
     return(
-        
             <React.Fragment>
-            
-              <fieldset>
+
                 <form>
-                    <label><p>Prenom :</p>
+                    <label>
                       <div>  
-                        <input type="text" placeholder="Entrer le nom d'utilisateur"  maxLength="30" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> 
+                        <input type="text" placeholder="PRENOM :"  maxLength="30" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> 
                       </div>
                     </label>
                     
-                    <label><p>Nom : </p>
+                    <label>
                       <div>  
-                        <input type="text" placeholder="Entrer le nom d'utilisateur" maxLength="30"  value="" value={nom} onChange={(e) => setNom(e.target.value)} required />
+                        <input type="text" placeholder="NOM :" maxLength="30"  value="" value={nom} onChange={(e) => setNom(e.target.value)} required />
                       </div>
                     </label>
                     
-                    <label><p>Email : </p>
+                    <label>
                       <div>  
-                        <input type="email" placeholder="Entrer votre adress mail" maxLength="50" value={email} onChange={(e) => setEmail(e.target.value)} required /> 
+                        <input type="email" placeholder="@EMAIL :" maxLength="50" value={email} onChange={(e) => setEmail(e.target.value)} required /> 
                       </div>
                     </label>
                     
-                    <label><p>votre message :</p>
+                    <label>
                       <div>
-                        <textarea type="text" placeholder="entrez votre texte ..." value={text} onChange={(e) => setText(e.target.value)} required /> 
+                        <textarea type="text" placeholder="ENTREZ VOTRE TEXTE ..." value={text} onChange={(e) => setText(e.target.value)} required /> 
                       </div>
                     </label>
                     
-                    <label><p>Captcha : ( 12 + 8 = ? )</p>
+                    <label><p>CAPTCHA : ( 12 + 8 = ? )</p>
                       <div>
-                        <input type="number" placeholder="entrez le resultat ..." value={captcha} onChange={(e) => setCaptcha(e.target.value)} required /> 
+                        <input type="number" placeholder="ENTREZ LE RESULTAT :" value={captcha} onChange={(e) => setCaptcha(e.target.value)} required /> 
                       </div>
                     </label>
                     
@@ -88,10 +85,8 @@ const Contact = () => {
                    </label>
                    
                 </form> 
-              </fieldset>
-               
+
             </React.Fragment>
-        
     )
 }
 

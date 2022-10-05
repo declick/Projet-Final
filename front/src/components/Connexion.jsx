@@ -43,22 +43,20 @@ const Connexion = () => {
     return(
         
             <React.Fragment>
-                <fieldset>
                <form>
-                <label><p>email de connection : </p>
-                  <div><input pattern=".+@gmail.com" type="email" placeholder="Entrer votre adress mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div> 
+                <label>
+                  <div><input pattern=".+@gmail.com" type="email" placeholder="@EMAIL :" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div> 
                 </label>
             
-                <label><p>Mot de passe :</p>
-                  <div><input type="password" placeholder="Entrer le mot de passe" name="mdp" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> </div>
+                <label>
+                  <div><input type="password" placeholder="MOT DE PASSE :" name="mdp" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> </div>
                 </label>
                 
-                 <label>
-                        <input type="submit" onClick={submit} value="Valider" />
-                   </label>
+                <label>
+                       <input type="submit" onClick={submit} value="Valider" />
+                </label>
        
                 </form>
-               </fieldset>
             </React.Fragment>
     )
 }
