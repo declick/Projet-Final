@@ -45,7 +45,7 @@ const Connexion = () => {
             <React.Fragment>
                <form>
                 <label>
-                  <div><input pattern=".+@gmail.com" type="email" placeholder="@EMAIL :" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div> 
+                  <div> <input type="email" placeholder="@EMAIL :" name="email" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div>
                 </label>
             
                 <label>

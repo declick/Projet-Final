@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Contact = () => {
-    
+
     const navigate = useNavigate()
     
     { /* Chaque appel à un crochet obtient un état isolé */ }
@@ -45,7 +45,9 @@ const Contact = () => {
                           })
                   }
                 }
+                
      }
+
     return(
             <React.Fragment>
 
@@ -77,16 +79,17 @@ const Contact = () => {
                     <label><p>CAPTCHA : ( 12 + 8 = ? )</p>
                       <div>
                         <input type="number" placeholder="ENTREZ LE RESULTAT :" value={captcha} onChange={(e) => setCaptcha(e.target.value)} required /> 
+                       
                       </div>
                     </label>
-                    
+                   
                     <label>
                         <input type="submit" onClick={submit} value="Envoyer" />
                    </label>
                    
                 </form> 
+             </React.Fragment>
 
-            </React.Fragment>
     )
 }
 

@@ -32,24 +32,6 @@ app.use(session({
 	}
 }))
 
-// //Protection des pages d'admin
-// app.use((req, res, next)=>{
-
-//     let pathname = parseurl(req).pathname.split('/')
-//     console.log(req.session)
-
-//     // URL protéger
-//     let protectedPath = ['admin','article','addarticle','editarticle']
- 
-//     //si la session Admin n'existe pas et que l'url fait partie des urls protégées 
-//     if(!req.session.admin && protectedPath.includes(pathname[1])){
-//         res.redirect('/')
-//     }
-//     else{
-//         next()
-//     }
-// })
-
 
 // Creation de la variable locale pour l'utilisation des sessions
 app.use((req, res, next) => {

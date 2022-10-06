@@ -168,6 +168,24 @@ NAVIGATION BURGER
 
 }
 /* *****************************************************************
+NAVIGATION ADMIN
+***************************************************************** */
+.sidebar{
+  
+  background-color:grey;
+  width:20vh;
+  height: 50vh;
+}
+.sidebar a{
+   text-decoration: none;
+    color: #333;
+    font-size:1em;
+    font-weight:300;
+    text-transform: uppercase;
+    letter-spacing:0.1em;
+}
+
+/* *****************************************************************
 SWITCH COLOR TEMPLATE
 ***************************************************************** */
 /* la boîte autour du curseur */
@@ -260,7 +278,7 @@ form {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     
        display: grid;
-    /* align-items: flex-end; */
+    /* align-items: flex-end */
     justify-content: center;
     justify-items: center;
 }
@@ -271,7 +289,7 @@ form {
     padding-bottom: 10px;
 }
 
-/* Full-width inputs */
+/* Entrées pleine largeur*/
 input[type=text], input[type=email], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -281,7 +299,7 @@ input[type=text], input[type=email], input[type=password] {
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
+/* Définir un style pour tous les boutons*/
 input[type=submit] {
     background-color: #53af57;
     color: white;
@@ -304,12 +322,29 @@ textarea{
 /* *****************************************************************
 TOOLS
 ***************************************************************** */
-input .invalid[type=text]{
-  border:1px solid red;
+
+input:required {
+  border-color: green;
+  border-width: 0.15em;
 }
-input .invalid[type=text]{
-   border:1px solid green;
+textarea:required {
+  border-color: green;
+  border-width: 0.15em;
 }
+
+input:required:invalid {
+  border-color: #c00000;
+}
+textarea:required:invalid {
+  border-color: #c00000;
+}
+
+/*input:active[type=text],[type=email],[type=text],[type=number],[type=password]{*/
+/*  border:1px solid green;*/
+/*}*/
+/*input:invalid[type=text],[type=email],[type=text],[type=number],[type=password]{*/
+/*   border:1px solid red;*/
+/*}*/
 /* *****************************************************************
 @MEDIA
 ***************************************************************** */

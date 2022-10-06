@@ -13,10 +13,12 @@ const Navbar = () => {
     // Crée une variable d'état appelée theme. 
     // La variable de thème suit le thème actuel de l'application, que le code définit par défaut sur "light"
     const [theme, setTheme] = useState(
+        
         // l'API localStorage inclut la possibilité de conserver le thème après l'actualisation de la page.
         localStorage.getItem('theme') || 'light')
         
    const [checkbox, setCheckbox] = useState(
+       
        localStorage.getItem('checkbox') || 'light')
    
           const toggleTheme = () => {
@@ -40,7 +42,7 @@ const Navbar = () => {
             document.body.className = theme
             if (theme === 'dark' && !document.getElementById('idCheckbox').checked ){
                 document.getElementById("idCheckbox").checked = true
-            }
+        }
           }, [theme],[checkbox])
           
     return(
@@ -52,10 +54,10 @@ const Navbar = () => {
                         
                         <label className="switch">
                             { /* bouton qui bascule entre les modes clair et sombre */ }
-                            <div className={`App ${theme}${checkbox}`}> </div>
+                            <div className={`App ${theme}`}> </div>
                                 { /*  inclut une fonction toggleTheme pour changer la variable d'état du thème entre clair et sombre */ }
                                 <input type="checkbox" id="idCheckbox" onClick={toggleTheme} />  
-                                <span className="slider round"></span>
+                                <div className="slider round"></div>
                         </label>
 
                         { /* Menu Burger */ }
