@@ -4,9 +4,6 @@ import { NavLink } from "react-router-dom"
 
 const Admin = () => {
     
-    
-    
-    
     return(
         
     <React.Fragment>
@@ -17,7 +14,7 @@ const Admin = () => {
             <nav className="navigation">
                 <ul>
                     <li><NavLink href="/Editmessage">Messages</NavLink></li>
-                    <li><NavLink href="/Edituser">User</NavLink></li>
+                    <li><NavLink href="/User">User</NavLink></li>
                     <li><NavLink href="/Editimage">Images</NavLink></li>
                     <li><NavLink href="/Editprestation">Prestation</NavLink></li>
                     <li><NavLink href="/Editproduit">Produits</NavLink></li>

@@ -24,8 +24,7 @@ export const routes = [
     { path:'/Profil', element:<Profil /> },
     { path:'/Admin', element:<Admin /> },
     { path:'/Logout', element:<Logout /> }
-    
-    
+ 
 ]
 
 // route reserver au personne connecter

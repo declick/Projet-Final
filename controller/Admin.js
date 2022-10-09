@@ -1,9 +1,19 @@
 //import de module
 import pool from '../config/database.js'
 
+export const getAllUser = (req, res) => {
+    
+    let sql = 'SELECT * FROM user'
+   
+    pool.query(sql,  (error, result) =>{
+        if (error) throw error
+    res.json({response: true})
+    })
+}
+
 const AdminController = (req,res) => {
     
-    let sqlContact = "SELECT * FROM contact WHERE id=(?)"
+    let sqlContact = "SELECT * FROM user"
         
         pool.query (sqlContact, (error, result) => {
             if (error) throw error
@@ -11,6 +21,8 @@ const AdminController = (req,res) => {
         })  
     
 }
+
+
 
 const UpdateAdminController = (req, res) => {
     

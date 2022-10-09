@@ -5,14 +5,14 @@ import {ReducerContext} from "./reducer/reducer"
 import {CONNEXION, ADMIN, USER} from './config/constance.js'
 import { useNavigate } from 'react-router-dom'
 
-
 const Connexion = () => {
    
-     const navigate = useNavigate()
+    const navigate = useNavigate()
    
     const [email, setEmail] = React.useState("")
     const [mdp, setMdp] = React.useState("")
     const [state, dispatch] = useContext(ReducerContext)
+    
  
         { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
         const submit = (e) => {
@@ -29,6 +29,12 @@ const Connexion = () => {
             res.data.response && dispatch({type:CONNEXION})
             res.data.admin && dispatch({type:ADMIN})
             res.data.user && dispatch({type:USER})
+             
+            sessionStorage.setItem("id", res.data.user[0].id)
+            sessionStorage.setItem("nom", res.data.user[0].nom)
+            sessionStorage.setItem("prenom", res.data.user[0].prenom)
+            sessionStorage.setItem("mail", res.data.user[0].email)
+
             if(res.data.response === true) {
                         navigate("/")
             }

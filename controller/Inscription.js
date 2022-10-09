@@ -7,6 +7,7 @@ const SubmitInscriptionController = (req, res) => {
     const saltRounds = 10
     
     let verifSql = "SELECT email FROM user WHERE email = ?"
+    
     if(req.body.email.match(validRegex)){
     if (req.body.prenom.length <= 255 && req.body.nom.length <= 255 && req.body.email.length <= 255){
             
