@@ -13,10 +13,10 @@ const App = () => {
 return (
   
   <BrowserRouter>
-
+      
       <Navbar />
       <Routeur />
-   
+  
   </BrowserRouter>
   
   )

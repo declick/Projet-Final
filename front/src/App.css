@@ -31,55 +31,61 @@ body {
   overflow-x: hidden;
 	font-size: 1.6rem; /* on remets la taille du texte par défaut pour le body à 16px en utilisant les rem comme unité) */
 }
+h1{
+  display: flex;
+  justify-content: center;
+}
 /* *****************************************************************
 CONTAINER
 ***************************************************************** */
 
 /* Le container permet de limiter la largeur d'un contenu */
 .container {
-	max-width: 100vh; /* On donne une largeur au container */
-	margin-left: auto; /* On centre son contenu */
-	margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+}
+.container_home {
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 /* *****************************************************************
 NAVIGATION
 ***************************************************************** */
 
 .nav_checkbox{
-    display: grid;
-    align-items: center;
-    justify-items: end;
-    justify-content: space-between;
-    padding: 25px 40px;
-    background: #fff;
-    box-shadow: 0 15px 15px rgba(0,0,0,0.05);
+  display: grid;
+  align-items: center;
+  justify-items: end;
+  justify-content: space-between;
+  padding: 25px 40px;
+  background: #fff;
 }
 
 .logo{
-    text-decoration: none;
-    color: #333;
-    font-size:1.5em;
-    font-weight:700;
-    text-transform: uppercase;
-    letter-spacing:0.1em;
+  width: 8vh;
+  height: 8vh;
 }
 
 .tab-nav{
-    outline: none;
-    display: none;
+  outline: none;
+  display: none;
 }
 
 .label{
-    display: none;
-    color: #fff;
+  display: none;
+  color: #fff;
 }
 
 .burger{
-    width: 35px;
-    height: 5px;
-    background-color: #333;
-    margin-top: 5px;
-    transition:all 0.5s ease;
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin-top: 5px;
+  transition:all 0.5s ease;
 }
 
 input[type=checkbox]:checked ~ .label #burg0{
@@ -95,75 +101,75 @@ input[type=checkbox]:checked ~ .label #burg2{
 }
 
 .content_nav{
-    grid-column: 3;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  grid-column: 3;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .content_nav li{
-    display: inline-block;
-    padding-right: 10px;
+  display: inline-block;
+  padding-right: 10px;
 }
 
 .content_nav li a{
-    font-family: 'Poppins' sans-serif;
-    text-decoration: none;
-    color: #333;
-    position: relative;
-    font-size:1em;
-    text-transform:uppercase;
-    letter-spacing:0.2em;
+  font-family: 'Poppins' sans-serif;
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  font-size:1em;
+  text-transform:uppercase;
+  letter-spacing:0.2em;
 }
 
 .content_nav li a::after{
-    content: '';
-    display: block;
-    height: 2px;
-    background-color: #333;
-    position: absolute;
-    left: 0;
-    right: 0;
-    transform-origin: left;
-    transform: scale(0, 1);
-    transition: transform ease-in-out 0.5s;
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #333;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform-origin: left;
+  transform: scale(0, 1);
+  transition: transform ease-in-out 0.5s;
 }
 
 .content_nav li a:hover::after{
-    transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 
 /* *****************************************************************
 NAVIGATION BURGER
 ***************************************************************** */
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1200px){
 
 .label{
-    display: grid;
-    justify-content: end;
-    cursor: pointer;
-    grid-column: 3;
-    padding-right: 10px;
+  display: grid;
+  justify-content: end;
+  cursor: pointer;
+  grid-column: 3;
+  padding-right: 10px;
     }
 
 .content_nav{
-    display: grid;
-    grid-column: 1/4;
-    text-align: center;
-    max-height: 0;
-    justify-items: end;
-    overflow: hidden;
-    transition: all ease-in-out 0.6s;
+  display: grid;
+  grid-column: 1/4;
+  text-align: center;
+  max-height: 0;
+  justify-items: end;
+  overflow: hidden;
+  transition: all ease-in-out 0.6s;
 }
 
 
 .nav_checkbox input:checked ~ .content_nav{
-     max-height: 1280px;
+  max-height: 1280px;
 }
 
 .content_nav li{
-    padding: 15px 0px;
+  padding: 15px 0px;
 }
 
 }
@@ -173,16 +179,16 @@ NAVIGATION ADMIN
 .sidebar{
   
   background-color:grey;
-  width:20vh;
+  width:22vh;
   height: 50vh;
 }
 .sidebar a{
-   text-decoration: none;
-    color: #333;
-    font-size:1em;
-    font-weight:300;
-    text-transform: uppercase;
-    letter-spacing:0.1em;
+  text-decoration: none;
+  color: #333;
+  font-size:1em;
+  font-weight:300;
+  text-transform: uppercase;
+  letter-spacing:0.1em;
 }
 
 /* *****************************************************************
@@ -251,7 +257,7 @@ input:checked + .slider:before {
 COLOR THEME
 ***************************************************************** */
 
-.dark {
+.dark  {
   background-color: #333;
   color: #fff;
 }
@@ -261,62 +267,156 @@ COLOR THEME
 .dark form{
    background-color: #333;
 }
-
+.dark .nav_checkbox{
+  background-color: #333;
+}
+.dark .nav_checkbox a{
+color:white;
+}
+.dark input:checked + .slider{
+  background-color: #CCC;
+}
+.dark .slider:before{
+  color:#333;
+}
+.dark .burger{
+  background-color: #fff;
+}
+.dark td {
+    border: 1px solid white;
+      border-collapse: collapse;
+}
+.dark .lien_admin{
+  text-decoration:none;
+   color: #fff; 
+}
 .light {
   background-color: #fff;
   color: #333;
 }
+/* *****************************************************************
+CARD HOME / PRESTATION
+***************************************************************** */
+.container h2{
+  text-align: center;
+}
+.card {
+  display: inline-block;
+     width: 371.5px;
+  margin: 0px auto; /*2*/
+  box-shadow: 0px 5px 20px #999; /*4*/
+  margin:10px
+}
+
+.card:hover .card_image .img { /*6*/
+  width: 160%;
+  filter: grayscale(0);
+}
+.card_image > img {
+height: 38vh;
+width: 44vh;
+  
+}
+.card_image {
+  
+  height: 250px;/*1*/
+  position: relative;/*2*/
+  overflow: hidden;/*3*/
+}
+.card_image .img {
+  width: 150%;/*4*/
+    /*5 - Méthode de centrage en fonction de la taille de l'image */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: grayscale(1);/*6*/
+    /*7 - Transition */
+  transition-property: filter width; 
+  transition-duration: .3s;
+  transition-timing-function: ease;
+}
+.card_body {
+    text-align:center;  /*1*/
+  padding: 15px 20px; /*2*/
+  box-sizing: border-box; /*3*/
+}
+.card_button{
+  
+}
+
 
 /* *****************************************************************
 FORMULAIRE
 ***************************************************************** */
 form {
-    width:100%;
-    padding: 30px;
-    border: 1px solid #f1f1f1;
-    background: #fff;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    
-       display: grid;
-    /* align-items: flex-end */
-    justify-content: center;
-    justify-items: center;
+  width: 45vh;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
+  display: grid;
+  /* align-items: flex-end */
+  justify-content: center;
+  justify-items: center;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.text_email{
+  display:block;
+  color: #999;
+  font-weight:500;
+  padding:5px 0;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  font-size:0.75em;
 }
 
 #container h1{
-    width: 38%;
-    margin: 0 auto;
-    padding-bottom: 10px;
+  width: 38%;
+  margin: 0 auto;
+  padding-bottom: 10px;
 }
 
 /* Entrées pleine largeur*/
 input[type=text], input[type=email], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 /* Définir un style pour tous les boutons*/
 input[type=submit] {
-    background-color: #53af57;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+  background-color: #53af57;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 input[type=submit]:hover {
-    background-color: white;
-    color: #53af57;
-    border: 1px solid #53af57;
+  background-color: white;
+  color: #53af57;
+  border: 1px solid #53af57;
 }
 textarea{
-    width: 30em;
-    height: 15em;
+  width: 24em;
+  height: 15em;
+}
+#del {
+  background-color: red;
+}
+#del:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
 }
 
 /* *****************************************************************
@@ -345,6 +445,183 @@ textarea:required:invalid {
 /*input:invalid[type=text],[type=email],[type=text],[type=number],[type=password]{*/
 /*   border:1px solid red;*/
 /*}*/
-/* *****************************************************************
-@MEDIA
+    /* *****************************************************************
+A PROPOS
 ***************************************************************** */
+.blog_card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.6%;
+  line-height: 1.4;
+  font-family: sans-serif;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.blog_card:hover .photo {
+  transform: scale(1.3) rotate(3deg);
+}
+.blog_card .meta {
+  position: relative;
+  z-index: 0;
+  height: 200px;
+}
+.blog_card .photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s;
+}
+.photo{
+  display:flex;
+}
+.blog_card img{
+  width:30vh;
+  height: 40.5vh;
+}
+.blog_card .description {
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-card .description{
+  text-align: right;
+  color: #5ad67d;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+.blog_card p {
+  position: relative;
+  margin: 1rem 0 0;
+}
+
+.blog_card:hover {
+  left: 0%;
+}
+@media (min-width: 640px) {
+  .blog_card {
+    flex-direction: row;
+    max-width: 700px;
+  }
+  .blog_card .meta {
+    flex-basis: 40%;
+    height: auto;
+  }
+  .blog_card .description {
+    flex-basis: 60%;
+  }
+  .blog_card.alt {
+    flex-direction: row-reverse;
+  }
+}
+.card_grid{
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 200px;
+  grid-gap: 0.5em;
+}
+.card_grid_img img{
+  max-width: 200px;
+  height: 100%;
+  display: block;
+  width: auto;
+  object-fit: cover;
+}
+.card_grid_body{
+  display: flex;
+  flex-direction: column;
+}
+.apropos_texte{
+  display:flex;
+}
+.apropos_image{
+  display:flex;
+  
+}
+.apropos_ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+}
+.apropos_ul > li{
+  margin-bottom: 13px;
+    display: flex;
+    padding-bottom: 13px;
+    line-height: 1.29;
+    border-bottom: 1px solid rgb(229, 229, 229);
+    position: relative;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.apropos {
+  display: flex;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  gap: 30px;
+}
+.apropos_div{
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+}
+.apropos_div2{
+  display: flex;
+  width: 92px;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.apropos_font{
+font-weight: 700;
+}
+.titre_horaire{
+  margin-bottom: 11px;
+  font-size: 14px;
+  line-height: 1.29;
+  font-weight: bold;
+}
+.openingHours{
+
+  /* La fonction calc() effectue un calcul à utiliser comme valeur de propriété. 
+  calc() est une fonction CSS3 offrant la possibilité de réaliser des opérations mathématiques en CSS (addition, soustraction, division et multiplication). */
+  width: calc((8.33333vw - 30px) * 5 + 120px);
+  max-width: 457.5px;
+}
+
+/* *****************************************************************
+Google map
+***************************************************************** */
+iframe{
+  width: 50vh;
+  height: 35vh;
+  border:0;
+}
+/* *****************************************************************
+Admin
+***************************************************************** */
+
+/*---------------tableau admin---------------*/
+.lien_admin {
+  text-decoration: none;
+  color: #333;
+}
+.array_admin{
+  min-width: 100vh;
+  min-height: 100vh;
+  margin: 1.5rem;
+}
+td {
+    border: 1px solid black;
+      border-collapse: collapse;
+}

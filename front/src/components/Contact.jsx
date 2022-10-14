@@ -1,8 +1,7 @@
 import React from "react"
 import axios from "axios"
-import BASE_URL from '../config.js'
+import { BASE_URL,config } from '../config.js'
 import { useNavigate } from 'react-router-dom'
-
 
 const Contact = () => {
 
@@ -14,23 +13,23 @@ const Contact = () => {
     const [email, setEmail] = React.useState("")
     const [text, setText] = React.useState("")
     const [captcha, setCaptcha] = React.useState("") 
-     
+    
+    const [errorMessage, setErrorMessage] = React.useState("")
+    
      const submit = (e) => {
-         const data= { 
+         const data = { 
                 prenom,
                 nom,
                 email,
                 text,
                 captcha
             }                               
-            
           e.preventDefault()
-          
-             if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || text.trim() === "" || captcha === "") {
-                console.log("Merci de compléter correctement le formulaire.")
+             if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || text.trim() === "" || captcha ==="") {
+                setErrorMessage("Merci de compléter correctement le formulaire.")
                 }else{
                   if (prenom.length <= 30 && nom.length <= 30 && email.length <= 50 && text.length >= 1 && captcha == 20){
-                
+                    setErrorMessage("Merci de compléter correctement le formulaire.")
                       axios.post(`${BASE_URL}/Contact`, data)
                           .then((res) => {
                               if(res.data.response === true) {
@@ -41,16 +40,18 @@ const Contact = () => {
                               }
                           })
                           .catch((err) => {
-                          console.log(err);
+                          console.log(err)
                           })
                   }
                 }
-                
      }
 
     return(
             <React.Fragment>
-
+            
+             <h1>Formulaire de contact</h1>
+             
+              <div className="center">
                 <form>
                     <label>
                       <div>  
@@ -86,8 +87,9 @@ const Contact = () => {
                     <label>
                         <input type="submit" onClick={submit} value="Envoyer" />
                    </label>
-                   
+                   <h3>{errorMessage}</h3>
                 </form> 
+                </div>
              </React.Fragment>
 
     )

@@ -7,6 +7,7 @@ const Middleware = ({children}) => {
     
     const [state, dispatch] = useContext(ReducerContext)
     const navigate = useNavigate()
+    
     const location =  useLocation()
     const currentPath= location.pathname
     

@@ -2,13 +2,14 @@
 
 import { NavLink } from "react-router-dom"
 import React, { useState,useEffect } from "react"
+import axios from 'axios'
+import {CONNEXION, ADMIN, USER} from './config/constance.js'
+import { BASE_URL,config } from '../config.js'
+import {ReducerContext} from "./reducer/reducer"
 
 const Navbar = () => {
      
-    // const [state, setState] = useState({
-    //     admin:"",
-    //     user:""
-    // 
+     const [state, dispatch] = React.useContext(ReducerContext)
 
     // Crée une variable d'état appelée theme. 
     // La variable de thème suit le thème actuel de l'application, que le code définit par défaut sur "light"
@@ -17,7 +18,7 @@ const Navbar = () => {
         // l'API localStorage inclut la possibilité de conserver le thème après l'actualisation de la page.
         localStorage.getItem('theme') || 'light')
         
-   const [checkbox, setCheckbox] = useState(
+        const [checkbox, setCheckbox] = useState(
        
        localStorage.getItem('checkbox') || 'light')
    
@@ -48,9 +49,12 @@ const Navbar = () => {
     return(
         
                 <React.Fragment> 
+                
                     <nav className="nav_checkbox">
-                  
-                        <NavLink className="logo">Logo</NavLink>
+                        <div>
+                        <NavLink to="/"><img className="logo" src="../image/noir.png" alt="Logo MyLittleLashes"></img></NavLink>
+                        </div>
+
                         
                         <label className="switch">
                             { /* bouton qui bascule entre les modes clair et sombre */ }
@@ -70,32 +74,19 @@ const Navbar = () => {
                             
                         <ul className="content_nav">
                         
-                        { /* {(state.admin !== false && state.user !== false ) ? (
-                        
-                        <React.Fragment>*/ }
-                        
                             { /* NavLink doit matcher avec le path définit dans le composant Route */ }
                            <li> <NavLink to="/">Accueil</NavLink></li>
                            <li> <NavLink to="/Prestation">Préstation</NavLink></li>
-                           <li> <NavLink to="/Produit">Produit</NavLink></li>
                            <li> <NavLink to="/Apropos">A propos</NavLink></li>
-                           <li> <NavLink to="/Contact">Nous contactez</NavLink></li>
+                           <li> <NavLink to="/Contact">Contact</NavLink></li>
                            <li> <NavLink to="/Reserver">Rendez-vous</NavLink></li>
                            <li> <NavLink to="/Inscription">Inscription</NavLink></li>
                            <li> <NavLink to="/Connexion">Connexion</NavLink></li>
                            <li> <NavLink to="/Profil">Profil</NavLink></li>
                            <li> <NavLink to="/Logout">Logout</NavLink></li>
-
-                         { /*  </React.Fragment>
-                         
-                    ): ( */ }
-                    
-                        <React.Fragment>
-                            <li> <NavLink to="/Admin">Admin</NavLink></li>
-                        </React.Fragment>
-                        
-                  { /*  )} */ }
-
+                           
+                           <li> <NavLink to="/Admin">Admin</NavLink></li>
+                           
                         </ul>
                     </nav>
 
@@ -104,3 +95,5 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+ 
