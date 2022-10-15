@@ -1,80 +1,61 @@
 import pool from '../config/database.js'
 
+// const deletUser = (req, res) => {
+//         let suppSQL = "DELETE FROM user WHERE user.id=?"
+        
+//         pool.query(suppSQL, [req.body.id],(err, result) =>{
+//             if(err) throw err
+//                 req.session.destroy((err) => {
+//                     if (result) {
+//                             console.log("hello")
+//                     res.json({response: true, message: "suppression réussie", result})
+//                         if(err){
+//                             res.json({response: false, message: "On recommence ?"})
+//                         }
+//                     }
+//                 }    
+//         )}
+//   )}
+   
 const UserController = (req, res) => {
+
     { /* constante sql pour requete à la bdd*/ }
     const myUser = "SELECT * FROM user WHERE id=?"
-    { /*si les 3 infos à modifier ne sont pas vides*/ }
-    if (req.body.email !== "" && req.body.nom !== "" && req.body.email !== "") {
-        { /* constante sql pour requete mise à juour à la bdd*/ }
+    { /* récupération des données de la requête */ }
+    { /* en 1er je m'assure que les 3 données ne sont pas null pour la suite de la progression */ }
+    { /* en effet je met soit en variable vide ou si selon ce que je reçois en données */ }
+    { /* j'utilise la fonction trim() afin de retirer les espace blancs en début et fin de chaine ce qui m'assure de ne pas avoir ' ' */ }
+    let leNom = ''
+    if (req.body.nom != null) {
+        leNom = req.body.nom.trim()
+    }
+    let lePrenom = ''
+    if (req.body.prenom != null) {
+        lePrenom = req.body.prenom.trim()
+    }
+    let lEmail = ''
+    if (req.body.email != null) {
+        lEmail = req.body.email.trim()
+    }
+
+    { /* puis je poursuis si le 3 données ne sont pas vides */ }
+    if (lEmail != "" && leNom != "" && lePrenom != "") {
+        { /* constante sql pour requete mise à juour à la bdd */ }
         const UpdateUser = "UPDATE user SET nom=?, prenom =?, email=? WHERE id= ?"
-        pool.query(UpdateUser, [req.body.nom, req.body.prenom, req.body.email, req.body.id], (err, user) => {
+        pool.query(UpdateUser, [leNom, lePrenom, lEmail, req.body.id], (err, result) => {
             if (err) throw err
-            console.log(1)
             { /* si update ok */ }
-            if (!err) {
-                pool.query(myUser, [req.body.id], (err, result) => {
+            if (result) {
+                pool.query(myUser, [req.body.id], (err, user) => {
                     if (err) throw err
-                    console.log(2)
-                    if (result) {
-                        res.json({ response: true, message: "update ok" })
+                    console.log('je passe là')
+                    console.log(err)
+                    if (user) {
+                        res.json({ response: true, message: "update ok" , user})
                     }
                 })
             }
         })
-        { /*sinon*/ }
-    } else {
-        { /*si nom pas vide et que les autres le sont*/ }
-        if (req.body.nom !== "" && (req.body.prenom === "" && req.body.email === "")) {
-            { /* constante sql pour requete mise à juour à la bdd*/ }
-            const UpdateNom = "UPDATE user SET nom =? WHERE id= ?"
-            pool.query(UpdateNom, [req.body.nom, req.body.id], (err, user) => {
-                if (err) throw err
-                { /* si update ok */ }
-                if (!err) {
-                    pool.query(myUser, [req.body.id], (err, result) => {
-                        if (err) throw err
-                        console.log(2)
-                        if (result) {
-                            res.json({ response: true, message: "update ok" })
-                        }
-                    })
-                }
-            })
-            { /*si prenom pas vide et que les autres le sont*/ }
-        } else if (req.body.prenom !== "" && (req.body.nom === "" && req.body.email === "")) {
-            { /* constante sql pour requete mise à juour à la bdd*/ }
-            const UpdatePrenom = "UPDATE user SET prenom =? WHERE id= ?"
-            pool.query(UpdatePrenom, [req.body.prenom, req.body.id], (err, user) => {
-                if (err) throw err
-                { /* si update ok */ }
-                if (!err) {
-                    pool.query(myUser, [req.body.id], (err, result) => {
-                        if (err) throw err
-                        console.log(2)
-                        if (result) {
-                            res.json({ response: true, message: "update ok" })
-                        }
-                    })
-                }
-            })
-            { /*si mail pas vide et que les autres le sont*/ }
-        } else if (req.body.email !== "" && (req.body.nom === "" && req.body.prenom === "")) {
-            { /* constante sql pour requete mise à juour à la bdd*/ }
-            const UpdateEmail = "UPDATE user SET email =? WHERE id= ?"
-            pool.query(UpdateEmail, [req.body.email, req.body.id], (err, user) => {
-                if (err) throw err
-                { /* si update ok */ }
-                if (!err) {
-                    pool.query(myUser, [req.body.id], (err, result) => {
-                        if (err) throw err
-                        console.log(2)
-                        if (result) {
-                            res.json({ response: true, message: "update ok" })
-                        }
-                    })
-                }
-            })
-        }
     }
 }
 export default UserController

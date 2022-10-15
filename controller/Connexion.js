@@ -4,7 +4,7 @@ import pool from '../config/database.js'
 import bcrypt from 'bcrypt'
 
 const SubmitConnectionController = (req, res) => {
-    
+
     const validRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
         // Requete à la base de données

@@ -1,39 +1,41 @@
 // Import des modules 
 
 import express from 'express'
-import Connexion from './controller/Connexion.js'
-import Inscription from './controller/Inscription.js'
-import Contact from './controller/Contact.js'
-import Profil from './controller/Profil.js'
 
-// import profilController from "./controllers/profilController";
-// // import Admin from './controller/Admin.js'
+import SubmitConnectionController from './controller/Connexion.js'
+import SubmitInscriptionController from './controller/Inscription.js'
+import SubmitContactController from './controller/Contact.js'
+import UserController from './controller/Profil.js'
+import AproposController from './controller/Apropos.js'
+import HomeController from './controller/Home.js'
+import PrestationController from './controller/Prestation.js'
+
+import AdminPrestationController from './controller/Admin.js'
+
+import AddPrestationController from './controller/AddPrestation.js'
 
 const router = express.Router()
 
-{ /* Gestionnaire de route express */ }
-router.post("/api/Inscription",Inscription)
+//** Gestionnaire de route express **/ 
 
-router.post("/api/Connexion",Connexion)
+//** route Accueil **/
+router.get("/api/Home", HomeController)
+//** route Prestation **/
+router.get("/api/Prestation",PrestationController)
+//** route profil **/
+router.post("/api/Profil",UserController)
+//** route Contact **/
+router.post("/api/Contact",SubmitContactController)
+//** route a propos **/
+router.get("/api/Apropos",AproposController)
+//** routes Connexion **/
+router.post("/api/Inscription",SubmitInscriptionController)
+router.post("/api/Connexion",SubmitConnectionController)
 
-router.post("/api/Contact",Contact)
+//** route Admin **/
+router.get("/api/Admin",AdminPrestationController)
+router.post("api/AddPrestation",AddPrestationController)
 
-router.post("/api/Profil",Profil)
 
-// router.get("/api/User",Admin)
-// router.post("/api/User",createUser)
-// router.post("/api/User/:id",updateUser)
-// router.post("/api/User/:id",deleteUser)
-
-//** routes profil **/
-  // router.post('/login', profilController.login)
-  // router.post('/register', profilController.register)
-  // router.post('/profil', profilController.profil)
-  // router.post('/modifyProfil', profilController.profil)
-  // router.post('/chooseTown', profilController.getTownList)
-  // router.post('/updateProfil', profilController.updateUser)
-  // router.post('/resetPassword', profilController.resetPassword)
-  // router.post('/changePassword', profilController.changePassword)
-  // router.post('/changeMail', profilController.changeMail)
 
 export default router

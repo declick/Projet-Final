@@ -1,6 +1,6 @@
 import pool from '../config/database.js'
 
-const SubmitCcontactController = (req, res) => {
+const SubmitContactController = (req, res) => {
     
      const validRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
     
@@ -22,5 +22,5 @@ const SubmitCcontactController = (req, res) => {
       }
 }
                  
-export default SubmitCcontactController          
+export default SubmitContactController          
         

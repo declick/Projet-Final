@@ -1,57 +1,15 @@
-//import de module
 import pool from '../config/database.js'
+import fs from 'fs'
 
-export const getAllUser = (req, res) => {
-    
-    let sql = 'SELECT * FROM user'
-   
-    pool.query(sql,  (error, result) =>{
-        if (error) throw error
-    res.json({response: true})
-    })
-}
-
-const AdminController = (req,res) => {
-    
-    let sqlContact = "SELECT * FROM user"
-        
-        pool.query (sqlContact, (error, result) => {
-            if (error) throw error
-            res.json({response:true})
-        })  
-    
-}
-
-
-
-const UpdateAdminController = (req, res) => {
-    
-    let sqlUpdate = "UPDATE user SET prenom=(?), nom=(?), email=(?), text=(?) WHERE id =(?)"
-    
-    pool.query(sqlUpdate, (error, result) => {
-        if (error) throw error
-            res.json({response:true})
-    })
-    
-}
-
-const DeleteAdminController = (req, res) =>{
-    
-    let selectSqlContact = "SELECT * FROM contact id=(?)"    
-    let deleteSqlContact = "DELETE FROM contact id=(?)"
-    
-    const idDeleted = Object.keys(res.body)
-    
-    pool.query(selectSqlContact,idDeleted, (error, selectSqlResult) => {
-        if (error) throw error
-        pool.query(deleteSqlContact, idDeleted, (error, deleteResult) => {
-            if (error) throw error
-               
+const AdminPrestationController = (req, res) => {
+      { /* constante sql pour requete à la bdd*/}
+    let sql ='SELECT prestation.*, categorie.title AS catetitle FROM prestation JOIN categorie ON categorie.id = prestation.categorie_id'
+        pool.query(sql, (err, result)=>{
+            if(err)throw err
+                 if (result) {
+            res.json({response: true, message: "requête réussie", SQL:result})
+        }
         })
-    })
-    
 }
 
-
-
-export {AdminController,UpdateAdminController,DeleteAdminController}
+export default AdminPrestationController
