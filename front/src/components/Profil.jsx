@@ -50,17 +50,15 @@ const Profil = () => {
         }
         axios.default.timeout = 5000
         axios.post(`${BASE_URL}/Profil`, data, config)
+        
             .then((res) => {
-            
             res.data.response && dispatch({type:CONNEXION})
             res.data.admin && dispatch({type:ADMIN})
             res.data.user && dispatch({type:USER})
-
-            if(res.data.response === true) {
-                              navigate("/")
-            }
-            
-        })
+                if(res.data.response === true) {
+                    navigate("/")
+                }
+            })
             .catch((err) => {
             console.log(err)
             })

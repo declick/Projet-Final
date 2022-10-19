@@ -52,7 +52,7 @@ const Users = () =>{
     const deleteUser = (id) => {
         let data = {id}
         axios.defaults.timeout = 5000
-        axios.delete(`${BASE_URL}/DeleteUserController`, data, config)
+        axios.post(`${BASE_URL}/DeleteUserController`, data, config)
             .then((res) => {
                 res.data.response && dispatch({type:CONNEXION})
                 res.data.admin && dispatch({type:ADMIN})
@@ -66,10 +66,10 @@ const Users = () =>{
             })
     }
 
-    const editUser = (e) => {
-        let data = {id}
+    const editUser = (id) => {
+       let data = {id}
         axios.defaults.timeout = 5000
-        axios.delete(`${BASE_URL}/UpdateUserController`, data, config)
+        axios.post(`${BASE_URL}/UpdateUserController`,data , config)
             .then((res) => {
                 res.data.response && dispatch({type:CONNEXION})
                 res.data.admin && dispatch({type:ADMIN})
@@ -83,11 +83,11 @@ const Users = () =>{
             })
     }
 
-    const addUser = (e) => {
+    const addUser = (id, e) => {
         e.preventDefault()
         let data = {id, nom, prenom , email, mdp}
         axios.defaults.timeout = 5000
-        axios.delete(`${BASE_URL}/AddUserController`, data, config)
+        axios.post(`${BASE_URL}/AddUserController`, data, config)
             .then((res) => {
                 res.data.response && dispatch({type:CONNEXION})
                 res.data.admin && dispatch({type:ADMIN})
@@ -149,8 +149,8 @@ const Users = () =>{
 
                     </form>
                 </Popup>
-                    { users.map((user, index) => (
-                        <tr key={ user.id }>
+                    { users.map((e,i) => (
+                        <tr key={ i }>
                             <td>
                                 <Popup trigger={<button> Éditer utilisateur </button>}
                                        position="right center">
@@ -158,15 +158,15 @@ const Users = () =>{
                                     <form>
 
                                         <label>
-                                            <div> <input type="text" placeholder={user.nom} name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required /> </div>
+                                            <div> <input type="text" placeholder={e.nom} name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required /> </div>
                                         </label>
 
                                         <label>
-                                            <div> <input type="text" placeholder={user.prenom} name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> </div>
+                                            <div> <input type="text" placeholder={e.prenom} name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> </div>
                                         </label>
 
                                         <label>
-                                            <div> <input type="email" placeholder={user.email} name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div>
+                                            <div> <input type="email" placeholder={e.email} name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div>
                                         </label>
 
                                         <label>
@@ -175,7 +175,7 @@ const Users = () =>{
 
                                     </form>
                                 </Popup>
-                                <button onClick={ () => deleteUser(user.id) } className="button">Supprimer</button>
+                                <button onClick={ () => deleteUser(e.id) } className="button">Supprimer</button>
                             </td>
                         </tr>
                     )) }
@@ -187,33 +187,3 @@ const Users = () =>{
 }
 
 export default Users
-
-
-        <section>
-            <NavLink to="/admin">Retour</NavLink>
-            <form method='post' onSubmit={subForm} encType="multipart/form-data">
-                <input type='text' name='title' maxLength="23" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="titre" />
-                <input type="file" name="image" placeholder="image" required />
-                <textarea name="description" value={descri} onChange={(e) => setDescri(e.target.value)} placeholder="description">{descri}</textarea>
-
-                <select name='categories_id' value={categories_id} onChange={(e) => setCategories_id(e.target.value)} required>
-                    <option value="" disabled>--Veuillez choisir une categorie--</option>
-                    <option value='1'>entrée</option>
-                    <option value='2'>plat</option>
-                    <option value='3'>dessert</option>
-                </select>
-                <div className="">
-                    {ingredients[0] && ingredients.map((item,index) =>
-                        <React.Fragment key={index}>
-                            <input type='text' placeholder='ingredient' value={item.ingredient} onChange={(e) => handleChange(e, item.id, 'ingredient')} />
-                            <input type='text' placeholder='quantite' value={item.quantite} onChange={(e) => handleChange(e, item.id, 'quantite')} />
-                            <input type='text' placeholder='unite' value={item.unite} onChange={(e) => handleChange(e, item.id, 'unite')} />
-                        </React.Fragment>
-                    )}
-                </div>
-                <button onClick={addInput}>Ajouter un ingrédient</button>
-                <input type='submit' value='Ajouter' />
-            </form>
-        </section>
-    )
-}

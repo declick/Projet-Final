@@ -18,6 +18,7 @@ const Connexion = () => {
         { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
     const submit = (e) => {
         e.preventDefault()
+        
         if (email === "" || mdp === "") {
             setErrorMessage("Merci de compléter correctement le formulaire.")
         }else{
@@ -32,7 +33,6 @@ const Connexion = () => {
                 })
            
                 .then((res) => {
-            
                     res.data.response && dispatch({type:CONNEXION})
                     res.data.admin && dispatch({type:ADMIN})
                     res.data.user && dispatch({type:USER})
@@ -40,7 +40,6 @@ const Connexion = () => {
                     sessionStorage.setItem("nom", res.data.user[0].nom)
                     sessionStorage.setItem("prenom", res.data.user[0].prenom)
                     sessionStorage.setItem("mail", res.data.user[0].email)
-        
                     if(res.data.response === true) {
                                 navigate("/")
                     }

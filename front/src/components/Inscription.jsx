@@ -1,3 +1,5 @@
+//import de module
+
 import React from "react"
 import axios from "axios"
 import { BASE_URL} from '../config.js'
@@ -17,19 +19,24 @@ const Inscription = () => {
 
         { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
         const submit = (e) => {
+          
             const data= { 
                 prenom,
                 nom,
                 email,
                 mdp
             }
+            
               e.preventDefault()
                 if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || mdp.trim() === "") {
                 		setErrorMessage("Merci de compléter correctement le formulaire.")
                 }else{
                   if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255){
                     	setErrorMessage("Merci de compléter correctement le formulaire.")
+                    	
+                    	axios.defaults.timeout = 5000
                       axios.post(`${BASE_URL}/Inscription`, data)
+                      
                           .then((res) => {
                               if(res.data.response === true) {
                               navigate("/Connexion")

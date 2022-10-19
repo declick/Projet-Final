@@ -11,7 +11,8 @@ const Prestation = () => {
 
     React.useEffect(()=> {
         axios.defaults.timeout = 5000
-        axios.get(`${BASE_URL}/Prestation`, config)
+        // let data = {id: }
+        axios.get(`${BASE_URL}/Prestation`)
         .then((res) => {
           setPrestation(res.data.SQL)
         })
@@ -22,58 +23,58 @@ const Prestation = () => {
     
         return(
            
-         <React.Fragment>
-        <div className="container">
-        <h2>Extention cils</h2>
-         <div className="container_home">
-         
-        
-           {prestation.map((e,i)=>{
-        return(
-        
-      <div className="card"  key={i}>
-      
-        <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
-
-        <div className="card_body">
-            <div className="card_title">
-                <h3>{e.title}</h3>
-            </div>
-            <div className="card_excerpt">
-                <p> {e.description}</p>
-            </div>
-        </div>
-
-    </div>
-
-        )
-           })}
-         </div>
+            <React.Fragment>
+                <div className="container">
+                    <div className="container_home">
+                    
+                     <h2> Beauté du cil </h2>
+                     
+                        { prestation.map((e,i)=>{
+                            if(e.cate_title === "cil"){  
+                            
+                                return ( 
+                                
+                                <div className="card" key={i}>
+                                        <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
+                                        <div className="card_body">
+                                            <div className="card_title">
+                                            <h3>{e.title}</h3>
+                                            </div>
+                                            <div className="card_excerpt">
+                                            <p> {e.description}</p>
+                                            </div>
+                                        </div>
+                                </div>
+                            )}
+                        })}
+                    </div>
+                </div>
           
-                 <h2>Mapping sourcils</h2>
-              <div className="container_home">
-
-           {prestation.map((e,i)=>{
-        return(
-        
-      <div className="card"  key={i}>
-      
-        <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
-
-        <div className="card_body">
-            <div className="card_title">
-                <h3>{e.title}</h3>
-            </div>
-            <div className="card_excerpt">
-                <p> {e.description}</p>
-            </div>
-        </div>
-
-    </div>
-
-        )
-           })}
-  </div>    </div>
+                <div className="container">
+                    <div className="container_home">
+                    
+                     <h2> Beauté du sourcil </h2>
+                     
+                        { prestation.map((e,i)=>{
+                            if(e.cate_title === "sourcil"){  
+                            
+                                return ( 
+                                
+                                <div className="card" key={i}>
+                                        <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
+                                        <div className="card_body">
+                                            <div className="card_title">
+                                            <h3>{e.title}</h3>
+                                            </div>
+                                            <div className="card_excerpt">
+                                            <p> {e.description}</p>
+                                            </div>
+                                        </div>
+                                </div>
+                            )}
+                        })}
+                    </div>
+                </div>
             </React.Fragment>
          ) 
 }

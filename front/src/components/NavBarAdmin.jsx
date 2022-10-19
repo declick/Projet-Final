@@ -10,8 +10,7 @@ const NavBarAdmin   = ()=> {
                 <nav className="navigation">
                     <ul>
                        <li> <NavLink to="/Admin?page=AdminPrestation">Dashboard Prestation</NavLink></li><hr/>
-                       <li> <NavLink to="/Admin?page=AdminUser">Dashboard Prestation</NavLink></li><hr/>
-                       <li> <NavLink to="/Admin?page=AdminImage">Dashboard Image</NavLink></li><hr/>
+                       <li> <NavLink to="/Admin?page=AdminUser">Dashboard User</NavLink></li><hr/>
                     </ul>
                 </nav>
             </div>

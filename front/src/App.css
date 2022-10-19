@@ -52,6 +52,10 @@ CONTAINER
     align-items: center;
     justify-content: space-evenly;
 }
+.container_admin{
+  display:flex;
+}
+
 /* *****************************************************************
 NAVIGATION
 ***************************************************************** */
@@ -621,7 +625,11 @@ Admin
   min-height: 100vh;
   margin: 1.5rem;
 }
-td {
-    border: 1px solid black;
+table, th, td {
+    border: 1px solid white;
       border-collapse: collapse;
 }
+.img_admin{
+  height: 15vh;
+}
+

@@ -6,18 +6,6 @@ import { BASE_URL,BASE_IMG,config } from '../config.js'
 
 const Apropos = () => {
     
-    const [picture, setPicture]= React.useState([])
-    
-    React.useEffect(()=> {
-        axios.defaults.timeout = 5000
-        axios.get(`${BASE_URL}/Apropos`, config)
-        .then((res)=>{
-            setPicture(res.data.SQL)
-        })
-        .catch((err)=>{
-        })
-    },[])
-    
     
     return(
         
@@ -46,7 +34,7 @@ const Apropos = () => {
         <div className="blog_card alt">
             <div className="meta">
             
-                <div className="photo"><img src="https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/271238633_341644001295786_8904818762143709523_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=Va9qaQCBqRsAX9hoKgn&_nc_ht=scontent-cdt1-1.xx&oh=00_AT9CHsRboG3pcS-5-MALgP4pRGaZEapJCZ-94olZSgsx8Q&oe=634EEF52" alt="My littles Lashes" /></div></div>
+                <div className="photo"><img src="https://scontent-cdt1-1.xx.fbcdn.net/v/t1.6435-9/157447656_197987538788182_5599805136030264338_n.png?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=vfVKB3zu6rEAX8XUHja&_nc_ht=scontent-cdt1-1.xx&oh=00_AT_4jC0C4CqpZrAXcL9BDamH9ZLHqySFVTrRN9pHZ44_VA&oe=636F222C" alt="My littles Lashes" /></div></div>
                 
                 <div className="description">
                 

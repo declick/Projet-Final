@@ -17,20 +17,24 @@ const Contact = () => {
     const [errorMessage, setErrorMessage] = React.useState("")
     
      const submit = (e) => {
+
          const data = { 
                 prenom,
                 nom,
                 email,
                 text,
                 captcha
-            }                               
-          e.preventDefault()
+            }          
+
              if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || text.trim() === "" || captcha ==="") {
                 setErrorMessage("Merci de compléter correctement le formulaire.")
                 }else{
                   if (prenom.length <= 30 && nom.length <= 30 && email.length <= 50 && text.length >= 1 && captcha == 20){
                     setErrorMessage("Merci de compléter correctement le formulaire.")
+                    
+                      axios.defaults.timeout = 5000
                       axios.post(`${BASE_URL}/Contact`, data)
+                      
                           .then((res) => {
                               if(res.data.response === true) {
                               navigate("/")
@@ -53,6 +57,7 @@ const Contact = () => {
              
               <div className="center">
                 <form>
+
                     <label>
                       <div>  
                         <input type="text" placeholder="PRENOM :"  maxLength="30" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> 
@@ -85,7 +90,7 @@ const Contact = () => {
                     </label>
                    
                     <label>
-                        <input type="submit" onClick={submit} value="Envoyer" />
+                        <input type="submit" onClick={submit}  value="Envoyer"  id="submit" disabled="disabled" />
                    </label>
                    <h3>{errorMessage}</h3>
                 </form> 
@@ -96,3 +101,7 @@ const Contact = () => {
 }
 
 export default Contact
+
+ 
+
+   

@@ -9,10 +9,11 @@ import UserController from './controller/Profil.js'
 import AproposController from './controller/Apropos.js'
 import HomeController from './controller/Home.js'
 import PrestationController from './controller/Prestation.js'
+import Logout from './controller/Logout.js'
 
-import AdminPrestationController from './controller/Admin.js'
-
+import {AdminPrestationController,DeletePrestationAdmin} from './controller/Admin.js'
 import AddPrestationController from './controller/AddPrestation.js'
+import {EditPrestationController,EditAddPrestationController} from './controller/EditPrestation.js'
 
 const router = express.Router()
 
@@ -31,11 +32,13 @@ router.get("/api/Apropos",AproposController)
 //** routes Connexion **/
 router.post("/api/Inscription",SubmitInscriptionController)
 router.post("/api/Connexion",SubmitConnectionController)
+//** routes logout **/
+router.get("/api/Logout",Logout)
 
 //** route Admin **/
 router.get("/api/Admin",AdminPrestationController)
-router.post("api/AddPrestation",AddPrestationController)
-
-
+router.post("/api/Admin/:id", DeletePrestationAdmin)
+router.post("/api/AddPrestation" ,AddPrestationController)
+router.post("api/EditPrestation/:id" ,EditPrestationController,EditAddPrestationController)
 
 export default router

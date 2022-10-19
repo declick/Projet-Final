@@ -45,7 +45,8 @@ const Navbar = () => {
                 document.getElementById("idCheckbox").checked = true
         }
           }, [theme],[checkbox])
-          
+        
+        
     return(
         
                 <React.Fragment> 
@@ -73,7 +74,9 @@ const Navbar = () => {
                             </label>
                             
                         <ul className="content_nav">
+                        {/*  {(state.admin !== false && state.user !== false ) ? ( */ }
                         
+                        {/*<React.Fragment> */ }
                             { /* NavLink doit matcher avec le path définit dans le composant Route */ }
                            <li> <NavLink to="/">Accueil</NavLink></li>
                            <li> <NavLink to="/Prestation">Préstation</NavLink></li>
@@ -84,9 +87,15 @@ const Navbar = () => {
                            <li> <NavLink to="/Connexion">Connexion</NavLink></li>
                            <li> <NavLink to="/Profil">Profil</NavLink></li>
                            <li> <NavLink to="/Logout">Logout</NavLink></li>
-                           
+                        {/* </React.Fragment>*/ }
+
+                           {/* ): ( */ }
+                            
+                            {/*<React.Fragment>*/ }
                            <li> <NavLink to="/Admin">Admin</NavLink></li>
+                           {/*</React.Fragment>*/ }
                            
+                          {/* )} */ }
                         </ul>
                     </nav>
 
@@ -95,5 +104,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
- 
