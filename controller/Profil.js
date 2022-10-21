@@ -1,22 +1,18 @@
 import pool from '../config/database.js'
 
-// const deletUser = (req, res) => {
-//         let suppSQL = "DELETE FROM user WHERE user.id=?"
+const deletUser = (req, res) => {
         
-//         pool.query(suppSQL, [req.body.id],(err, result) =>{
-//             if(err) throw err
-//                 req.session.destroy((err) => {
-//                     if (result) {
-//                             console.log("hello")
-//                     res.json({response: true, message: "suppression réussie", result})
-//                         if(err){
-//                             res.json({response: false, message: "On recommence ?"})
-//                         }
-//                     }
-//                 }    
-//         )}
-//   )}
-   
+    { /* constante sql pour requete à la bdd */}
+    const deleteMessage = "DELETE FROM user WHERE id = ?"
+    
+        pool.query(deleteMessage, [req.params.id], (err, deleteResult) => {
+            if (err) throw err
+            if (deleteResult) {
+                res.json({response: true, message: "suppression réussie", DELETE:deleteResult})
+            }
+        })
+}
+    
 const UserController = (req, res) => {
 
     { /* constante sql pour requete à la bdd*/ }
@@ -58,4 +54,4 @@ const UserController = (req, res) => {
         })
     }
 }
-export default UserController
+export {UserController,deletUser}

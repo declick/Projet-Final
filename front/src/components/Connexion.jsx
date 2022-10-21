@@ -21,34 +21,34 @@ const Connexion = () => {
         
         if (email === "" || mdp === "") {
             setErrorMessage("Merci de compléter correctement le formulaire.")
-        }else{
-            if (email.length > 255){
-                setErrorMessage("Merci de compléter correctement le formulaire.")
-            } else {
-                setErrorMessage("Merci.")
-                
-                axios.post(`${BASE_URL}/Connexion`,{
-                    email,
-                    mdp
-                })
-           
-                .then((res) => {
-                    res.data.response && dispatch({type:CONNEXION})
-                    res.data.admin && dispatch({type:ADMIN})
-                    res.data.user && dispatch({type:USER})
-                    
-                    sessionStorage.setItem("nom", res.data.user[0].nom)
-                    sessionStorage.setItem("prenom", res.data.user[0].prenom)
-                    sessionStorage.setItem("mail", res.data.user[0].email)
-                    if(res.data.response === true) {
-                                navigate("/")
-                    }
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+            }else{
+                if (email.length > 255){
+                    setErrorMessage("Merci de compléter correctement le formulaire.")
+                } else {
+                 
+                    axios.post(`${BASE_URL}/Connexion`,{
+                        email,
+                        mdp
+                    })
+               
+                    .then((res) => {
+                        res.data.response && dispatch({type:CONNEXION})
+                        res.data.admin && dispatch({type:ADMIN})
+                        res.data.user && dispatch({type:USER})
+                        
+                        sessionStorage.setItem("nom", res.data.user[0].nom)
+                        sessionStorage.setItem("prenom", res.data.user[0].prenom)
+                        sessionStorage.setItem("mail", res.data.user[0].email)
+                        if(res.data.response === true) {
+                                    navigate("/")
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                } 
+            
             }
-        }
         
     }
     return(

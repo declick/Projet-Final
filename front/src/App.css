@@ -69,7 +69,14 @@ NAVIGATION
   background: #fff;
 }
 
-.logo{
+/* LOGO */
+.logo_noir{
+  position: absolute;
+  width: 8vh;
+  height: 8vh;
+}
+.logo_blanc{
+  position: relative;
   width: 8vh;
   height: 8vh;
 }
@@ -298,6 +305,21 @@ color:white;
   background-color: #fff;
   color: #333;
 }
+
+/* LOGO */
+.light .logo_noir{
+  position: absolute;
+  visibility:hidden;
+  width: 8vh;
+  height: 8vh;
+}
+.dark .logo_blanc{
+  position: relative;
+  visibility:hidden;
+  width: 8vh;
+  height: 8vh;
+}
+
 /* *****************************************************************
 CARD HOME / PRESTATION
 ***************************************************************** */
@@ -632,4 +654,3 @@ table, th, td {
 .img_admin{
   height: 15vh;
 }
-

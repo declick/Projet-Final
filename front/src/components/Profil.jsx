@@ -5,7 +5,6 @@ import {ReducerContext} from "./reducer/reducer"
 import {CONNEXION, ADMIN, USER} from './config/constance.js'
 import { useNavigate } from 'react-router-dom'
 
-
 const Profil = () => {
 
     const navigate = useNavigate()
@@ -15,24 +14,28 @@ const Profil = () => {
     const [email, setEmail] = React.useState("")
     
     const [state, dispatch] = useContext(ReducerContext)
-    //  const [users, setUsers] = React.useState({ list: [] })
+    // const [user, setUser] = React.useState([])
      
     let name = sessionStorage.getItem("nom")
     let firstName= sessionStorage.getItem("prenom")
     let mail = sessionStorage.getItem("mail")
     let id = sessionStorage.getItem("id")
 
-        const handleClick = (id) =>{
-            if(mail !== id){
-            axios.post(`${BASE_URL}/Profil/${id}`)
-                .then((res)  => {
-                res.json({response: true, message: "suppression réussie"})
-                    .catch((err) => {
-                    console.log(err)
-                    })
-                })
-            }       
-        }
+    //   // Suppression User
+    // const handleDelete =(id) => {
+   
+
+    //     axios.default.timeout = 5000
+    //     axios.post(`${BASE_URL}/Users/${id}`)
+        
+    //     .then((res) =>{
+    //          setUser(user.filter((user)=>{
+    //         return user.id !== id}))
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err)
+    //     })
+    // }
 
         { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
         const submit = (e) => {
@@ -66,37 +69,31 @@ const Profil = () => {
         
     return(
         
-            <React.Fragment>
-            
-             <h1>Dashboard Utilisateur</h1>
-            
-                <div className="center">
-               
+        <React.Fragment>
+            <h1>Dashboard Utilisateur</h1>
+            <div className="center">
                <form>
-     
-                <label>
-                  <div> <input type="text" placeholder={name} name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required /> </div>
-                </label>
-                
-                <label>
-                  <div> <input type="text" placeholder={firstName} name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> </div>
-                </label>
-                
-                 <label>
-                  <div> <input type="email" placeholder={mail} name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div>
-                </label>
-
-                <label>
-                       <input type="submit" onClick={submit} value="Modifier" />
-                </label>
- 
-                <label>
-                        <input type="submit" id="del" onClick={handleClick} value="Supprimer le compte" />
-                </label>
-                
+                    <label>
+                      <div> <input type="text" placeholder={name} name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required /> </div>
+                    </label>
+                    
+                    <label>
+                      <div> <input type="text" placeholder={firstName} name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> </div>
+                    </label>
+                    
+                     <label>
+                      <div> <input type="email" placeholder={mail} name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div>
+                    </label>
+    
+                    <label>
+                           <input type="submit" onClick={submit} value="Modifier" />
+                    </label>
+                   { /* <label > 
+                          <button type='submit' id="" onClick={() => handleDelete(user.id)} value='supprimer'>supprimer</button> 
+                     </label>  */}
                 </form>
-                </div>
-            </React.Fragment>
+            </div>
+        </React.Fragment>
     )
 }
 

@@ -1,12 +1,13 @@
 import React from "react"
-import {CONNEXION, LOGOUT, ADMIN, USER, PRESTATION} from '../config/constance.js'
+import {CONNEXION, LOGOUT, ADMIN, USER, PRESTATION, PRODUIT} from '../config/constance.js'
 
 { /* L' initialState argument est l'état utilisé lors du rendu initial */ }
 export const initialState = {
     connexion: false,
     admin:false,
     user: false,
-    prestation:[]
+    prestation:[],
+    produit:[]
 }
 
 export const reducer = (state, action) => {
@@ -21,6 +22,8 @@ export const reducer = (state, action) => {
             return {...state, connexion:false,  admin:false, user:false}
         case PRESTATION :
             return{...state, prestation: action.payload }
+        case PRODUIT :
+            return{...state, prestation: action.payload }    
         default: return state 
     }
 }

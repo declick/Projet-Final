@@ -1,8 +1,7 @@
 import {useContext} from "react"
 import React from "react"
 import axios from 'axios'
-import { BASE_URL,BASE_IMG,config } from '../config.js'
-import {ReducerContext} from "./reducer/reducer"
+import { BASE_URL,BASE_IMG } from '../config.js'
 import {useNavigate} from "react-router-dom"
 import { NavLink } from "react-router-dom"
 
@@ -20,7 +19,7 @@ const Home = () => {
     React.useEffect(()=> {
         
         axios.defaults.timeout = 5000
-        axios.get(`${BASE_URL}/Home`, config)
+        axios.get(`${BASE_URL}/Home`)
         
         .then((res) => {
           setPrestation(res.data.SQL)
@@ -42,12 +41,9 @@ const Home = () => {
                           <div className="card"  key={i}>
                             <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
                             <div className="card_body">
-                                <div className="card_title">
-                                    <h3>{e.title}</h3>
-                                </div>
-                                <div className="card_excerpt">
-                                    <p> {e.description}</p>
-                                </div>
+                            <div className="card_title">
+                                <h3>{e.catetile}</h3>
+                            </div>
                                 <button className="card_button" onClick ={handleClick}>En savoir plus</button>
                             </div>
                         </div>

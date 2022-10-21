@@ -4,7 +4,7 @@ import pool from '../config/database.js'
 import formidable from "formidable";
 import fs from 'fs'
 
-    const AddPrestationController = (req, res) =>{
+    const AddProduitController = (req, res) =>{
         
         const checkAcceptedExtensions = (file) =>{
             const type = file.mimetype.split('/').pop()
@@ -14,7 +14,7 @@ import fs from 'fs'
                 } 
                 return false
         }
-        
+            
             const form = formidable({keepExtentsions: true})
         
                form.parse(req, (err, fields, files) => {
@@ -30,13 +30,13 @@ import fs from 'fs'
                         fs.copyFile(oldPath, newPath, (err) => {
                             if (err) throw err
                             { /* constante sql pour requete à la bdd*/}
-                            const addPrestation = "INSERT INTO prestation (categorie_id, title, description, image) VALUE (?,?,?,?)"
+                            const addProduit = "INSERT INTO produit (title, description, image, price) VALUE (?,?,?,?)"
                             console.log(fields)
-                                let AddPrestationReq = [fields.categorie_id,fields.title, fields.description, newFilename ]
-                                pool.query(addPrestation,AddPrestationReq ,(err, resultPrestation) => {
+                                let AddProduitReq = [fields.title, fields.description, newFilename,fields.price ]
+                                pool.query(addProduit,AddProduitReq ,(err, resultProduit) => {
                                 if (err) throw err
-                                if (resultPrestation) {
-                                    res.json({response: true, message: "création réussie", resultPrestation})
+                                if (resultProduit) {
+                                    res.json({response: true, message: "création réussie", resultProduit})
                                 }
                             })
                         })
@@ -44,4 +44,4 @@ import fs from 'fs'
                 })
 }
     
-export default AddPrestationController
+export default AddProduitController
