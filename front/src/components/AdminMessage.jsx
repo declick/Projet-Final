@@ -11,7 +11,6 @@ const AdminMessage = () => {
     // Affichage Message
     React.useEffect(()=> {
         
-        axios.defaults.timeout = 5000
         axios.get(`${BASE_URL}/AdminMessage`)
         
         .then((res) => {
@@ -26,7 +25,6 @@ const AdminMessage = () => {
     const handleDelete =(e,id) => {
     e.preventDefault()
 
-        axios.default.timeout = 5000
         axios.post(`${BASE_URL}/AdminMessage/${id}`)
         
         .then((res) =>{

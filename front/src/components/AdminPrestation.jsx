@@ -9,7 +9,6 @@ import { NavLink } from "react-router-dom"
 const AdminPrestation = () => {
 
         const [prestation, setPrestation] = React.useState([])
-
         
         // Affichage Prestation
         React.useEffect(()=> {
@@ -38,9 +37,9 @@ const AdminPrestation = () => {
             .catch((err)=>{
                 console.log(err)
             })
-        }
-
-
+      
+    }
+    
     return(
         
         <React .Fragment>
@@ -63,10 +62,9 @@ const AdminPrestation = () => {
                               <td><h3>Images</h3></td>
                               <td><h3>Description</h3></td>
                            
-                            
                             </tr>
                                 
-                            {prestation[0] && prestation.map((e,i)=>{
+                            {prestation.map((e,i)=>{
                              
                                 return(
                     
@@ -78,7 +76,7 @@ const AdminPrestation = () => {
                                       <td> 
                                       <button type='submit' id="" onClick={(el) => handleDelete(el,e.id)} value='supprimer'>supprimer</button>
 
-                                      <NavLink className="lien_admin" to="/EditPrestation"><button className="button"> Modifier  </button></NavLink>
+                                      <NavLink className="lien_admin" to={`/EditPrestation/${e.id}`}><button className="button"> Modifier  </button></NavLink>
                                       </td>
                                     </tr>
                                 )
@@ -89,9 +87,6 @@ const AdminPrestation = () => {
                 </form>
             </div>
         </div>
-       
-        {/*<NavBarAdmin />
-        {pathName === "/Prestation" && <AdminPrestation />} */}
 
         </React.Fragment>
     ) 

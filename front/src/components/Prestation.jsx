@@ -25,9 +25,13 @@ const Prestation = () => {
            
             <React.Fragment>
                 <div className="container">
-                
-                  <h2> Extensions des cils </h2>
-                  
+                    <div className="background">
+                        <div className="text_intro">
+                              <h2> Extensions des cils </h2>
+                              <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
+                              <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
+                        </div>
+                   
                     <div className="container_home">
 
                         { prestation.map((e,i)=>{
@@ -41,20 +45,26 @@ const Prestation = () => {
                                             <div className="card_title">
                                             <h3>{e.title}</h3>
                                             </div>
-                                            <div rows="5" cols="33" className="card_excerpt ">
+                                            <div className="card_excerpt ">
                                             <p>{e.description}</p>
                                             </div>
                                         </div>
                                 </div>
                             )}
                         })}
+                         </div>
                     </div>
                 </div>
           
                 <div className="container">
-                                    
-                     <h2> Rehaussement de cils </h2>
-                     
+                    <div className="background">
+                        <div className="text_intro">                
+                             <h2> Rehaussement de cils </h2>
+                             <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
+                             <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
+                         </div>
+                    
+                        
                     <div className="container_home">
 
                         { prestation.map((e,i)=>{
@@ -75,13 +85,19 @@ const Prestation = () => {
                                 </div>
                             )}
                         })}
+                        </div>
                     </div>
                 </div>
                 
                 <div className="container">
-                                    
-                     <h2> Sourcils et brow lift </h2>
-                     
+                    <div className="background">
+                        <div className="text_intro">                 
+                             <h2> Sourcils et brow lift </h2>
+                             <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
+                             <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
+                        </div>
+
+                    
                     <div className="container_home">
                      
                         { prestation.map((e,i)=>{
@@ -102,7 +118,7 @@ const Prestation = () => {
                                 </div>
                             )}
                         })}
-                        
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

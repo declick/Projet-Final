@@ -7,6 +7,7 @@ import { BrowserRouter,Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import Routeur from "./components/Routeur"
+import Footer from "./components/Footer"
 
 const App = () => {
  
@@ -16,7 +17,7 @@ return (
       
       <Navbar />
       <Routeur />
-  
+      <Footer />
   </BrowserRouter>
   
   )

@@ -2,8 +2,9 @@ import React,{useContext} from "react"
 import axios from 'axios'
 import { BASE_URL} from '../config.js'
 import {ReducerContext} from "./reducer/reducer"
-import {CONNEXION, ADMIN, USER} from './config/constance.js'
+import {CONNEXION,ADMIN} from './config/constance.js'
 import { useNavigate } from 'react-router-dom'
+import { NavLink } from "react-router-dom"
 
 const Connexion = () => {
    
@@ -17,40 +18,42 @@ const Connexion = () => {
 
         { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
     const submit = (e) => {
+        
+        const dataUser = {
+            email,
+            mdp
+        }
+        
         e.preventDefault()
         
-        if (email === "" || mdp === "") {
+                if (email === "" || mdp === "") {
             setErrorMessage("Merci de compléter correctement le formulaire.")
             }else{
                 if (email.length > 255){
                     setErrorMessage("Merci de compléter correctement le formulaire.")
                 } else {
-                 
-                    axios.post(`${BASE_URL}/Connexion`,{
-                        email,
-                        mdp
-                    })
-               
+                         
+                    axios.post(`${BASE_URL}/Connexion`, dataUser)
                     .then((res) => {
-                        res.data.response && dispatch({type:CONNEXION})
-                        res.data.admin && dispatch({type:ADMIN})
-                        res.data.user && dispatch({type:USER})
-                        
-                        sessionStorage.setItem("nom", res.data.user[0].nom)
-                        sessionStorage.setItem("prenom", res.data.user[0].prenom)
-                        sessionStorage.setItem("mail", res.data.user[0].email)
-                        if(res.data.response === true) {
-                                    navigate("/")
+                        // si tout ce passe bien :
+                        if(res.data.response) {
+                            localStorage.setItem('jwtToken', res.data.token)
+                            axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token
+                            dispatch({type:CONNEXION})
+                            res.data.admin && dispatch({type:ADMIN})
+                            navigate("/")
+                        } else {
+                            window.alert(res.data.message)
                         }
                     })
                     .catch((err) => {
-                        console.log(err)
+                        console.log(err);
                     })
-                } 
-            
+                }
             }
-        
     }
+            
+    
     return(
         
             <React.Fragment>
@@ -72,7 +75,11 @@ const Connexion = () => {
                 <label>
                        <input type="submit" onClick={submit} value="Valider" />
                 </label>
+                
+                 <label><p>Pas encore membre ? <NavLink to='/Inscription'>Crée un compte ici.</NavLink></p></label>
+                 
                 <h3>{errorMessage}</h3>
+                
                 </form>
                 </div>
             </React.Fragment>

@@ -25,8 +25,15 @@ const Produit = () => {
            
             <React.Fragment>
                 <div className="container">
+                    <div className="background">
+                        <div className="text_intro">
+                            <h2> Nos Produits </h2>
+                            <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
+                            <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
+                        </div>
+                        
                     <div className="container_home">
-
+                    
                         { produit.map((e,i)=>{
                             
                                 return ( 
@@ -45,6 +52,7 @@ const Produit = () => {
                                 </div>
                             )
                         })}
+                        </div>
                     </div>
                 </div>
  </React.Fragment>

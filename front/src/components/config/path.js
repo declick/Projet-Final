@@ -34,7 +34,7 @@ export const routes = [
     { path:'/Inscription', element:<Inscription /> },
     { path:'/Connexion', element:<Connexion /> },
     
-    { path:'/Profil', element:<Profil /> },
+    { path:'/Profil/:id', element:<Profil /> },
     { path:'/Logout', element:<Logout /> },
     
     // Dashboard Admin
@@ -42,24 +42,22 @@ export const routes = [
     // Admin Prestation
     { path:'/AdminPrestation', element:<AdminPrestation /> },
     { path:'/AddPrestation', element:<AddPrestation />},
-    {path: '/EditPrestation', element:<EditPrestation />},
+    {path: '/EditPrestation/:id', element:<EditPrestation />},
      // Admin Produit
     { path:'/AdminProduit', element:<AdminProduit /> },
     { path:'/AddProduit', element:<AddProduit /> },
-    { path:'/EditProduit', element:<EditProduit /> },
+    { path:'/EditProduit/:id', element:<EditProduit /> },
     // Admin Message
     {path: '/AdminMessage', element:<AdminMessage />},
     // Admin User
     {path: '/AdminUsers', element:<AdminUsers />},
     
     { path:'*', element:<PageNotFound /> }
-
 ]
 
 // route reserver au personne connecter
 export const userPath = [
-    '/Profil',
-    '/Logout'
+    '/Profil'
 ]
 
 // route resserver au personne connecter en admin

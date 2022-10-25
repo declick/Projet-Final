@@ -3,30 +3,72 @@ import axios from 'axios'
 import { BASE_URL,config } from '../config.js'
 import {ReducerContext} from "./reducer/reducer"
 import {CONNEXION, ADMIN, USER} from './config/constance.js'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useParams } from 'react-router-dom'
 
 const Profil = () => {
 
     const navigate = useNavigate()
-
-    const [prenom, setPrenom] = React.useState("")
-    const [nom, setNom] = React.useState("")
-    const [email, setEmail] = React.useState("")
     
-    const [state, dispatch] = useContext(ReducerContext)
-    // const [user, setUser] = React.useState([])
-     
-    let name = sessionStorage.getItem("nom")
-    let firstName= sessionStorage.getItem("prenom")
-    let mail = sessionStorage.getItem("mail")
-    let id = sessionStorage.getItem("id")
+    const params = useParams()
+    
+    const [prenom, setPrenom] = React.useState('')
+    const [nom, setNom] = React.useState('')
+    const [user, setUser] = React.useState('')
+    const [profil, setProfil] = React.useState('')
 
-    //   // Suppression User
-    // const handleDelete =(id) => {
-   
+      // Affichage Prestation
+    React.useEffect((id)=> {
+        
+        axios.defaults.timeout = 5000
+        axios.get(`${BASE_URL}/Profil/${params.id}`)
+        
+        .then((res) => {
+            console.log(res.data)
+          setUser(res.data.SQL)
+        })
+        .catch((err) => {
+        })
+        
+        
+    },[params])
+        
+    // Update Prestation
+    const submitForm = (e) => {
+        e.preventDefault()
+        const dataFile = new FormData()
+        
+        dataFile.append('prenom',profil.prenom)
+        dataFile.append('nom',profil.nom)
+        dataFile.append('email',profil.email)
+        dataFile.append('id',params.id)
+
+        axios.post(`${BASE_URL}/Profil/${params.id}`, dataFile)
+        
+        .then ((res) =>{
+            console.log(res)
+            if (res.data.response === true) {
+                 navigate("/")
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+    
+    const handleChange = (e,type) => {
+        e.preventDefault()
+        const data = {...profil}
+        const value = e.target.value
+        data[type] = value
+        setProfil(data)
+    }    
+        
+    // Suppression le user
+    //const handleDelete =(e,id) => {
+    // e.preventDefault()
 
     //     axios.default.timeout = 5000
-    //     axios.post(`${BASE_URL}/Users/${id}`)
+    //     axios.post(`${BASE_URL}/Profil/${id}`)
         
     //     .then((res) =>{
     //          setUser(user.filter((user)=>{
@@ -35,63 +77,38 @@ const Profil = () => {
     //     .catch((err)=>{
     //         console.log(err)
     //     })
-    // }
+    //}
 
-        { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
-        const submit = (e) => {
-        e.preventDefault()
-        
-        let data = {  id,  nom,  prenom,  email }
-        if(data.nom.trim() === ""){
-            data.nom = name
-        }
-        if(data.prenom.trim() === ""){
-            data.prenom = firstName
-        }
-        if(data.email.trim() === ""){
-            data.email = mail
-        }
-        axios.default.timeout = 5000
-        axios.post(`${BASE_URL}/Profil`, data, config)
-        
-            .then((res) => {
-            res.data.response && dispatch({type:CONNEXION})
-            res.data.admin && dispatch({type:ADMIN})
-            res.data.user && dispatch({type:USER})
-                if(res.data.response === true) {
-                    navigate("/")
-                }
-            })
-            .catch((err) => {
-            console.log(err)
-            })
-    }
         
     return(
         
         <React.Fragment>
             <h1>Dashboard Utilisateur</h1>
             <div className="center">
-               <form>
+            
+            { user && 
+            
+           <form>
                     <label>
-                      <div> <input type="text" placeholder={name} name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required /> </div>
+                      <div> <input type="text" name="prenom" placeholder="prenom" value={user.prenom} onChange={(e) => handleChange(e,'prenom')} required /> </div>
                     </label>
                     
                     <label>
-                      <div> <input type="text" placeholder={firstName} name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> </div>
+                      <div> <input type="text" name="nom" placeholder="nom" value={user.nom} onChange={(e) => handleChange(e,'nom')} required /> </div>
                     </label>
                     
                      <label>
-                      <div> <input type="email" placeholder={mail} name="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> </div>
+                      <div> <input type="email" name="email" placeholder="email" value={user.email} onChange={(e) => handleChange(e,'email')} required /> </div>
                     </label>
     
                     <label>
-                           <input type="submit" onClick={submit} value="Modifier" />
+                          <button type="submit">Modifier le profil</button>
                     </label>
-                   { /* <label > 
-                          <button type='submit' id="" onClick={() => handleDelete(user.id)} value='supprimer'>supprimer</button> 
-                     </label>  */}
+                    {/* <label > 
+                          <button type='submit' id="" onClick={(e) => handleDelete(e.id)} value='supprimer'>supprimer</button>
+                      </label> */} 
                 </form>
+            }
             </div>
         </React.Fragment>
     )

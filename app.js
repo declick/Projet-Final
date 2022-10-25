@@ -4,8 +4,7 @@ import express from "express"
 import bodyParser from 'body-parser'
 import cors from "cors"
 import router from './router.js'
-import session from 'express-session'
-import parseurl from 'parseurl'
+import middleware from './controller/Middleware.js'
 
 const app = express()
 
@@ -18,29 +17,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended:true }))
 
 //initialisation du système de sessions
-
-// création de 24h à partir des millisecondes // cookie va expirer dans 24h
-const oneDay = 60 * 60 * 24
-
-// Session middleware
-app.use(session({
-	secret: 'thisismysecrctekeyl8dFhgjqeng52lgRno8nv',
-	resave:false,
-	saveUninitialized: true,
-	cookie: {
-	    maxAge: oneDay
-	}
-}))
-
-
-// Creation de la variable locale pour l'utilisation des sessions
-app.use((req, res, next) => {
-    
-    res.locals.admin = !req.session.admin ? false : true
-    
-    next()
-})
-
+app.use(middleware)
 // Appel du router
 app.use('/', router)
 

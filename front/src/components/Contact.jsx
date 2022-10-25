@@ -85,13 +85,12 @@ const Contact = () => {
                     <label><p>CAPTCHA : ( 12 + 8 = ? )</p>
                       <div>
                         <input type="number" placeholder="ENTREZ LE RESULTAT :" value={captcha} onChange={(e) => setCaptcha(e.target.value)} required /> 
-                       
                       </div>
                     </label>
                    
                     <label>
-                        <input type="submit" onClick={submit}  value="Envoyer"  id="submit" disabled="disabled" />
-                   </label>
+                        <input type="submit" onClick={submit}  value="Envoyer"  id="submit"  />
+                     </label>
                    <h3>{errorMessage}</h3>
                 </form> 
                 </div>

@@ -4,6 +4,7 @@ import React from "react"
 import axios from "axios"
 import { BASE_URL} from '../config.js'
 import { useNavigate } from 'react-router-dom'
+import { NavLink } from "react-router-dom"
 
 const Inscription = () => {
 
@@ -87,7 +88,11 @@ const Inscription = () => {
                     <label>
                         <input type="submit" onClick={submit} value="Envoyer" />
                    </label>
+                   
+                     <label><p>Dejà membre ? <NavLink to='/Connexion'>Connecter vous ici.</NavLink></p></label>
+                     
                    <h3>{errorMessage}</h3>
+                   
                 </form> 
                 </div>
             </React.Fragment>

@@ -1,57 +1,39 @@
 import pool from '../config/database.js'
+import formidable from "formidable"
 
-const deletUser = (req, res) => {
+const EditUserController = (req, res) => {
         
     { /* constante sql pour requete à la bdd */}
-    const deleteMessage = "DELETE FROM user WHERE id = ?"
+    const sql = "SELECT user.prenom,user.nom,user.email FROM user WHERE id = ?"
     
-        pool.query(deleteMessage, [req.params.id], (err, deleteResult) => {
+        pool.query(sql, [req.params.id], (err, result) => {
             if (err) throw err
-            if (deleteResult) {
-                res.json({response: true, message: "suppression réussie", DELETE:deleteResult})
-            }
+                res.json({response: true, SQL:result[0]})
         })
-}
-    
-const UserController = (req, res) => {
 
-    { /* constante sql pour requete à la bdd*/ }
-    const myUser = "SELECT * FROM user WHERE id=?"
-    { /* récupération des données de la requête */ }
-    { /* en 1er je m'assure que les 3 données ne sont pas null pour la suite de la progression */ }
-    { /* en effet je met soit en variable vide ou si selon ce que je reçois en données */ }
-    { /* j'utilise la fonction trim() afin de retirer les espace blancs en début et fin de chaine ce qui m'assure de ne pas avoir ' ' */ }
-    let leNom = ''
-    if (req.body.nom != null) {
-        leNom = req.body.nom.trim()
-    }
-    let lePrenom = ''
-    if (req.body.prenom != null) {
-        lePrenom = req.body.prenom.trim()
-    }
-    let lEmail = ''
-    if (req.body.email != null) {
-        lEmail = req.body.email.trim()
-    }
+} 
+    const EditAddUserController = (req, res) => {
 
-    { /* puis je poursuis si le 3 données ne sont pas vides */ }
-    if (lEmail != "" && leNom != "" && lePrenom != "") {
-        { /* constante sql pour requete mise à juour à la bdd */ }
-        const UpdateUser = "UPDATE user SET nom=?, prenom =?, email=? WHERE id= ?"
-        pool.query(UpdateUser, [leNom, lePrenom, lEmail, req.body.id], (err, result) => {
-            if (err) throw err
-            { /* si update ok */ }
-            if (result) {
-                pool.query(myUser, [req.body.id], (err, user) => {
-                    if (err) throw err
-                    console.log('je passe là')
-                    console.log(err)
-                    if (user) {
-                        res.json({ response: true, message: "update ok" , user})
-                    }
-                })
-            }
-        })
-    }
+    // const form = formidable({keepExtensions: true})
+
+    // form.parse(req, (err,fields,files) => {
+    // if (err) throw err
+
+    //     { /* constante sql pour requete à la bdd*/ }
+    //     const myUser = "SELECT prenom,nom,email FROM user WHERE id=?"
+    //         pool.query(myUser,[fields.nom, fields.prenom, fields.email, fields.id], (err, resultUser) =>{
+    //             if (err) throw err
+    //             res.json({response: true})
+    //     })
+        
+    //     { /* constante sql pour requete mise à juour à la bdd */ }
+    //     const UpdateUser = "UPDATE user SET nom=?, prenom =?, email=? WHERE id= ?"
+    //     pool.query(UpdateUser, [fields.nom, fields.prenom, fields.email, fields.id], (err, result) => {
+    //         if (err) throw err
+    //         res.json({response: true})
+    //     })
+    // })
+      
 }
-export {UserController,deletUser}
+
+export {EditUserController,EditAddUserController}

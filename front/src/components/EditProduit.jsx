@@ -3,38 +3,65 @@
 import React from 'react'
 import axios from 'axios'
 import { BASE_URL,BASE_IMG,config } from '../config.js'
-import { NavLink } from "react-router-dom"
-import {useNavigate}  from 'react-router-dom'
+import { NavLink,useNavigate, useParams}  from 'react-router-dom'
 
 const EditProduit = (req, res) => {
     
-      const navigate = useNavigate()
+    const navigate = useNavigate()
     
-    const [title, setTitle] = React.useState('')
-    const [description, setDescription] = React.useState('')
+    const params = useParams()
     const [image, setImage] = React.useState('')
     const [produit, setProduit] = React.useState([])
-    const [price, setPrice] = React.useState('')
     
-    const submitForm = (e) => {
-        e.preventDefault()
-        
-        const dataFile = new FormData()
-        const files = {...e.taget.image.files}
-
-        dataFile.append('title',title)
-        dataFile.append('description',description)
-        dataFile.append('files', files[0], files[0].name)
-        dataFile.append('price',price)
+            // Affichage Produit
+    React.useEffect((id)=> {
         
         axios.defaults.timeout = 5000
-        axios.post(`${BASE_URL}/EditProduit`,dataFile)
+        axios.get(`${BASE_URL}/EditProduit/${params.id}`)
         
-        .then ((res) =>{
-       setProduit(res.data.SQL)
+        .then((res) => {
+            console.log(res.data)
+          setProduit(res.data.SQL)
         })
         .catch((err) => {
         })
+        
+        
+    },[params])
+    
+    // Update Prestation
+    const submitForm = (e) => {
+        e.preventDefault()
+        const dataFile = new FormData()
+        const files = {...e.target.fichier.files}
+
+        dataFile.append('title',produit.title)
+        dataFile.append('description',produit.description)
+        dataFile.append('id',params.id)
+        dataFile.append('price',produit.price)
+        if(files[0]){
+            dataFile.append('files', files[0], files[0].name)
+        }
+        
+        axios.post(`${BASE_URL}/EditProduit/${params.id}`, dataFile)
+        
+        .then ((res) =>{
+            console.log(res)
+            if (res.data.response === true) {
+                 navigate("/Admin")
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+    
+    const handleChange = (e,type) => {
+        e.preventDefault()
+        const data = {...produit}
+        const value = e.target.value
+        data[type] = value
+        setProduit(data)
     }
     
     return(
@@ -44,30 +71,31 @@ const EditProduit = (req, res) => {
                 
                     <NavLink to="/Admin">retour</NavLink>
                     <h2><u>Editer un produit</u></h2>
-            
+                    { produit.title &&
                     <form encType="multipart/form-data" onSubmit={submitForm} action='' method='post'>
                         <fieldset>
                              <label>Titre</label>
-                             <input type="texte" name="edittitle"  value={title} onChange={(e)=>setTitle(e.target.value)} placeholder="Titre de la prestation" />
+                             <input type="texte" name="title"  value={produit.title} onChange={(e)=>handleChange(e,'title')} placeholder="Titre de la prestation" />
                              
                             <div> 
                                 <label htmlFor='fileUpload'>Image</label>
-                                <input type="file" name="editfichier" required />
+                                <input type="file" name="fichier" />
                             </div> 
                             
                             <div>
                                 <label>Prestation</label>
-                                <textarea type="texte" name="editprestation" value={description} onChange={(e)=>setDescription(e.target.value)} placeholder="votre description ..."></textarea>
+                                <textarea type="texte" name="description" value={produit.description} onChange={(e)=>handleChange(e,'description')} placeholder="votre description ..."></textarea>
                             </div>
                             <div>
                                 <label>Prix</label>
-                                <input type="number" name="editprice" value={price} onChange={(e)=>setPrice(e.target.value)} placeholder="votre prix ..." />
+                                <input type="number" name="price" value={produit.price} onChange={(e)=>handleChange(e,'price')} placeholder="votre prix ..." />
                             </div>
                             <div className="boutton">
                                     <button type="submit">Envoyer le produit</button>
                             </div>
                         </fieldset>
                     </form>
+                    }
                 </div>
             </div>
         </React.Fragment>

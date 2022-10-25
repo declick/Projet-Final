@@ -16,7 +16,7 @@ TOOLS
 * {
   margin: 0;
   padding:0;
-  font-family: 'Poopins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 	box-sizing: border-box; /* On spécifie que la largeur (width) de chaque boîte comprend le padding et la bordure (par défaut, c'est seulement la largeur du contenu) */
 }
 
@@ -35,6 +35,10 @@ h1{
   display: flex;
   justify-content: center;
 }
+h2{
+  display: flex;
+  justify-content: center;
+}
 /* *****************************************************************
 CONTAINER
 ***************************************************************** */
@@ -50,24 +54,38 @@ CONTAINER
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .container_admin{
   display:flex;
 }
-
+.container_intro{
+ display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:88px;
+    gap:30px
+    
+}
 /* *****************************************************************
 NAVIGATION
 ***************************************************************** */
 
 .nav_checkbox{
+  position: sticky;
+    top: 0;
   display: grid;
   align-items: center;
   justify-items: end;
   justify-content: space-between;
   padding: 25px 40px;
   background: #fff;
+  width:100%;
+  z-index: 1;
+  box-shadow: 0px 5px 20px #999;
 }
+
+
 
 /* LOGO */
 .logo_noir{
@@ -145,7 +163,18 @@ input[type=checkbox]:checked ~ .label #burg2{
   transform: scale(0, 1);
   transition: transform ease-in-out 0.5s;
 }
-
+.dark .content_nav li a::after{
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform-origin: left;
+  transform: scale(0, 1);
+  transition: transform ease-in-out 0.5s;
+}
 .content_nav li a:hover::after{
   transform: scale(1, 1);
 }
@@ -154,8 +183,11 @@ input[type=checkbox]:checked ~ .label #burg2{
 NAVIGATION BURGER
 ***************************************************************** */
 
-@media screen and (max-width: 1200px){
-
+@media screen and (max-width: 1200px){  
+.nav_checkbox{
+  position: sticky;
+  top:0;
+}
 .label{
   display: grid;
   justify-content: end;
@@ -165,6 +197,7 @@ NAVIGATION BURGER
     }
 
 .content_nav{
+
   display: grid;
   grid-column: 1/4;
   text-align: center;
@@ -212,7 +245,14 @@ SWITCH COLOR TEMPLATE
   width: 60px;
   height: 34px;
 }
-
+.icon_switch {
+display: flex;
+    justify-content: space-between;
+    margin: 2px;
+}
+.icon_switch svg{
+width: 1.2rem;
+}
 /* Masquer la case à cocher HTML checkbox */
 .switch input {
   opacity: 0;
@@ -225,8 +265,8 @@ SWITCH COLOR TEMPLATE
   position: absolute;
   cursor: pointer;
   top: 7px;
-  left: 5px;
-  right: 5px;
+  left: 6px;
+  right: 9.5px;
   bottom: 7px;
   background-color: #ccc;
   transition: .2s;
@@ -237,7 +277,7 @@ SWITCH COLOR TEMPLATE
   content: "";
   height: 15px;
   width: 15px;
-  left: 4px;
+  left: 1.5px;
   bottom: 3px;
   background-color: white;
   transition: .2s;
@@ -328,10 +368,11 @@ CARD HOME / PRESTATION
 }
 .card {
   display: inline-block;
-     width: 371.5px;
-  margin: 0px auto; /*2*/
-  box-shadow: 0px 5px 20px #999; /*4*/
-  margin:10px
+  width: 27vh;
+  height: 56vh;
+  margin: 0px auto;
+  box-shadow: 0px 5px 20px #999;
+  margin: 33px;
 }
 
 .card:hover .card_image .img { /*6*/
@@ -339,15 +380,12 @@ CARD HOME / PRESTATION
   filter: grayscale(0);
 }
 .card_image > img {
-height: 38vh;
-width: 44vh;
+height: 56vh;
+width: 27vh;
   
 }
 .card_image {
-  
-  height: 250px;/*1*/
-  position: relative;/*2*/
-  overflow: hidden;/*3*/
+height: 1vh;
 }
 .card_image .img {
   width: 150%;/*4*/
@@ -386,10 +424,20 @@ form {
   justify-content: center;
   justify-items: center;
 }
+form a{
+    text-decoration:none;
+  color:cyan;
+}
+.light a{
+  text-decoration:none;
+  color:#53af57;
+}
 .center{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  
+  padding: 33px;
 }
 .text_email{
   display:block;
@@ -465,12 +513,184 @@ textarea:required:invalid {
   border-color: #c00000;
 }
 
-/*input:active[type=text],[type=email],[type=text],[type=number],[type=password]{*/
-/*  border:1px solid green;*/
-/*}*/
-/*input:invalid[type=text],[type=email],[type=text],[type=number],[type=password]{*/
-/*   border:1px solid red;*/
-/*}*/
+/* *****************************************************************
+HOME
+***************************************************************** */
+.header{
+  display:flex;
+  align-items: center;
+    justify-content: center;
+  margin:0;
+  padding:0;
+  background:url("../public/image/header.jpg") no-repeat center fixed;
+ background-size: cover;
+ width:1200%;
+ height:50vh;
+}
+.text_header{
+  letter-spacing: 1em;
+    display: grid;
+    justify-items: end;
+}
+.text_header p{
+  color:white;
+}
+.prestation_home h2,p{
+ display: grid;
+    justify-items: center;
+}
+
+.text_intro{
+  margin: 33px;
+}
+.text_intro p{
+     justify-content: center;
+}
+.carousel_intro{
+  
+}
+.background{
+  padding:33px;
+}
+.background_slide{
+  background-color:beige;
+  padding: 33px;
+}
+.dark .background_slide{
+  background-color:grey;
+padding: 33px;
+}
+.produit_intro{
+    display: flex;
+    /* text-align: center; */
+    gap: 30px;
+    /* align-items: center; */
+    justify-content: center;
+    text-align: center;
+    padding: 33px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card_img_produit{
+  height: 290px;
+  width: 370px;
+}
+.produit_intro_container{
+  
+}
+.produit_intro_prix{  
+    padding: 33px;
+    box-shadow: 0px 5px 20px #999;
+}
+/* ********************** Carousel static Home******************************** */
+
+.slideshow2{
+  height: 173px;
+  width: 155px;
+  border:5px solid #fff;
+  box-shadow:0 1px 4px rgba(0,0,0,.4);
+  position: relative;
+  aspect-ratio:auto;
+  overflow: hidden;
+}
+	
+.slideshow2 li img {
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  position: absolute;
+  opacity: 0;
+}
+	
+.slideshow2 li:nth-child(1) img,
+.slideshow2 li:nth-child(2) img,
+.slideshow2 li:nth-child(3) img,
+.slideshow2 li:nth-child(4) img{
+	
+  animation:slide1 20s ease infinite
+	}
+.slideshow2 li:nth-child(2) img{
+	animation-delay: 5s
+	}
+	
+.slideshow2 li:nth-child(3) img{
+	animation-delay: 10s
+	}
+	
+.slideshow2 li:nth-child(4) img{
+	animation-delay: 15s
+	}
+    
+@keyframes slide1{
+	
+	0%{
+	transform: scale(5);
+	opacity: 0
+	}
+	
+12%{
+	transform: scale(1);
+	opacity: 1;
+	}
+	
+25%{
+	transform: scale(1);
+	opacity: 1;
+	}
+	
+37%{
+	transform: scale(1);
+	opacity: 0;
+	}
+	
+100%{
+	}
+	
+	}
+
+/* ********************** Carousel Image Home******************************** */
+.carousel {
+  height: 400px;
+}
+.carousel .card_container {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+.carousel .card_container .card_carousel {
+  height: 100%;
+  width: 33.3%;
+  transition: all 1s;
+  position: absolute;
+  opacity: 0.8;
+  transform: scale(0.8);
+  z-index: 998;
+  cursor: pointer;
+  user-select: none;
+}
+.carousel .card_container .card_carousel img {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0px 5px 20px #999;
+}
+.carousel .rects {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .rects .rect {
+  height: 2px;
+  width: 20px;
+  background-color: #ddd;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.carousel .rects .active {
+  background-color: #c62f2f;
+}
     /* *****************************************************************
 A PROPOS
 ***************************************************************** */
@@ -548,6 +768,11 @@ A PROPOS
   .blog_card.alt {
     flex-direction: row-reverse;
   }
+}
+.card_excerpt p{
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card_grid{
   display: grid;
@@ -653,4 +878,19 @@ table, th, td {
 }
 .img_admin{
   height: 15vh;
+}
+textarea{
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+
+}
+
+/* *****************************************************************
+FOOTER
+***************************************************************** */
+.footer{
+  height:100px;
+  background-color:grey;
 }

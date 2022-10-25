@@ -64,7 +64,7 @@ const AdminProduit = () => {
                             
                             </tr>
                                 
-                            {produit[0] && produit.map((e,i)=>{
+                            {produit.map((e,i)=>{
                              
                                 return(
                     
@@ -76,7 +76,7 @@ const AdminProduit = () => {
                                       <td> 
                                       <button type='submit' id="" onClick={(el) => handleDelete(el,e.id)} value='supprimer'>supprimer</button>
 
-                                      <NavLink className="lien_admin" to="/EditProduit"><button className="button"> Modifier  </button></NavLink>
+                                      <NavLink className="lien_admin" to={`/EditProduit/${e.id}`}><button className="button"> Modifier  </button></NavLink>
                                       </td>
                                     </tr>
                                 )
