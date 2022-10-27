@@ -3,6 +3,7 @@ import React from "react"
 import axios from 'axios'
 import { BASE_URL } from '../config.js'
 import { NavLink } from "react-router-dom"
+import TopScroll from "./TopScroll"
 
 const AdminUsers = () => {
     
@@ -11,7 +12,6 @@ const AdminUsers = () => {
      // Affichage User
     React.useEffect(()=> {
         
-        axios.defaults.timeout = 5000
         axios.get(`${BASE_URL}/AdminUsers`)
         
         .then((res) => {
@@ -26,7 +26,6 @@ const AdminUsers = () => {
     const handleDelete =(e,id) => {
     e.preventDefault()
 
-        axios.default.timeout = 5000
         axios.post(`${BASE_URL}/AdminUsers/${id}`)
         
         .then((res) =>{
@@ -41,6 +40,7 @@ const AdminUsers = () => {
     return(
            
         <React.Fragment>
+        <TopScroll />
             <div className="container">
                 <div className="container_home">
                          <NavLink to="/Admin">retour</NavLink>

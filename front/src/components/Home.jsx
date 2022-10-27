@@ -5,7 +5,10 @@ import { BASE_URL,BASE_IMG,config } from '../config.js'
 import {useNavigate} from "react-router-dom"
 import { NavLink } from "react-router-dom"
 import Carousel from "./Carousel"
+import TopScroll from "./TopScroll"
 import {ReducerContext} from "./reducer/reducer"
+import {GrDiamond} from "react-icons/gr"
+
 
 const Home = () => {
 
@@ -21,9 +24,13 @@ const Home = () => {
         navigate('/Prestation')
     }
     
+    const handleClick2 = (e) => {
+        e.preventDefault()
+        navigate('/Produit')
+    }
+    
      React.useEffect(()=> {
         
-        axios.defaults.timeout = 5000
         axios.get(`${BASE_URL}/Home`)
         
         .then((res) => {
@@ -50,7 +57,8 @@ const images = [
     return(
            
         <React.Fragment>
-
+        <TopScroll />
+            <section>
             <div className="container">
                 <div className="container_home">
                 
@@ -62,7 +70,9 @@ const images = [
                     </div>
                 </div>
             </div>      
-
+            </section>
+            
+            <section>
             <div className="container_intro">
                 <div className="text_intro">
                   <h1 className="intro_title">My Little Lashes</h1>
@@ -79,13 +89,16 @@ const images = [
                     </ul>
                 </div> 
             </div> 
-                
+            </section>
+            
+            <section>
             <div className="background_slide">
                 <div className="text_intro">
-                    <h2>PRESTATIONS</h2>
-                    <p>blabalabalabalbblabalblabalabalaba</p>
-                    <p>blabalabalabalbblabalblabalabalaba</p>
-                </div>   
+                <h2>PRESTATIONS</h2>
+                <p>L'indispensable pour l'entrtiens de vos extensions et/ou de votre</p>
+                <p>brow lift, afin de conserver un resultat optimal le plus longtemps</p>
+                <p>possible !!!</p>
+             </div>    
                     
                 <div className="container_home">
 
@@ -97,9 +110,8 @@ const images = [
                                     <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
                                     <div className="card_body">
                                     <div className="card_title">
-                                        <h3>{e.catetile}</h3>
                                     </div>
-                                        <button className="card_button" onClick ={handleClick}>En savoir plus</button>
+                                        <button className="card_button" onClick ={handleClick}>EXTENSIONS DE CILS</button>
                                     </div>
                                 </div>
                             )
@@ -112,9 +124,8 @@ const images = [
                                     <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
                                     <div className="card_body">
                                     <div className="card_title">
-                                        <h3>{e.catetile}</h3>
                                     </div>
-                                        <button className="card_button" onClick ={handleClick}>En savoir plus</button>
+                                        <button className="card_button" onClick ={handleClick}>REHAUSSEMENT DE CILS</button>
                                     </div>
                                 </div>
                             )
@@ -126,9 +137,8 @@ const images = [
                                     <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
                                     <div className="card_body">
                                     <div className="card_title">
-                                        <h3>{e.catetile}</h3>
                                     </div>
-                                        <button className="card_button" onClick ={handleClick}>En savoir plus</button>
+                                        <button className="card_button" onClick ={handleClick}>SOURCILS & BROW LIFT</button>
                                     </div>
                                 </div>
                             )
@@ -136,45 +146,89 @@ const images = [
                     })}
                 </div> 
             </div>  
+            </section>
             
+            <section>
             <div className="background">
             <div className="text_intro">
                 <h2>KIT D'ENTRETIEN</h2>
-                <p>blabalabalabalbalblabal</p>
-                <p>blabalabalabalbalblabal</p>
-                <p>blabalabalabalbalblabal</p>
+                <p>L'indispensable pour l'entrtiens de vos extensions et/ou de votre</p>
+                <p>brow lift, afin de conserver un resultat optimal le plus longtemps</p>
+                <p>possible !!!</p>
              </div> 
-                     
-            <div className="produit_intro">
-                <img className="card_img_produit" src="../image/produit.jpg" alt="logo" />
-                    <div className="produit_intro_prix">
-                         <p>10 Euros</p>
+                <div className="container_home">
+                    <div className="produit_intro">
+                    
+                        <div className="produit_intro_prix">
+                            <img className="card_img_produit" src="../image/produit.jpg" alt="logo" />
+                                <p>10 Euros</p>
+                                    <button className="card_button" onClick ={handleClick2}>KIT LASHES</button>
+                        </div>
+                        <div className="produit_intro_prix">
+                            <img className="card_img_produit"src="../image/produit.jpg" alt="logo" />
+                                <p>25 Euros</p>
+                                    <button className="card_button" onClick ={handleClick2}>KIT BROW</button>
+                        </div>
                     </div>
-                <img className="card_img_produit"src="../image/produit.jpg" alt="logo" />
-                    <div className="produit_intro_prix">
-                        <p>25 Euros</p>
-                    </div>
+                </div>
             </div>
-            </div>
-                
-            <div className="background_slide">
             
-                <div className="text_intro">
-                    <h2>NOS REALISATIONS</h2>
-                    <p>blabalabalabalbalblabal</p>
-                </div> 
-                
-                    <Carousel images={images} />
+                 <div className="container_home">
+                        <div className="text_qualiter">
+                            <GrDiamond />
+                            <div className="text_intro">
+                                <p>bnlbalbalbalbalblabla</p>
+                            </div>
+                        </div>
+                            <div className="text_qualiter">
+                                <GrDiamond />
+                                <div className="text_intro">
+                                    <p>bnlbalbalbalbalblabla</p>
+                            </div>
+                        </div>
+                    </div>   
 
-            </div>  
+                <div className="container_home">
+                        <div className="text_qualiter">
+                            <GrDiamond />
+                            <div className="text_intro">
+                                <p>bnlbalbalbalbalblabla</p>
+                            </div>
+                        </div>
+                            <div className="text_qualiter">
+                                <GrDiamond />
+                                <div className="text_intro">
+                                    <p>bnlbalbalbalbalblabla</p>
+                            </div>
+                        </div>
+                    </div>   
+            </section>
              
-            <div> 
-                <div className="text_intro">
-                <p>dsf</p>
-                 </div> 
-            </div> 
+            <section>
+                <div className="background_slide">
+                    <div className="text_intro">
+                        <h2>LOOK BOOK</h2>
+                    </div> 
+                    
+                        <Carousel images={images} />
+                        
+                    <div className="text_intro">
+                    <h2>Elle ont testé et validé</h2>
+                    <p>L'indispensable pour l'entretiens de vos extensions et/ou de votre je sais quoi moi.</p>
+                 </div>    
+                </div>  
+            </section>
+        
+            <section>
+                <div> 
+                    <div className="text_intro">
+                    <p>dsf</p>
+                     </div> 
+                </div> 
+            </section> 
+             
+             
                 
-                     
         </React.Fragment>
     ) 
 }

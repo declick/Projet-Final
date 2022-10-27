@@ -1,6 +1,7 @@
 import Home from "../Home"
 import Connexion from "../Connexion"
 import Inscription from "../Inscription"
+import Navbar from "../Navbar"
 import Profil from "../Profil"
 import Logout from "../Logout"
 import Prestation from "../Prestation"
@@ -9,6 +10,10 @@ import Apropos from "../Apropos"
 import Contact from "../Contact"
 import Reserver from "../Reserver"
 import PageNotFound from "../PageNotFound"
+
+import MentionsLegales from "../MentionsLegales"
+import ProtectionDesDonneesPersonnelles from "../ProtectionDesDonneesPersonnelles"
+import PolitiqueDeCookie from "../PolitiqueDeCookie"
 
 import Admin from "../Admin"
 
@@ -34,7 +39,7 @@ export const routes = [
     { path:'/Inscription', element:<Inscription /> },
     { path:'/Connexion', element:<Connexion /> },
     
-    { path:'/Profil/:id', element:<Profil /> },
+    { path:'/Profil', element:<Profil /> },
     { path:'/Logout', element:<Logout /> },
     
     // Dashboard Admin
@@ -52,7 +57,11 @@ export const routes = [
     // Admin User
     {path: '/AdminUsers', element:<AdminUsers />},
     
-    { path:'*', element:<PageNotFound /> }
+    { path:'*', element:<PageNotFound /> },
+    
+    { path:'/MentionsLegales', element:<MentionsLegales /> },
+    { path:'/ProtectionDesDonneesPersonnelles', element:<ProtectionDesDonneesPersonnelles /> },
+    { path:'/PolitiqueDeCookie', element:<PolitiqueDeCookie /> }
 ]
 
 // route reserver au personne connecter

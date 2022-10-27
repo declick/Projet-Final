@@ -6,7 +6,7 @@ import SubmitConnectionController from './controller/Connexion.js'
 import SubmitInscriptionController from './controller/Inscription.js'
 import SubmitContactController from './controller/Contact.js'
 
-import {EditUserController,EditAddUserController} from './controller/Profil.js'
+import {EditUserController,EditAddUserController,DeleteUser} from './controller/Profil.js'
 
 import AproposController from './controller/Apropos.js'
 import HomeController from './controller/Home.js'
@@ -57,10 +57,12 @@ router.get("/api/Prestation",PrestationController)
 //** route Produit **/
 router.get("/api/Produit",ProduitController)
 
-//** route EDIT Profil **/
-router.get("/api/Profil/:id",EditUserController,EditAddUserController)
+//** route GET Profil **/
+router.get("/api/Profil/:id",EditUserController)
+//** route UPDATE Profil **/
+router.post("/api/Profil/:id",EditAddUserController) 
 //** route DELETE Profil **/
-// router.post("/api/Profil/:id", DeleteProduit)
+router.post("/api/DeleteProfil/:id", DeleteUser)
 
 //** route Contact **/
 router.post("/api/Contact",SubmitContactController)

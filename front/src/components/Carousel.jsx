@@ -30,6 +30,7 @@ const Carousel = (props) => {
   
   //Autoplay
   useInterval(() => {
+    
         setActive((activeIndex + 1) % len)
     }, 5000)
 
@@ -64,7 +65,7 @@ const Carousel = (props) => {
     }
 
     return (
-          
+          <React.Fragment>
         <div className="carousel">
             <div className="card_container">
                 {images.map(({ imgUrl }, index) => (
@@ -80,6 +81,7 @@ const Carousel = (props) => {
                 ))}
             </div>
         </div>
+        </React.Fragment>
     )
 }
     

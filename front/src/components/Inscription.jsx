@@ -35,7 +35,6 @@ const Inscription = () => {
                   if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255){
                     	setErrorMessage("Merci de compléter correctement le formulaire.")
                     	
-                    	axios.defaults.timeout = 5000
                       axios.post(`${BASE_URL}/Inscription`, data)
                       
                           .then((res) => {
@@ -47,20 +46,22 @@ const Inscription = () => {
                               }
                           })
                           .catch((err) => {
-                          console.log(err);
+                          console.log(err)
                           })
                   }
                 }
         
         }
         
+ 
+   
     return (
         
             <React.Fragment>
             <h1>Inscription</h1>
             
               <div className="center">
-                <form id="form">
+                <form className="form" id="">
                     <label>
                       <div>  
                         <input type="text" placeholder="PRENOM :" name="prenom" maxLength="255" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> 
@@ -84,12 +85,20 @@ const Inscription = () => {
                         <input type="password" placeholder="MOT DE PASSE :" name="mdp" minLength="8" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
                       </div>
                     </label>
-   
+                  
                     <label>
-                        <input type="submit" onClick={submit} value="Envoyer" />
-                   </label>
+                          <input type="submit" onClick={submit} value="Envoyer" />
+                     </label>
+                     
+                      <label>
+                        <div>
+                          <input type="checkbox" value="checkbox" name="" />  Lire et accepter les <NavLink to="/MentionsLegales" target="_blank">Mentions Légales</NavLink>
+                       </div>
+                    </label> 
                    
-                     <label><p>Dejà membre ? <NavLink to='/Connexion'>Connecter vous ici.</NavLink></p></label>
+             
+                          <label><p>Dejà membre ?  <NavLink to='/Connexion'>  Connectez vous ici.</NavLink></p></label>
+               
                      
                    <h3>{errorMessage}</h3>
                    

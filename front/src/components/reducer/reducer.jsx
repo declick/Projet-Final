@@ -6,6 +6,7 @@ export const initialState = {
     connexion: false,
     admin:false,
     user: false,
+    user_id:null,
     prestation:[],
     produit:[]
 }
@@ -13,7 +14,7 @@ export const initialState = {
 export const reducer = (state, action) => {
     switch(action.type){
         case CONNEXION :
-            return {...state, connexion:true}
+            return {...state, connexion:true, user_id:action.payload}
          case ADMIN :
             return {...state, admin:true}
          case USER :

@@ -3,6 +3,7 @@ import {useContext} from "react"
 import axios from 'axios'
 import { BASE_URL,BASE_IMG,config } from '../config.js'
 import {ReducerContext} from "./reducer/reducer"
+import TopScroll from "./TopScroll"
 
 const Prestation = () => {
 
@@ -24,13 +25,16 @@ const Prestation = () => {
         return(
            
             <React.Fragment>
+            <TopScroll />
                 <div className="container">
                     <div className="background">
-                        <div className="text_intro">
-                              <h2> Extensions des cils </h2>
-                              <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
-                              <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
-                        </div>
+                    
+                    <div className="text_intro">
+                 <h2> Extensions des cils </h2>
+                <p>L'indispensable pour l'entrtiens de vos extensions et/ou de votre</p>
+                <p>brow lift, afin de conserver un resultat optimal le plus longtemps</p>
+                <p>possible !!!</p>
+             </div>   
                    
                     <div className="container_home">
 
@@ -52,19 +56,20 @@ const Prestation = () => {
                                 </div>
                             )}
                         })}
+                           
                          </div>
                     </div>
                 </div>
           
                 <div className="container">
                     <div className="background">
-                        <div className="text_intro">                
-                             <h2> Rehaussement de cils </h2>
-                             <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
-                             <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
-                         </div>
-                    
-                        
+                     <div className="text_intro">
+                  <h2> Rehaussement de cils </h2>
+                <p>L'indispensable pour l'entrtiens de vos extensions et/ou de votre</p>
+                <p>brow lift, afin de conserver un resultat optimal le plus longtemps</p>
+                <p>possible !!!</p>
+             </div>   
+
                     <div className="container_home">
 
                         { prestation.map((e,i)=>{
@@ -91,11 +96,13 @@ const Prestation = () => {
                 
                 <div className="container">
                     <div className="background">
-                        <div className="text_intro">                 
-                             <h2> Sourcils et brow lift </h2>
-                             <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
-                             <p>blabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalbblabalabalabalb</p>
-                        </div>
+                    
+                     <div className="text_intro">
+                   <h2> Sourcils et brow lift </h2>
+                <p>L'indispensable pour l'entrtiens de vos extensions et/ou de votre</p>
+                <p>brow lift, afin de conserver un resultat optimal le plus longtemps</p>
+                <p>possible !!!</p>
+             </div>   
 
                     
                     <div className="container_home">

@@ -59,7 +59,7 @@ const Navbar = () => {
                     if(res.data.token){
                         axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token
                     }
-                    res.data.response && dispatch({type:CONNEXION})
+                    res.data.response && dispatch({type:CONNEXION, payload:res.data.user_id})
                     res.data.admin && dispatch({type:ADMIN})
                     res.data.user && dispatch({type:USER})
                 })
@@ -68,7 +68,6 @@ const Navbar = () => {
                 })
             }
         },[])
-        
 
     return(
         
@@ -87,15 +86,19 @@ const Navbar = () => {
                         <input type="checkbox" id="idCheckbox" onClick={toggleTheme} />  
                         <div className="slider round"><div className="icon_switch"> <FaSun />  <FaMoon /></div></div>
                 </label>
-
+    
                 { /* Menu Burger */ }
-                        <input type="checkbox"  id="tab-nav" className="tab-nav" />
+                
+                        <input type="checkbox" id="tab-nav" className="tab-nav" />
+                      
                 <label htmlFor="tab-nav" className="label">
+                        <label><p>Menu</p></label>
                         <div id="burg1" className="burger"></div>
                         <div id="burg0" className="burger"></div>
                         <div id="burg2" className="burger"></div>
+                      
                 </label>
-        
+                
                 <ul className="content_nav">
                 
                 <React.Fragment> 
@@ -111,7 +114,7 @@ const Navbar = () => {
                  {state.connexion && (
                 <React.Fragment> 
                    <li> <NavLink to="/Contact">Contact</NavLink></li>
-                   <li> <NavLink to={`/Profil/${user.id}`}>Profil</NavLink></li>
+                   <li> <NavLink to="/Profil">Profil</NavLink></li>
                    <li> <NavLink to="/Logout">Logout</NavLink></li>
                    
                 </React.Fragment> 

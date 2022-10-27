@@ -120,7 +120,7 @@ const Apropos = () => {
                 </li>
             </ul>
         </div> 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.79886246634!2d-1.539228684203889!3d47.16179362659136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805e99f6f8a2b9b%3A0xbc434b249bfb85ef!2sMY%20LITTLE%20LASH!5e0!3m2!1sfr!2sfr!4v1665481975582!5m2!1sfr!2sfr" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2281.192444694553!2d-1.540308567436018!3d47.16156990910864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805e99f22105e1f%3A0xdb981dd078ce26c2!2zQXYuIEZyYW7Dp29pc2UgSMOpcml0aWVyLCA0NDQwMCBSZXrDqQ!5e0!3m2!1sfr!2sfr!4v1666784075667!5m2!1sfr!2sfr" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
             <div> 
             </div>   

@@ -5,6 +5,7 @@ import React from "react"
 import axios from 'axios'
 import { BASE_URL,BASE_IMG } from '../config.js'
 import { NavLink } from "react-router-dom"
+import TopScroll from "./TopScroll"
 
 const AdminProduit = () => {
 
@@ -42,8 +43,8 @@ const AdminProduit = () => {
 
     return(
         
-        <React .Fragment>
-        
+        <React.Fragment>
+        <TopScroll />
         <div className="container_admin">
        
             <div className="container">

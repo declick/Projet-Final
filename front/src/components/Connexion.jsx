@@ -37,9 +37,10 @@ const Connexion = () => {
                     .then((res) => {
                         // si tout ce passe bien :
                         if(res.data.response) {
+                            console.log(res.data)
                             localStorage.setItem('jwtToken', res.data.token)
                             axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token
-                            dispatch({type:CONNEXION})
+                            res.data.user_id && dispatch({type:CONNEXION, payload:res.data.user_id})
                             res.data.admin && dispatch({type:ADMIN})
                             navigate("/")
                         } else {
@@ -47,7 +48,8 @@ const Connexion = () => {
                         }
                     })
                     .catch((err) => {
-                        console.log(err);
+                        console.log(10)
+                        console.log(err)
                     })
                 }
             }
