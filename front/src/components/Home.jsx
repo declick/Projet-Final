@@ -5,7 +5,6 @@ import { BASE_URL,BASE_IMG,config } from '../config.js'
 import {useNavigate} from "react-router-dom"
 import { NavLink } from "react-router-dom"
 import Carousel from "./Carousel"
-import TopScroll from "./TopScroll"
 import {ReducerContext} from "./reducer/reducer"
 import {GrDiamond} from "react-icons/gr"
 
@@ -56,7 +55,7 @@ const images = [
     return(
            
         <React.Fragment>
-        <TopScroll />
+  
             <React.Fragment>
             <section>
             <div className="container">

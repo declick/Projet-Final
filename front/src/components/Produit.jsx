@@ -11,7 +11,6 @@ const Produit = () => {
 
     React.useEffect(()=> {
 
-        // let data = {id: }
         axios.get(`${BASE_URL}/Produit`)
         .then((res) => {
           setProduit(res.data.SQL)
@@ -34,7 +33,7 @@ const Produit = () => {
                         
                     <div className="container_home">
                     
-                        { produit.map((e,i)=>{
+                        {produit.map((e,i)=>{
                             
                                 return ( 
                                 
@@ -46,7 +45,17 @@ const Produit = () => {
                                             </div>
                                             <div className="card_excerpt">
                                             <p> {e.price}  €</p>
-                                            <p> {e.description}</p>
+                                            <a href="#popup1">Let me Pop up</a>
+
+                                            <div id="popup1" className="overlay">
+                                            	<div className="popup">
+                                            		<h2>Here i am</h2>
+                                            		<a className="close" href="#">&times;</a>
+                                            		<div className="content">
+                                            			<p>{e.description}</p>
+                                            		</div>
+                                            		</div>
+                                                </div>
                                             </div>
                                         </div>
                                 </div>

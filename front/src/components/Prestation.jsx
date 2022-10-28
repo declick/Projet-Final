@@ -3,7 +3,6 @@ import {useContext} from "react"
 import axios from 'axios'
 import { BASE_URL,BASE_IMG,config } from '../config.js'
 import {ReducerContext} from "./reducer/reducer"
-import TopScroll from "./TopScroll"
 
 const Prestation = () => {
 
@@ -25,7 +24,7 @@ const Prestation = () => {
         return(
            
             <React.Fragment>
-            <TopScroll />
+            
                 <div className="container">
                     <div className="background">
                     
@@ -49,13 +48,21 @@ const Prestation = () => {
                                             <div className="card_title">
                                             <h3>{e.title}</h3>
                                             </div>
-                                            <div className="card_excerpt ">
-                                            <p>{e.description}</p>
-                                            </div>
+                                            	<a href="#popup1">Let me Pop up</a>
+
+                                                <div id="popup1" className="overlay">
+                                                	<div className="popup">
+                                                		<h2>Here i am</h2>
+                                                		<a className="close" href="#">&times;</a>
+                                                		<div className="content">
+                                                			<p>{e.description}</p>
+                                                		</div>
+                                                	</div>
+                                                </div>
                                         </div>
-                                </div>
-                            )}
-                        })}
+                                    </div>
+                                )}
+                            })}
                            
                          </div>
                     </div>
@@ -83,14 +90,22 @@ const Prestation = () => {
                                             <div className="card_title">
                                             <h3>{e.title}</h3>
                                             </div>
-                                            <div className="card_excerpt">
-                                            <p> {e.description}</p>
+                                            	<a href="#popup1">Let me Pop up</a>
+
+                                                <div id="popup1" className="overlay">
+                                        	    <div className="popup">
+                                        		<h2>Here i am</h2>
+                                        		<a className="close" href="#">&times;</a>
+                                        		<div className="content">
+                                        			<p>{e.description}</p>
+                                        		</div>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                             )}
                         })}
-                        </div>
+                        
                     </div>
                 </div>
                 
@@ -118,13 +133,23 @@ const Prestation = () => {
                                             <div className="card_title">
                                             <h3>{e.title}</h3>
                                             </div>
-                                            <div className="card_excerpt">
-                                            <p> {e.description}</p>
+                                            
+                                            <a href="#popup1">Let me Pop up</a>
+
+                                            <div id="popup1" className="overlay">
+                                            	<div className="popup">
+                                            		<h2>Here i am</h2>
+                                            		<a className="close" href="#">&times;</a>
+                                            		<div className="content">
+                                            			<p>{e.description}</p>
+                                            		</div>
+                                            		</div>
+                                                </div>
                                             </div>
                                         </div>
-                                </div>
-                            )}
-                        })}
+                                    )}
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ const DeletePrestation = (req, res) => {
     
     { /* constante sql pour requete à la bdd*/}
     let selectSql = "SELECT image FROM prestation WHERE id = (?)"
-    let deleteSQL = "DELETE FROM prestation WHERE id = (?)"
+     let deleteSQL = "DELETE FROM prestation WHERE id = (?)"
 
         pool.query(selectSql,[req.params.id], (error, selectResult) => {
             if(error)throw error

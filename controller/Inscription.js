@@ -5,11 +5,13 @@ const SubmitInscriptionController = (req, res) => {
 
     const validRegex = /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/
     const saltRounds = 10
-    
+      const isChecked = true
+      
     let verifSql = "SELECT email FROM user WHERE email = ?"
     
     if(req.body.email.match(validRegex)){
-    if (req.body.prenom.length <= 255 && req.body.nom.length <= 255 && req.body.email.length <= 255 && req.body.mdp.length >= 8) {
+    if (req.body.prenom.length <= 255 && req.body.nom.length <= 255 && req.body.email.length <= 255) {
+         if (req.body.mdp.length >= 8) {
                 pool.query(verifSql, [req.body.email], (err,verifresult) => {
                     if(err) throw err
                         if(verifresult[0]){
@@ -27,6 +29,10 @@ const SubmitInscriptionController = (req, res) => {
                             })
                         }
                 })
+           
+         }else { 
+        res.json({response:false, message:"Merci de mettre plus de caractere"})
+    }  
     }else { 
         res.json({response:false, message:"c'est trop long là garçon !"})
     }

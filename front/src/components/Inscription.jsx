@@ -35,38 +35,38 @@ const Inscription = () => {
                 mdp
             }
 
-              e.preventDefault()
-                if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || mdp.trim() === "" || isChecked === false) {
-                		setErrorMessage("Merci de compléter correctement le formulaire.")
-                }else{
-                  if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255 && mdp.length >= 8){
-                    	
-                      axios.post(`${BASE_URL}/Inscription`, data)
-                      
-                          .then((res) => {
-                              if(res.data.response === true) {
-                              navigate("/Connexion")
-                              } else{
-                              navigate("/Inscription") 
-                              console.log(res)
-                              }
-                          })
-                          .catch((err) => {
-                          console.log(err)
-                          })
-                  }else{
-                    setErrorMessage("Merci de compléter correctement le formulaire.")
-                  }
-                }
-        }
+          e.preventDefault()
+          
+            if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || mdp.trim() === "" || isChecked === false ) {
+        		  setErrorMessage("Merci de ne pas laisser de champ vide.")
+              }else{   
+                if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255 && mdp.length >= 8){
+                  setErrorMessage("Erreur de saisie")
 
+                  axios.post(`${BASE_URL}/Inscription`, data)
+                  
+                      .then((res) => {
+                          if(res.data.response === true) {
+                          navigate("/Connexion")
+                          } else{
+                          navigate("/Inscription") 
+                          console.log(res)
+                          }
+                      })
+                      .catch((err) => {
+                      console.log(err)
+                      })
+                }
+            }
+        }
+        
     return (
         
             <React.Fragment>
             <h1>Inscription</h1>
             
               <div className="center">
-                <form className="form" id="">
+                <form className="formulaire">
                     <label>
                       <div>  
                         <input type="text" placeholder="PRENOM :" name="prenom" maxLength="255" value={prenom} onChange={(e) => setPrenom(e.target.value)} required /> 

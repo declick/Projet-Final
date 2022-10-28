@@ -59,7 +59,7 @@ const Contact = () => {
              <h1>Formulaire de contact</h1>
              
               <div className="center">
-                <form>
+                <form className="formulaire">
 
                     <label>
                       <div>  

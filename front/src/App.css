@@ -71,6 +71,72 @@ CONTAINER
     gap:30px
     
 }
+
+/* *****************************************************************
+popup
+***************************************************************** */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  top: 50px;
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 40%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+.content p {
+  color:#333;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
 /* *****************************************************************
 NAVIGATION
 ***************************************************************** */
@@ -111,6 +177,9 @@ NAVIGATION
 .label{
   display: none;
   color: #fff;
+}
+.label p{
+  color: #333;
 }
 
 .burger{
@@ -223,6 +292,26 @@ NAVIGATION BURGER
     right: 25px;
     z-index: 20;
 }
+.table thead {
+display: none;
+}
+
+.table tr{
+display: block;
+margin-bottom: 40px;
+}
+
+.table td {
+display: block;
+text-align: right;
+}
+
+.table td:before {
+content: attr(data-label);
+float: left;
+font-weight: bold;
+}
+
 }
 /* *****************************************************************
 NAVIGATION ADMIN
@@ -419,22 +508,21 @@ height: 1vh;
 /* *****************************************************************
 FORMULAIRE
 ***************************************************************** */
-form {
+.formulaire {
   width: 45vh;
   padding: 15px;
   background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   
   display: grid;
-  /* align-items: flex-end */
   justify-content: center;
   justify-items: center;
 }
-form a{
-    text-decoration:none;
+.formulaire a{
+  text-decoration:none;
   color:cyan;
 }
-form p{
+.formulaire p{
   display: flex;
 }
 .light a{
@@ -649,8 +737,8 @@ border-radius: 33px;
 /* ********************** Carousel static Home******************************** */
 
 .slideshow2{
-  height: 173px;
-  width: 155px;
+  height: 15rem;
+    width: 15rem;
   border:5px solid #fff;
   box-shadow:0 1px 4px rgba(0,0,0,.4);
   position: relative;
@@ -756,6 +844,17 @@ border-radius: 33px;
 .carousel .rects .active {
   background-color: #c62f2f;
 }
+@media screen and (max-width: 1200px){  
+  .carousel{
+
+ height: 180px;
+  }
+  .carousel .card_container{
+height: 165px;
+  }
+}
+
+
     /* *****************************************************************
 A PROPOS
 ***************************************************************** */
@@ -933,24 +1032,93 @@ Admin
   color: #333;
 }
 .array_admin{
-  min-width: 100vh;
-  min-height: 100vh;
-  margin: 1.5rem;
-}
-table, th, td {
-    border: 1px solid white;
-      border-collapse: collapse;
+ min-width: 100vh;
 }
 .img_admin{
-  height: 15vh;
+  height: 22rem;
+    max-width: 27rem;
+  
 }
 textarea{
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
+}
+
+
+table{
+	
+margin: 1rem auto;
+text-align: center;
+width: 100%;
+max-width: 100%;
+border-collapse: collapse;
+border: 1px solid
 
 }
+	
+	
+
+th,td{padding:8px 0}
+
+tbody tr:nth-child(even) {
+	
+background-color: #ddd
+	
+}
+	
+@media only screen and (max-width: 1200px) {
+		
+table, 
+thead, 
+tbody, 
+th, 
+td, 
+tr{ 
+	
+display: flex;
+    align-items: center;
+    flex-direction: column;
+	
+}
+	
+thead tr { 
+position: absolute;
+top: -9999px;
+left: -9999px;
+}
+ 
+ 
+ 
+td { 
+	
+position: relative;
+white-space: normal;
+	}
+ 
+td:before { 
+	
+position: absolute;
+top: 6px;
+left: 6px;
+width: 45%; 
+padding-right: 10px; 
+font-weight: bold;
+white-space: nowrap;
+text-align:left;
+content: attr(data-title)
+	
+	}
+	
+table {
+    text-align: center;
+    border: 1px solid;
+}
+}
+
+
+
 
 /* *****************************************************************
 PolitiqueDeCookie
@@ -1097,6 +1265,18 @@ FOOTER
   font-size:0.8em;
   color: #333;
 }
-.display:hover{
-  display:hidden;
+
+@media screen and (max-width: 1200px){  
+
+.footer{
+  text-align: center;
+    display: flex;
+    padding: 5px;
+    height: 245px;
+    background-color: grey;
+   justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+  
 }

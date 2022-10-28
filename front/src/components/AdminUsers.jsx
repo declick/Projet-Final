@@ -3,7 +3,6 @@ import React from "react"
 import axios from 'axios'
 import { BASE_URL } from '../config.js'
 import { NavLink } from "react-router-dom"
-import TopScroll from "./TopScroll"
 
 const AdminUsers = () => {
     
@@ -40,10 +39,15 @@ const AdminUsers = () => {
     return(
            
         <React.Fragment>
-        <TopScroll />
+        
             <div className="container">
+            
+            <div className="text_intro">
+                <NavLink to="/Admin">retour</NavLink>
+            </div>  
+            
                 <div className="container_home">
-                         <NavLink to="/Admin">retour</NavLink>
+
                    {user.map((e,i)=>{
                         return(
                 

@@ -5,7 +5,6 @@ import React from "react"
 import axios from 'axios'
 import { BASE_URL,BASE_IMG } from '../config.js'
 import { NavLink } from "react-router-dom"
-import TopScroll from "./TopScroll"
 
 const AdminPrestation = () => {
 
@@ -44,51 +43,39 @@ const AdminPrestation = () => {
     return(
         
         <React.Fragment>
-        <TopScroll />
-        <div className="container_admin">
-       
+
             <div className="container">
             
                <div>
-                <h2 className="title"><u>Administration Prestation</u></h2>
-                <NavLink className="lien_admin" to="/AddPrestation"> -> <u>Ajouter une Prestation</u></NavLink>
+                 <h2 className="title"><u>Administration Prestation</u></h2>
+                    <NavLink className="lien_admin" to="/AddPrestation"> -> <u>Ajouter une Prestation</u></NavLink>
                 </div>
-                 <NavLink to="/Admin">retour</NavLink>
-                <form className="array_admin" action='' method="post">
-                    <table>
-                        <tbody>
-                            <tr>
-                              <td><h3>Categorie</h3></td>
-                              <td><h3>Titre</h3></td>
-                              <td><h3>Images</h3></td>
-                              <td><h3>Description</h3></td>
-                           
-                            </tr>
-                                
-                            {prestation.map((e,i)=>{
-                             
-                                return(
+                
+                <NavLink to="/Admin">retour</NavLink>
                     
+                <form  action='' method="post">
+                    <table>
+                        <caption>Vos Prestation en cours</caption>
+                    <thead>
+                        <tr><th>Categorie</th><th>Titre</th><th>Images</th><th>Description</th></tr>
+                    </thead>
+                        <tbody>
+                            {prestation.map((e,i)=>{
+                                return(
                                     <tr key={i}>
-                                      <td>{e.catetitle}</td>
-                                      <td>{e.title}</td>
-                                      <td><img className="img_admin" src={`${BASE_IMG}/${e.image}`} alt={"image"} /></td>
-                                      <td>{e.description}</td>
-                                      <td> 
-                                      <button type='submit' id="" onClick={(el) => handleDelete(el,e.id)} value='supprimer'>supprimer</button>
-
-                                      <NavLink className="lien_admin" to={`/EditPrestation/${e.id}`}><button className="button"> Modifier  </button></NavLink>
-                                      </td>
+                                    <td>{e.catetitle}</td>
+                                    <td>{e.title}</td>
+                                    <td><img className="img_admin" src={`${BASE_IMG}/${e.image}`} alt={"image"} /></td>
+                                    <td>{e.description}</td>
+                                    <td> <button type='submit' id="" onClick={(el) => handleDelete(el,e.id)} value='supprimer'>supprimer</button></td>
+                                    <td> <NavLink className="lien_admin" to={`/EditPrestation/${e.id}`}><button className="button"> Modifier  </button></NavLink></td>
                                     </tr>
                                 )
-                           })}
-                           
+                            })}
                         </tbody>
                     </table>
                 </form>
             </div>
-        </div>
-
         </React.Fragment>
     ) 
 }

@@ -50,7 +50,7 @@ const Profil = () => {
         .then ((res) =>{
             console.log(res)
             if (res.data.response === true) {
-                 navigate("/")
+                 navigate("/Logout")
             }
         })
         .catch((err) => {
@@ -92,7 +92,7 @@ const Profil = () => {
             
             { profil && 
             
-           <form encType="multipart/form-data" onSubmit={submitForm} action='' method='post'>
+           <form encType="multipart/form-data" onSubmit={submitForm} className="formulaire" action='' method='post'>
                     <label>
                       <div> <input type="text" name="prenom" placeholder="prenom" value={profil.prenom} onChange={(e) => handleChange(e,'prenom')} required /> </div>
                     </label>
@@ -106,11 +106,11 @@ const Profil = () => {
                     </label>
   
                     <label>
-                          <button type="submit">Modifier le profil</button>
+                          <input type="submit" value="Modifier le profil" />
                     </label>
 
                      <label > 
-                          <button type='submit' id="" onClick={(e) => handleDelete(e,state.id)} value='supprimer'>supprimer</button>
+                           <input type="submit" id="del" onClick={(e) => handleDelete(e,state.id)} value="supprimer" />
                       </label>  
                 </form>
             }

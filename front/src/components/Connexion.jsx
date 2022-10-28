@@ -61,7 +61,7 @@ const Connexion = () => {
             <React.Fragment>
             <h1>Connexion</h1>
             <div className="center">
-               <form>
+               <form className="formulaire">
                 <label>
                   <div> 
                   <input type="email" placeholder="@EMAIL :" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required /> 

@@ -67,41 +67,43 @@ const EditPrestation = () => {
 
     return(
         <React.Fragment>
+        
             <div className="container_home">
                  <div className="container">
+                 
                     <NavLink to="/Admin">retour</NavLink>
-                    <h2><u>Editer une prestation</u></h2>
-                    { prestation.title && 
-                        <form encType="multipart/form-data" onSubmit={submitForm}  >
-
-                                <label>Titre :</label>
-                                <input name='title' id='text' value={prestation.title} type='text' onChange={(e)=>handleChange(e,'title')} />
-
-                                    <label htmlFor='fileUpload'>Image</label>
-                                    <input type="file" name="fichier" />
-                                 
-                                <div>
-                                    <label htmlFor="msg">prestation :</label>
-                                    <textarea name="description" id="text" type="text" rows="5" cols="33" value={prestation.description} onChange={(e)=> handleChange(e,'description')}></textarea>
-                                </div> 
-                                <div> 
-                                    <label htmlFor="categories">Choisie une categorie:</label>
-                                    <select name="categorie_id" id="categories_id" value={prestation.categorie_id} onChange ={(e)=>handleChange(e, 'categorie_id')}>
-                                        <option value="">--Merci de choisir une categorie--</option>
-                                        <option value={1}>Extensions des cils</option>
-                                        <option value={2}>Rehaussement de cils</option>
-                                        <option value={3}>Sourcils et brow lift</option>
-                                    </select>
-                                    <div className="button">
-                                        <button type="submit">Envoyer le message</button>
-                                    </div>
-                                </div>
-    
+                    
+                     <h2><u>Editer une prestation</u></h2>
+                     
+                      {prestation.title && 
+                      
+                        <form encType="multipart/form-data" onSubmit={submitForm}>
+                        
+                            <label>Titre :</label>
+                            <input name='title' id='text' value={prestation.title} type='text' onChange={(e)=>handleChange(e,'title')} />
+                             
+                            <label htmlFor='fileUpload'>Image</label>
+                            <input type="file" name="fichier" />
                             
+                            <div>
+                                <label htmlFor="msg">prestation :</label>
+                                <textarea name="description" id="text" type="text" rows="5" cols="33" value={prestation.description} onChange={(e)=> handleChange(e,'description')}></textarea>
+                            </div> 
+                            <div> 
+                                <label htmlFor="categories">Choisie une categorie:</label>
+                                <select name="categorie_id" id="categories_id" value={prestation.categorie_id} onChange ={(e)=>handleChange(e, 'categorie_id')}>
+                                    <option value="">--Merci de choisir une categorie--</option>
+                                    <option value={1}>Extensions des cils</option>
+                                    <option value={2}>Rehaussement de cils</option>
+                                    <option value={3}>Sourcils et brow lift</option>
+                                </select>
+                                <div className="button">
+                                    <button type="submit">Envoyer le message</button>
+                                </div>
+                            </div>
                         </form>
-                    }
+                      }
                </div>
-            
             </div>
         </React.Fragment>
     )
