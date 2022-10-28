@@ -10,7 +10,7 @@ const Produit = () => {
     const [produit, setProduit] = React.useState([])
 
     React.useEffect(()=> {
-        axios.defaults.timeout = 5000
+
         // let data = {id: }
         axios.get(`${BASE_URL}/Produit`)
         .then((res) => {

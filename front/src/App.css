@@ -202,7 +202,6 @@ NAVIGATION BURGER
     }
 
 .content_nav{
-
   display: grid;
   grid-column: 1/4;
   text-align: center;
@@ -211,8 +210,6 @@ NAVIGATION BURGER
   overflow: hidden;
   transition: all ease-in-out 0.6s;
 }
-
-
 .nav_checkbox input:checked ~ .content_nav{
   max-height: 1280px;
 }
@@ -1099,4 +1096,7 @@ FOOTER
 .reseaux p {
   font-size:0.8em;
   color: #333;
+}
+.display:hover{
+  display:hidden;
 }

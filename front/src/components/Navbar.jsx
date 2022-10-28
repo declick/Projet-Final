@@ -69,61 +69,56 @@ const Navbar = () => {
             }
         },[])
 
+
     return(
         
         <React.Fragment> 
             <nav className="nav_checkbox">
-                
                 <div>
                     <NavLink to="/"><img className="logo_noir" src="../image/noir.png" alt="Logo MyLittleLashes"></img></NavLink>
-                    <NavLink to="/"><img className="logo_blanc" src="../image/blanc.jpg" alt="Logo MyLittleLashes"></img></NavLink>
+                     <NavLink to="/"><img className="logo_blanc" src="../image/blanc.jpg" alt="Logo MyLittleLashes"></img></NavLink>
                 </div>
 
-                <label className="switch">
-                    { /* bouton qui bascule entre les modes clair et sombre */ }
-                    <div className={`App ${theme}`}></div>
-                        { /*  inclut une fonction toggleTheme pour changer la variable d'état du thème entre clair et sombre */ }
-                        <input type="checkbox" id="idCheckbox" onClick={toggleTheme} />  
-                        <div className="slider round"><div className="icon_switch"> <FaSun />  <FaMoon /></div></div>
-                </label>
-    
+                    <label className="switch">
+                        { /* bouton qui bascule entre les modes clair et sombre */ }
+                        <div className={`App ${theme}`}></div>
+                            { /*  inclut une fonction toggleTheme pour changer la variable d'état du thème entre clair et sombre */ }
+                            <input type="checkbox" id="idCheckbox" onClick={toggleTheme} />  
+                            <div className="slider round"><div className="icon_switch"> <FaSun />  <FaMoon /></div></div>
+                    </label>
+
                 { /* Menu Burger */ }
                 
-                        <input type="checkbox" id="tab-nav" className="tab-nav" />
-                      
+                <input type="checkbox" id="tab-nav" className="tab-nav" />
                 <label htmlFor="tab-nav" className="label">
-                        <label><p>Menu</p></label>
-                        <div id="burg1" className="burger"></div>
-                        <div id="burg0" className="burger"></div>
-                        <div id="burg2" className="burger"></div>
-                      
+                    <label><p>Menu</p></label>
+                     <div id="burg1" className="burger"></div>
+                      <div id="burg0" className="burger"></div>
+                       <div id="burg2" className="burger"></div>
                 </label>
                 
                 <ul className="content_nav">
-                
                 <React.Fragment> 
                     { /* NavLink doit matcher avec le path définit dans le composant Route */ }
-                   <li> <NavLink to="/">Accueil</NavLink></li>
-                   <li> <NavLink to="/Prestation">Préstation</NavLink></li>
-                   <li> <NavLink to="/Produit">Produit</NavLink></li>
-                   <li> <NavLink to="/Apropos">A propos</NavLink></li>
-                   <li> <NavLink to="/Reserver">Rendez-vous</NavLink></li>
-                   {!state.connexion && 
-                   <li> <NavLink to="/Connexion">Connexion</NavLink></li> }
+                   <li> <NavLink to="/" >Accueil</NavLink></li>
+                    <li> <NavLink to="/Prestation">Préstation</NavLink></li>
+                     <li> <NavLink to="/Produit" >Produit</NavLink></li>
+                      <li> <NavLink to="/Apropos" >A propos</NavLink></li>
+                       <li> <NavLink to="/Reserver">Rendez-vous</NavLink></li>
+                    {!state.connexion && 
+                        <li> <NavLink to="/Connexion" >Connexion</NavLink></li> }
                 </React.Fragment> 
-                 {state.connexion && (
+                    {state.connexion && (
                 <React.Fragment> 
-                   <li> <NavLink to="/Contact">Contact</NavLink></li>
-                   <li> <NavLink to="/Profil">Profil</NavLink></li>
-                   <li> <NavLink to="/Logout">Logout</NavLink></li>
-                   
+                   <li> <NavLink to="/Contact" >Contact</NavLink></li>
+                    <li> <NavLink to="/Profil" >Profil</NavLink></li>
+                     <li> <NavLink to="/Logout">Logout</NavLink></li>
                 </React.Fragment> 
-                )}{state.admin && (
+                    )}{state.admin && (
                 <React.Fragment> 
                    <li> <NavLink to="/Admin">Admin</NavLink></li>
                 </React.Fragment>
-                )}
-                
+                    )}
                 </ul>
             </nav>
         </React.Fragment>

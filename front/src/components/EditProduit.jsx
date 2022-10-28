@@ -15,8 +15,7 @@ const EditProduit = (req, res) => {
     
             // Affichage Produit
     React.useEffect((id)=> {
-        
-        axios.defaults.timeout = 5000
+    
         axios.get(`${BASE_URL}/EditProduit/${params.id}`)
         
         .then((res) => {

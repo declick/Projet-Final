@@ -1,4 +1,4 @@
-import {useContext} from "react"
+import {useContext, useEffect} from "react"
 import React from "react"
 import axios from 'axios'
 import { BASE_URL,BASE_IMG,config } from '../config.js'
@@ -12,12 +12,12 @@ import {GrDiamond} from "react-icons/gr"
 
 const Home = () => {
 
-          const [state, dispatch] = React.useContext(ReducerContext)
     const navigate = useNavigate()
-    
+
+    const [state, dispatch] = React.useContext(ReducerContext)
+
     const [user,setUser] = React.useState('')
     const [prestation, setPrestation] = React.useState([])
-    const [produit, setProduit] = React.useState([])
     
     const handleClick = (e) => {
         e.preventDefault()
@@ -28,7 +28,6 @@ const Home = () => {
         e.preventDefault()
         navigate('/Produit')
     }
-    
      React.useEffect(()=> {
         
         axios.get(`${BASE_URL}/Home`)
@@ -58,6 +57,7 @@ const images = [
            
         <React.Fragment>
         <TopScroll />
+            <React.Fragment>
             <section>
             <div className="container">
                 <div className="container_home">
@@ -71,7 +71,9 @@ const images = [
                 </div>
             </div>      
             </section>
+            </React.Fragment>
             
+            <React.Fragment>
             <section>
             <div className="container_intro">
                 <div className="text_intro">
@@ -90,7 +92,9 @@ const images = [
                 </div> 
             </div> 
             </section>
+            </React.Fragment>
             
+            <React.Fragment>
             <section>
             <div className="background_slide">
                 <div className="text_intro">
@@ -107,7 +111,7 @@ const images = [
                             return(
                             
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -121,7 +125,7 @@ const images = [
                             return(
                             
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -134,7 +138,7 @@ const images = [
                         if(e.categorie_id === 3){  
                             return(
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt={"image"} /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -147,7 +151,9 @@ const images = [
                 </div> 
             </div>  
             </section>
+            </React.Fragment>
             
+            <React.Fragment>
             <section>
             <div className="background">
             <div className="text_intro">
@@ -178,20 +184,7 @@ const images = [
                             <GrDiamond />
                             <div className="text_intro">
                                 <p>bnlbalbalbalbalblabla</p>
-                            </div>
-                        </div>
-                            <div className="text_qualiter">
-                                <GrDiamond />
-                                <div className="text_intro">
-                                    <p>bnlbalbalbalbalblabla</p>
-                            </div>
-                        </div>
-                    </div>   
-
-                <div className="container_home">
-                        <div className="text_qualiter">
-                            <GrDiamond />
-                            <div className="text_intro">
+                                <p>bnlbalbalbalbalblabla</p>
                                 <p>bnlbalbalbalbalblabla</p>
                             </div>
                         </div>
@@ -199,11 +192,33 @@ const images = [
                                 <GrDiamond />
                                 <div className="text_intro">
                                     <p>bnlbalbalbalbalblabla</p>
+                                    <p>bnlbalbalbalbalblabla</p>
+                                    <p>bnlbalbalbalbalblabla</p>
+                            </div>
+                        </div>
+                    </div>   
+                <div className="container_home">
+                        <div className="text_qualiter">
+                            <GrDiamond />
+                            <div className="text_intro">
+                                <p>bnlbalbalbalbalblabla</p>
+                                <p>bnlbalbalbalbalblabla</p>
+                                <p>bnlbalbalbalbalblabla</p>
+                            </div>
+                        </div>
+                            <div className="text_qualiter">
+                                <GrDiamond />
+                                <div className="text_intro">
+                                    <p>bnlbalbalbalbalblabla</p>
+                                    <p>bnlbalbalbalbalblabla</p>
+                                    <p>bnlbalbalbalbalblabla</p>
                             </div>
                         </div>
                     </div>   
             </section>
-             
+        </React.Fragment>    
+            
+        <React.Fragment>     
             <section>
                 <div className="background_slide">
                     <div className="text_intro">
@@ -218,15 +233,24 @@ const images = [
                  </div>    
                 </div>  
             </section>
-        
+        </React.Fragment>    
+            
+        <React.Fragment>
             <section>
-                <div> 
+                <div className="container_home"> 
                     <div className="text_intro">
-                    <p>dsf</p>
-                     </div> 
+                        <h2>RESERVEZ VOTRE PRESTATION</h2>
+                        <div className="background_slide">
+                            <fieldset>
+                                <div className="container_intro"> 
+                                    <NavLink to="/Reserver"><button type="submit">Prendre Rendez-Vous</button></NavLink>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
                 </div> 
             </section> 
-             
+        </React.Fragment>     
              
                 
         </React.Fragment>

@@ -9,12 +9,11 @@ const SubmitInscriptionController = (req, res) => {
     let verifSql = "SELECT email FROM user WHERE email = ?"
     
     if(req.body.email.match(validRegex)){
-    if (req.body.prenom.length <= 255 && req.body.nom.length <= 255 && req.body.email.length <= 255){
-            
+    if (req.body.prenom.length <= 255 && req.body.nom.length <= 255 && req.body.email.length <= 255 && req.body.mdp.length >= 8) {
                 pool.query(verifSql, [req.body.email], (err,verifresult) => {
                     if(err) throw err
                         if(verifresult[0]){
-                            res.json({response:false,message:"error"})
+                            res.json({response:false,message:"error mail"})
                         } else {
                            
                              let sql = "INSERT INTO user (role_id, prenom, nom, email, mdp, registration_date) VALUES (2,?,?,?,?,?)"
@@ -33,6 +32,6 @@ const SubmitInscriptionController = (req, res) => {
     }
     }else{
         res.json({response:false, message:"c'est quoi cette adresse chelou ?"})
-    }    
+    } 
 }
 export default SubmitInscriptionController

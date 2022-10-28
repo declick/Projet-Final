@@ -13,7 +13,7 @@ const AdminProduit = () => {
         
         // Affichage Prestation
         React.useEffect(()=> {
-            axios.defaults.timeout = 5000
+    
             axios.get(`${BASE_URL}/AdminProduit`)
             
             .then((res) => {
@@ -27,8 +27,7 @@ const AdminProduit = () => {
         // Suppression Prestation
         const handleDelete =(e,id) => {
         e.preventDefault()
- 
-            axios.default.timeout = 5000
+
             axios.post(`${BASE_URL}/AdminProduit/${id}`)
             
             .then((res) =>{

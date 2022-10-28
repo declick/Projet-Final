@@ -104,15 +104,14 @@ const Profil = () => {
                      <label>
                       <div> <input type="email" name="email" placeholder="email" value={profil.email} onChange={(e) => handleChange(e,'email')} required /> </div>
                     </label>
-    
+  
                     <label>
                           <button type="submit">Modifier le profil</button>
                     </label>
-                    
+
                      <label > 
                           <button type='submit' id="" onClick={(e) => handleDelete(e,state.id)} value='supprimer'>supprimer</button>
                       </label>  
-                      
                 </form>
             }
             </div>

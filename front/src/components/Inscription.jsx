@@ -17,23 +17,29 @@ const Inscription = () => {
     const [mdp, setMdp] = React.useState("")
     
     const [errorMessage, setErrorMessage] = React.useState("")
-
+    
+   const [isChecked, setIsChecked] = React.useState(false)
+   
+   const handleOnChange = () => {
+        setIsChecked(!isChecked)
+    }
+   
         { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
+
         const submit = (e) => {
-          
+
             const data= { 
                 prenom,
                 nom,
                 email,
                 mdp
             }
-            
+
               e.preventDefault()
-                if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || mdp.trim() === "") {
+                if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || mdp.trim() === "" || isChecked === false) {
                 		setErrorMessage("Merci de compléter correctement le formulaire.")
                 }else{
-                  if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255){
-                    	setErrorMessage("Merci de compléter correctement le formulaire.")
+                  if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255 && mdp.length >= 8){
                     	
                       axios.post(`${BASE_URL}/Inscription`, data)
                       
@@ -48,13 +54,12 @@ const Inscription = () => {
                           .catch((err) => {
                           console.log(err)
                           })
+                  }else{
+                    setErrorMessage("Merci de compléter correctement le formulaire.")
                   }
                 }
-        
         }
-        
- 
-   
+
     return (
         
             <React.Fragment>
@@ -82,6 +87,7 @@ const Inscription = () => {
                     
                     <label>
                       <div>
+                          <p>minimum 8 caratcteres</p>
                         <input type="password" placeholder="MOT DE PASSE :" name="mdp" minLength="8" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
                       </div>
                     </label>
@@ -90,14 +96,15 @@ const Inscription = () => {
                           <input type="submit" onClick={submit} value="Envoyer" />
                      </label>
                      
-                      <label>
+                      <label >
                         <div>
-                          <input type="checkbox" value="checkbox" name="" />  Lire et accepter les <NavLink to="/MentionsLegales" target="_blank">Mentions Légales</NavLink>
+                          <input type="checkbox"  className="checkbox" value={isChecked} onChange={handleOnChange} />  Lire et accepter les <NavLink to="/MentionsLegales" target="_blank">Mentions Légales</NavLink>
                        </div>
                     </label> 
-                   
              
-                          <label><p>Dejà membre ?  <NavLink to='/Connexion'>  Connectez vous ici.</NavLink></p></label>
+                      <label>
+                        <p>Dejà membre ?  <NavLink to='/Connexion'>  Connectez vous ici.</NavLink></p>
+                      </label>
                
                      
                    <h3>{errorMessage}</h3>
@@ -105,6 +112,7 @@ const Inscription = () => {
                 </form> 
                 </div>
             </React.Fragment>
+     
     )
 }
 

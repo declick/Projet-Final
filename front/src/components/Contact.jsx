@@ -24,13 +24,14 @@ const Contact = () => {
                 email,
                 text,
                 captcha
-            }          
-
+            }   
+            
+            e.preventDefault()
              if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || text.trim() === "" || captcha ==="") {
                 setErrorMessage("Merci de compléter correctement le formulaire.")
                 }else{
                   if (prenom.length <= 30 && nom.length <= 30 && email.length <= 50 && text.length >= 1 && captcha == 20){
-                    setErrorMessage("Merci de compléter correctement le formulaire.")
+                    setErrorMessage("Message envoyer")
                     
                       axios.defaults.timeout = 5000
                       axios.post(`${BASE_URL}/Contact`, data)
@@ -46,6 +47,8 @@ const Contact = () => {
                           .catch((err) => {
                           console.log(err)
                           })
+                  }else{
+                    setErrorMessage("Merci de compléter correctement le formulaire.")
                   }
                 }
      }
