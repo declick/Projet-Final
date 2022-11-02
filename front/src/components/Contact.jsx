@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import { BASE_URL,config } from '../config.js'
+import { BASE_URL } from '../config.js'
 import { useNavigate } from 'react-router-dom'
 
 const Contact = () => {
@@ -30,10 +30,9 @@ const Contact = () => {
              if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || text.trim() === "" || captcha ==="") {
                 setErrorMessage("Merci de compléter correctement le formulaire.")
                 }else{
-                  if (prenom.length <= 30 && nom.length <= 30 && email.length <= 50 && text.length >= 1 && captcha == 20){
+                  if (prenom.length <= 30 && nom.length <= 30 && email.length <= 50 && text.length >= 1 && text.length <= 500 && captcha == 20 ){
                     setErrorMessage("Message envoyer")
                     
-                      axios.defaults.timeout = 5000
                       axios.post(`${BASE_URL}/Contact`, data)
                       
                           .then((res) => {
@@ -69,7 +68,7 @@ const Contact = () => {
                     
                     <label>
                       <div>  
-                        <input type="text" placeholder="NOM :" maxLength="30"  value="" value={nom} onChange={(e) => setNom(e.target.value)} required />
+                        <input type="text" placeholder="NOM :" maxLength="30" value="" value={nom} onChange={(e) => setNom(e.target.value)} required />
                       </div>
                     </label>
                     
@@ -81,7 +80,8 @@ const Contact = () => {
                     
                     <label>
                       <div>
-                        <textarea type="text" placeholder="ENTREZ VOTRE TEXTE ..." value={text} onChange={(e) => setText(e.target.value)} required /> 
+                        <p>maximum 500 caratcteres</p>
+                        <textarea type="textarea" maxLength="500" placeholder="ENTREZ VOTRE TEXTE ..." value={text} onChange={(e) => setText(e.target.value)} required /> 
                       </div>
                     </label>
                     

@@ -12,7 +12,8 @@ const EditPrestation = () => {
     const params = useParams()
     const [image, setImage] = React.useState('')
     const [prestation, setPrestation] = React.useState({})
-
+    const [errorMessage, setErrorMessage] = React.useState("")
+    
         // Affichage Prestation
     React.useEffect((id)=> {
         
@@ -32,6 +33,7 @@ const EditPrestation = () => {
    // Update Prestation
     const submitForm = (e) => {
         e.preventDefault()
+
         const dataFile = new FormData()
         const files = {...e.target.fichier.files}
         
@@ -41,9 +43,15 @@ const EditPrestation = () => {
         dataFile.append('id',params.id)
         if(files[0]){
             
-            dataFile.append('files', files[0], files[0].name)
+        dataFile.append('files', files[0], files[0].name)
         }
         
+                
+         if (prestation.description >= 1 && prestation.description <= 500 ) {
+        setErrorMessage("Il manque un titre, une description ou un prix")
+        }else{
+            
+            
         axios.post(`${BASE_URL}/EditPrestation/${params.id}`, dataFile)
         
         .then ((res) =>{
@@ -55,6 +63,7 @@ const EditPrestation = () => {
         .catch((err) => {
             console.log(err)
         })
+        }
     }
     
     const handleChange = (e,type) => {
@@ -71,36 +80,48 @@ const EditPrestation = () => {
             <div className="container_home">
                  <div className="container">
                  
-                    <NavLink to="/Admin">retour</NavLink>
+                    <NavLink to="/Admin">RETOUR</NavLink>
                     
                      <h2><u>Editer une prestation</u></h2>
                      
-                      {prestation.title && 
+                      {prestation && 
                       
-                        <form encType="multipart/form-data" onSubmit={submitForm}>
-                        
-                            <label>Titre :</label>
-                            <input name='title' id='text' value={prestation.title} type='text' onChange={(e)=>handleChange(e,'title')} />
-                             
-                            <label htmlFor='fileUpload'>Image</label>
-                            <input type="file" name="fichier" />
-                            
+                        <form encType="multipart/form-data" onSubmit={submitForm} action='' method='post'>
+                          <fieldset>
+                          
                             <div>
-                                <label htmlFor="msg">prestation :</label>
-                                <textarea name="description" id="text" type="text" rows="5" cols="33" value={prestation.description} onChange={(e)=> handleChange(e,'description')}></textarea>
-                            </div> 
-                            <div> 
+                             <label>Titre</label>
+                            <input type='text' maxLength="255" name='title' value={prestation.title} onChange={(e)=>handleChange(e,'title')} />
+                             </div>
+                             
+                            <div>
+                                <label htmlFor='fileUpload'>Image</label>
+                                <input type="file" name="fichier" />
+                           </div>
+                           
+                                <div>
+                                <label htmlFor="msg">prestation :
+                                <p>maximum 500 caratcteres</p>
+                                </label>
+                                <textarea name="description" maxLength="500" id="text" type="textarea" rows="5" cols="33" value={prestation.description} onChange={(e)=> handleChange(e,'description')}></textarea>
+                                </div>
+                                
+                                <div>
                                 <label htmlFor="categories">Choisie une categorie:</label>
                                 <select name="categorie_id" id="categories_id" value={prestation.categorie_id} onChange ={(e)=>handleChange(e, 'categorie_id')}>
                                     <option value="">--Merci de choisir une categorie--</option>
-                                    <option value={1}>Extensions des cils</option>
-                                    <option value={2}>Rehaussement de cils</option>
-                                    <option value={3}>Sourcils et brow lift</option>
+                                    <option value={1}>Extension cil à cil</option>
+                                    <option value={2}>Extension mixte</option>
+                                    <option value={3}>Extension volume</option>
+                                    <option value={4}>Extension effet wet</option>
+                                    <option value={5}>Rehaussement de cil</option>
+                                    <option value={6}>Brow lift</option>
                                 </select>
-                                <div className="button">
-                                    <button type="submit">Envoyer le message</button>
                                 </div>
-                            </div>
+                                <div>
+                                    <button type="submit">Envoyer le message</button>
+                            </div> 
+                            </fieldset>
                         </form>
                       }
                </div>

@@ -13,7 +13,7 @@ import HomeController from './controller/Home.js'
 import PrestationController from './controller/Prestation.js'
 import ProduitController from './controller/Produit.js'
 
-import Admin from './controller/Admin.js'
+import Adminmess from './controller/Admin.js'
 
 import {PrestationControllerAdmin,DeletePrestation} from './controller/AdminPrestation.js'
 import AddPrestationController from './controller/AddPrestation.js'
@@ -77,7 +77,7 @@ router.post("/api/Connexion",SubmitConnectionController)
 //** ----------------------------------------------------------------------- **/
 
 //** route Admin **/
-router.get("/api/Admin",Admin)
+router.get("/api/Admin",Adminmess)
 
 //** route GET Prestation **/
 router.get("/api/AdminPrestation", PrestationControllerAdmin)

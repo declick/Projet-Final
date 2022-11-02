@@ -5,6 +5,7 @@ import {ReducerContext} from "./reducer/reducer"
 import {CONNEXION,ADMIN} from './config/constance.js'
 import { useNavigate } from 'react-router-dom'
 import { NavLink } from "react-router-dom"
+import {AiOutlineEyeInvisible,AiOutlineEye} from "react-icons/ai"
 
 const Connexion = () => {
    
@@ -13,6 +14,8 @@ const Connexion = () => {
     const [email, setEmail] = React.useState("")
     const [mdp, setMdp] = React.useState("")
     const [state, dispatch] = useContext(ReducerContext)
+    
+    const [showmdp, setShowmdp] = React.useState(false)
     
     const [errorMessage, setErrorMessage] = React.useState("")
 
@@ -55,34 +58,39 @@ const Connexion = () => {
             }
     }
             
+            const showMdp = (e) => {
+                e.preventDefault()
+                setShowmdp(!showmdp)
+            }
     
     return(
         
             <React.Fragment>
-            <h1>Connexion</h1>
+                <h1>Connexion</h1>
             <div className="center">
-               <form className="formulaire">
-                <label>
-                  <div> 
-                  <input type="email" placeholder="@EMAIL :" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required /> 
-                  </div>
-                </label>
-            
-                <label>
-                  <div>
-                  <input type="password" placeholder="MOT DE PASSE :" name="mdp" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
-                  </div>
-                </label>
-                
-                <label>
-                       <input type="submit" onClick={submit} value="Valider" />
-                </label>
-                
-                 <label><p>Pas encore membre ? <NavLink to='/Inscription'>Crée un compte ici.</NavLink></p></label>
-                 
-                <h3>{errorMessage}</h3>
-                
-                </form>
+                   <form className="formulaire">
+                   
+                      <div> 
+                        <input type="email" placeholder="@EMAIL :" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required /> 
+                      </div>
+
+                      <div>
+                          <input type={showmdp ? "text" : "password"} placeholder="MOT DE PASSE :" name="mdp" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
+                          </div> <div>
+                          <button className="button_look" onClick={showMdp} > {showmdp ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</button>
+                      </div>
+
+                        <div>
+                        <input type="submit" onClick={submit} value="Valider" />
+                        </div>
+                        
+                    <label>
+                        Pas encore membre ? <NavLink to='/Inscription'><u>Crée un compte ici.</u></NavLink>
+                    </label>
+                     
+                    <h3>{errorMessage}</h3>
+                    
+                    </form>
                 </div>
             </React.Fragment>
     )

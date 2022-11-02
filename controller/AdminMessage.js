@@ -20,9 +20,9 @@ const DeleteMessageController = (req, res) => {
     
     pool.query(deleteMessage, [req.params.id], (err, deleteResult) => {
         if (err) throw err
-        if (deleteResult) {
-            res.json({response: true, message: "suppression réussie", DELETE:deleteResult})
-        }
+            if (deleteResult) {
+                res.json({response: true, message: "suppression réussie", DELETE:deleteResult})
+            }
     })
 }
     

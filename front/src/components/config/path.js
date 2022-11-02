@@ -12,8 +12,7 @@ import Reserver from "../Reserver"
 import PageNotFound from "../PageNotFound"
 
 import MentionsLegales from "../MentionsLegales"
-import ProtectionDesDonneesPersonnelles from "../ProtectionDesDonneesPersonnelles"
-import PolitiqueDeCookie from "../PolitiqueDeCookie"
+import PolitiqueDeDonnees from "../PolitiqueDeDonnees"
 
 import Admin from "../Admin"
 
@@ -60,13 +59,14 @@ export const routes = [
     { path:'*', element:<PageNotFound /> },
     
     { path:'/MentionsLegales', element:<MentionsLegales /> },
-    { path:'/ProtectionDesDonneesPersonnelles', element:<ProtectionDesDonneesPersonnelles /> },
-    { path:'/PolitiqueDeCookie', element:<PolitiqueDeCookie /> }
+    { path:'/PolitiqueDeDonnees', element:<PolitiqueDeDonnees /> }
 ]
 
 // route reserver au personne connecter
 export const userPath = [
-    '/Profil'
+    '/Profil',
+    '/Logout',
+    '/Contact'
 ]
 
 // route resserver au personne connecter en admin

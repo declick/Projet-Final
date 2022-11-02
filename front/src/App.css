@@ -21,11 +21,12 @@ TOOLS
 }
 
 html {
+   scroll-behavior: smooth;
 	font-size: 62.5%; /* 1rem = 10px (la formule est 10/16*100) la taille par défaut étant 16px */
 }
 
 body {
-   
+
   background:#dee1e2;
   min-height : 100vh;
   overflow-x: hidden;
@@ -34,6 +35,7 @@ body {
 h1{
   display: flex;
   justify-content: center;
+  text-align: center;
    letter-spacing: 0.3em;
 }
 h2{
@@ -71,9 +73,13 @@ CONTAINER
     gap:30px
     
 }
+.container_qualiter{
+ padding:33px;
+    
+}
 
 /* *****************************************************************
-popup
+POPUP
 ***************************************************************** */
 
 .overlay {
@@ -93,7 +99,7 @@ popup
 }
 
 .popup {
-  top: 50px;
+  top: 80px;
   margin: 70px auto;
   padding: 20px;
   background: #fff;
@@ -128,13 +134,152 @@ popup
 .content p {
   color:#333;
 }
+.dark .content p {
+  color:#333;
+}
 
 @media screen and (max-width: 700px){
   .box{
     width: 70%;
   }
   .popup{
-    width: 70%;
+
+    width: 90%;
+    top: 0;
+  }
+}
+/* *****************************************************************
+BUTTON
+***************************************************************** */
+	button {
+			color: #000000;
+			background-color: #ffffff;
+			border: -1px solid #ffffff;
+			padding: 7px 25px;
+			letter-spacing: 3px;
+			cursor: pointer
+		}
+		button:hover {
+			color: #ffffff;
+			background-color: #000000;
+		}
+.dark			button {
+		  
+			color: #ffffff;
+			background-color: #000000;
+		}
+.dark	button:hover {
+  	color: #000000;
+			background-color: #ffffff;
+			border: -1px solid #ffffff;
+			padding: 7px 25px;
+			letter-spacing: 3px;
+			cursor: pointer
+
+		}
+		
+	
+/* **********************************	 buton RDV HOME ************************************* */		
+		.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+position: relative;
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  box-shadow: 0px 5px 20px #999;
+
+  }
+
+.button::before {
+content: '';
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #000000;
+  box-shadow: 0 0 60px rgba(0,0,0,.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button:hover, .button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.button:hover::before, button:focus::before {
+  opacity: 1;
+}
+
+.button::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #000000;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+button:hover::after, button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* *****************************************************************
+TEXTE DEFILEMENT HEADER
+***************************************************************** */		
+	
+.marquee_header {
+  overflow: hidden;
+  max-width: 30em; 
+}
+.marquee_header > p {
+  color:red;
+  display: inline-block; 
+  white-space: nowrap; 
+  animation: defilement_header 25s infinite linear; /* défilement */
+  cursor: pointer;
+  letter-spacing: 2px;
+  padding: 10px 2em 10px 100%;
+}
+.marquee_header:hover > p {
+  animation-play-state: paused; /* met en pause le défilement */
+}
+.dark .marquee_header > p {
+  color:red;
+}
+@keyframes defilement_header {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  100% {
+    -webkit-transform: translate(-100%);
+    transform: translate(-100%);
   }
 }
 /* *****************************************************************
@@ -143,7 +288,7 @@ NAVIGATION
 
 .nav_checkbox{
   position: sticky;
-    top: 0;
+  top: 0;
   display: grid;
   align-items: center;
   justify-items: end;
@@ -319,11 +464,8 @@ NAVIGATION ADMIN
 .sidebar{
   width: 31vh;
     height: auto;
-  background-color:grey;
 }
-.light .sidebar u{
-  color:white;
-}
+
 .sidebar a{
   text-decoration: none;
   color: #333;
@@ -431,13 +573,13 @@ color:white;
 .dark .burger{
   background-color: #fff;
 }
-.dark td {
-    border: 1px solid white;
-      border-collapse: collapse;
-}
 .dark .lien_admin{
   text-decoration:none;
    color: #fff; 
+}
+.light .lien_admin{
+  text-decoration:none;
+   color: #333; 
 }
 .light {
   background-color: #fff;
@@ -462,12 +604,15 @@ color:white;
 CARD HOME / PRESTATION
 ***************************************************************** */
 .card {
-  display: inline-block;
-  width: 27vh;
-  height: 56vh;
+  display: flex;
+  align-items: center;
+ flex-direction: column;
+  width: 23vh;
+  height: 31vh;
   margin: 0px auto;
-  box-shadow: 0px 5px 20px #999;
-  margin: 33px;
+  border-radius: 33px;
+  
+  margin:13px;
 }
 
 .card:hover .card_image .img { /*6*/
@@ -475,13 +620,10 @@ CARD HOME / PRESTATION
   filter: grayscale(0);
 }
 .card_image > img {
-height: 56vh;
-width: 27vh;
-  
+width: 23vh;
+     box-shadow: 0px 5px 20px #999;
 }
-.card_image {
-height: 1vh;
-}
+
 .card_image .img {
   width: 150%;/*4*/
     /*5 - Méthode de centrage en fonction de la taille de l'image */
@@ -497,14 +639,14 @@ height: 1vh;
 }
 .card_body {
     text-align:center;  /*1*/
-  padding: 15px 20px; /*2*/
   box-sizing: border-box; /*3*/
+  width: 170px;
 }
 .card_button{
   margin-bottom: 10px;
 }
-
-
+@media screen and (max-width: 1200px){ 
+}
 /* *****************************************************************
 FORMULAIRE
 ***************************************************************** */
@@ -527,7 +669,11 @@ FORMULAIRE
 }
 .light a{
   text-decoration:none;
-  color:#53af57;
+  color:#333;
+}
+.dark a{
+  text-decoration:none;
+  color:#fff;
 }
 .center{
   display: flex;
@@ -578,8 +724,8 @@ input[type=submit]:hover {
   border: 1px solid #53af57;
 }
 textarea{
-  width: 24em;
-  height: 15em;
+  width: 39vh;
+  height: 35vh;
 }
 #del {
   background-color: red;
@@ -675,11 +821,14 @@ HOME
     display: grid;
     justify-items: end;
 }
-.text_header p{
+.text_header > p{
   color:#fff;
 }
-.dark .text_header p {
-    color: #333;
+.dark .text_header > p{
+  color:#333;
+}
+.text_header h1{
+font-size:48px;
 }
 .prestation_home h2,p{
  display: grid;
@@ -688,20 +837,25 @@ HOME
 
 .text_intro{
   margin: 33px;
-}
-.text_intro p{
-     justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.carousel_intro{
-  
+.text_intro p{
+     justify-content: center;
+     text-align: center;
 }
-.background{
-  padding:33px;
+.container_qualiter p{
+     justify-content: flex-start;
+}
+.carousel_intro{
+      margin: 13px;
 }
 
 .background_slide{
   background-color:grey;
+  color:#fff;
   padding: 33px;
 }
 
@@ -717,22 +871,35 @@ HOME
     flex-wrap: wrap;
 }
 .card_img_produit{
-  height: 290px;
-  width: 370px;
+  height: 263px;
+  width: 350px;
+  
+    box-shadow: 0px 5px 20px #999;
 }
 .produit_intro_container{
   
 }
+.card_excerpt{
+  margin:-6vh;
+}
 .produit_intro_prix{ 
-border-radius: 33px;
-    box-shadow: 0px 5px 20px #999;
 }
 .card_title{
-  height: 46vh;
+  height: 2vh;
 }
 .text_qualiter{
   display: flex;
     align-items: center;
+}
+.diamond{
+  height: 4vh;
+    width: 10vh;
+}
+
+@media screen and (max-width: 1200px){  
+.card_title {
+    height: 1vh;
+}
 }
 /* ********************** Carousel static Home******************************** */
 
@@ -852,6 +1019,11 @@ border-radius: 33px;
   .carousel .card_container{
 height: 165px;
   }
+  .carousel .card_container .card_carousel img{
+    height: 76%;
+    width: 107%
+    
+  }
 }
 
 
@@ -869,6 +1041,9 @@ A PROPOS
   border-radius: 5px;
   overflow: hidden;
   z-index: 0;
+}
+.image{
+  text-align:center;
 }
 
 .blog_card:hover .photo {
@@ -913,9 +1088,15 @@ A PROPOS
   position: relative;
   margin: 1rem 0 0;
 }
+.card_img{
+  height:20vh;
+}
 
 .blog_card:hover {
   left: 0%;
+}
+.background_slide1{
+  padding:33px;
 }
 @media (min-width: 640px) {
   .blog_card {
@@ -1010,7 +1191,7 @@ font-weight: 700;
 
   /* La fonction calc() effectue un calcul à utiliser comme valeur de propriété. 
   calc() est une fonction CSS3 offrant la possibilité de réaliser des opérations mathématiques en CSS (addition, soustraction, division et multiplication). */
-  width: calc((8.33333vw - 30px) * 5 + 120px);
+  width: calc((11.33333vw - 30px) * 5 + 120px);
   max-width: 457.5px;
 }
 
@@ -1060,12 +1241,15 @@ border: 1px solid
 	
 	
 
-th,td{padding:8px 0}
+th,td{
+  padding:8px 0
+}
 
 tbody tr:nth-child(even) {
-	
-background-color: #ddd
-	
+background-color: grey;
+}
+.light td {
+color: #333
 }
 	
 @media only screen and (max-width: 1200px) {
@@ -1117,7 +1301,19 @@ table {
 }
 }
 
+/************************************Admin Message ****************************************/
 
+.card_admin {
+display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40vh;
+    /* height: 38vh; */
+    margin: 0px auto;
+    /* border-radius: 33px; */
+    overflow: scroll;
+    margin: 13px;
+}
 
 
 /* *****************************************************************
@@ -1146,7 +1342,7 @@ PolitiqueDeCookie
 .answers {
   padding: 0px 15px;
   margin: 5px 0;
-  width:100%!important;
+  width:100%;
   height: 0;
   overflow: hidden;
   z-index: -1;
@@ -1217,9 +1413,9 @@ FOOTER
   margin-bottom: 3px;
 }
 .icon_insta{
-  margin-right: 50px;
-  margin-left: 10px;
-  margin-top: 3px;
+
+ color:blueviolet;
+
 }
  .light .icons_footer a {
   color:#333;
@@ -1228,8 +1424,8 @@ FOOTER
   color:#fff;
 }
 .icon_fb{
-  margin-left: 50px;
-  margin-top: 3px;
+  color:#4267B2;
+
 }
 .img_icon{
   height: 50px;
@@ -1246,10 +1442,7 @@ FOOTER
   font-size:0.8em;
   color: #333;
 }
-.icon_fb{
-  margin-left: 50px;
-  margin-top: 3px;
-}
+
 .img_icon{
   height: 50px;
   width: 100%;

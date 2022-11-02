@@ -14,25 +14,24 @@ const AddPrestation = ()=> {
     const [title, setTitle] = React.useState('')
     const [description, setDescription] = React.useState('')
     const [image, setImage] = React.useState('')
+        const [text, setText] = React.useState("")
     
     const [errorMessage, setErrorMessage] = React.useState("")
     
     const submitForm = (e) => {
         e.preventDefault()
-         
+
         const dataFile = new FormData()
         const files = {...e.target.fichier.files}
 
-        if (categories_id === '' || title === '' || description === '') {
-        setErrorMessage("Il manque une categorie, un titre ou une description")
-        }else{
-        
         dataFile.append('categorie_id',categories_id)
         dataFile.append('title',title)
         dataFile.append('description',description)
         dataFile.append('files', files[0], files[0].name)
-
-        //  axios.defaults.timeout = 5000
+        
+  if (categories_id === '' || title <= 255 && title >= 1  || description === '' || description >= 1 && description <= 500 ) {
+        setErrorMessage("erreur de saisie")
+        }else{
          axios.post(`${BASE_URL}/AddPrestation`,dataFile)
          
          .then ((res)=>{
@@ -53,41 +52,51 @@ const AddPrestation = ()=> {
         <React.Fragment>
             <div className="container_home">
                 <div className="container">
-                 <NavLink to="/Admin">retour</NavLink>
+                
+                 <NavLink to="/Admin">RETOUR</NavLink>
+                 
                     <form encType="multipart/form-data" onSubmit={submitForm} action='' method='post'>
                         <fieldset>
+                        
+                        <div>
                             <label>Titre</label>
                              
-                            <input type="texte" name="title"  value={title} onChange={(e)=>setTitle(e.target.value)} placeholder="Titre de la prestation" />
-                            <div> 
+                            <input type="texte" name="title" maxLength="255" value={title} onChange={(e)=>setTitle(e.target.value)} placeholder="Titre de la prestation" />
+                            </div>
+                            <div>
                              <label htmlFor='fileUpload'>Image</label>
                              <input type="file" name="fichier" required />
-                            </div> 
-                             
+                        </div>   
+                            <div>    
                                 <label htmlFor="prestation">Choisie une categorie</label>
                                     <select name="categories_id" value={categories_id} onChange={(e)=>setCategories_id(e.target.value)}>
                                         <option value="">--Merci de choisir une categorie---</option>
-                                        <option value="1">Extensions des cils</option>
-                                        <option value="2">Rehaussement de cils</option>
-                                        <option value="3">Sourcils et brow lift</option>
+                                        <option value="1">Extension cil à cil</option>
+                                        <option value="2">Extension mixte</option>
+                                        <option value="3">Extension volume</option>
+                                        <option value="4">Extension effet wet</option>
+                                        <option value="5">Rehaussement de cil</option>
+                                        <option value="6">Brow lift</option>
                                     </select>  
-                             
-                                <div>
-                                    <label htmlFor="msg">Prestation</label>
-                                    <textarea type="texte" name="description" value={description} onChange={(e)=>setDescription(e.target.value)} placeholder="votre description ..."></textarea>
-                                    
-                                    <div className="boutton">
+                            </div>     
+                                <div>     
+                                    <label htmlFor="msg">Prestation
+                                      <p>maximum 500 caratcteres</p>
+                                      </label>
+                                    <textarea type="textarea" maxLength="500" name="description" value={description} onChange={(e)=>setDescription(e.target.value)} placeholder="votre description ..."></textarea>
+                                </div>            
+                                    <div>
                                         <button type="submit">Envoyer la prestation</button>
-                                    </div>
-                                </div>
+                           
                             <h3>{errorMessage}</h3>
+                                    </div>
                         </fieldset>
                     </form>
+                    
                 </div>
             </div>
         </React.Fragment>
         )
-    
 }
 
 export default AddPrestation

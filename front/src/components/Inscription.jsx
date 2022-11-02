@@ -5,6 +5,7 @@ import axios from "axios"
 import { BASE_URL} from '../config.js'
 import { useNavigate } from 'react-router-dom'
 import { NavLink } from "react-router-dom"
+import {AiOutlineEyeInvisible,AiOutlineEye} from "react-icons/ai"
 
 const Inscription = () => {
 
@@ -19,6 +20,10 @@ const Inscription = () => {
     const [errorMessage, setErrorMessage] = React.useState("")
     
    const [isChecked, setIsChecked] = React.useState(false)
+   
+    const [showmdp, setShowmdp] = React.useState(false)
+   
+    const validRegex = /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/
    
    const handleOnChange = () => {
         setIsChecked(!isChecked)
@@ -37,11 +42,10 @@ const Inscription = () => {
 
           e.preventDefault()
           
-            if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || mdp.trim() === "" || isChecked === false ) {
+            if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || mdp.trim() === "" || isChecked === false  ) {
         		  setErrorMessage("Merci de ne pas laisser de champ vide.")
               }else{   
-                if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255 && mdp.length >= 8){
-                  setErrorMessage("Erreur de saisie")
+                if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255 && mdp.length >= 8 && email != validRegex){
 
                   axios.post(`${BASE_URL}/Inscription`, data)
                   
@@ -56,9 +60,16 @@ const Inscription = () => {
                       .catch((err) => {
                       console.log(err)
                       })
-                }
+                } else {
+                setErrorMessage("Erreur de saisie")
+              }
             }
         }
+        
+          const showMdp = (e) => {
+                e.preventDefault()
+                setShowmdp(!showmdp)
+            }
         
     return (
         
@@ -88,22 +99,24 @@ const Inscription = () => {
                     <label>
                       <div>
                           <p>minimum 8 caratcteres</p>
-                        <input type="password" placeholder="MOT DE PASSE :" name="mdp" minLength="8" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
-                      </div>
+                        <input type={showmdp ? "text" : "password"} placeholder="MOT DE PASSE :" name="mdp" minLength="8" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
+                     
+                     </div>
                     </label>
                   
-                    <label>
+                       <button className="button_look"  onClick={showMdp} > {showmdp ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</button>
+                       <div>
                           <input type="submit" onClick={submit} value="Envoyer" />
-                     </label>
+                    </div>
                      
                       <label >
-                        <div>
-                          <input type="checkbox"  className="checkbox" value={isChecked} onChange={handleOnChange} />  Lire et accepter les <NavLink to="/MentionsLegales" target="_blank">Mentions Légales</NavLink>
-                       </div>
+                       
+                          <input type="checkbox"  className="checkbox" value={isChecked} onChange={handleOnChange} />  Lire et accepter les <NavLink to="/MentionsLegales" target="_blank"><u>Mentions Légales</u></NavLink>
+                      
                     </label> 
              
                       <label>
-                        <p>Dejà membre ?  <NavLink to='/Connexion'>  Connectez vous ici.</NavLink></p>
+                        Dejà membre ?  <NavLink to='/Connexion'><u>  Connectez vous ici.</u></NavLink>
                       </label>
                
                      

@@ -43,7 +43,7 @@ const AdminUsers = () => {
             <div className="container">
             
             <div className="text_intro">
-                <NavLink to="/Admin">retour</NavLink>
+                <NavLink to="/Admin">RETOUR</NavLink>
             </div>  
             
                 <div className="container_home">

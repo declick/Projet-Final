@@ -12,6 +12,7 @@ const EditProduit = (req, res) => {
     const params = useParams()
     const [image, setImage] = React.useState('')
     const [produit, setProduit] = React.useState([])
+     const [errorMessage, setErrorMessage] = React.useState("")
     
             // Affichage Produit
     React.useEffect((id)=> {
@@ -31,6 +32,7 @@ const EditProduit = (req, res) => {
     // Update Prestation
     const submitForm = (e) => {
         e.preventDefault()
+
         const dataFile = new FormData()
         const files = {...e.target.fichier.files}
 
@@ -41,6 +43,12 @@ const EditProduit = (req, res) => {
         if(files[0]){
             dataFile.append('files', files[0], files[0].name)
         }
+        
+                
+          if (produit.description >= 1 && produit.description <= 500) {
+        setErrorMessage("Il manque un titre, une description ou un prix")
+        }else{
+        
         
         axios.post(`${BASE_URL}/EditProduit/${params.id}`, dataFile)
         
@@ -53,6 +61,7 @@ const EditProduit = (req, res) => {
         .catch((err) => {
             console.log(err)
         })
+        }
     }
     
     const handleChange = (e,type) => {
@@ -68,30 +77,39 @@ const EditProduit = (req, res) => {
             <div className="container_home">
                 <div className="container">
                 
-                    <NavLink to="/Admin">retour</NavLink>
+                    <NavLink to="/Admin">RETOUR</NavLink>
+                    
                     <h2><u>Editer un produit</u></h2>
-                    { produit.title &&
+                    
+                    { produit &&
+                    
                     <form encType="multipart/form-data" onSubmit={submitForm} action='' method='post'>
                         <fieldset>
+                        
+                            <div>
                              <label>Titre</label>
-                             <input type="texte" name="title"  value={produit.title} onChange={(e)=>handleChange(e,'title')} placeholder="Titre de la prestation" />
+                             <input type="text" name="title" maxLength="255" value={produit.title} onChange={(e)=>handleChange(e,'title')} placeholder="Titre du produit" />
+                             </div>
                              
-                            <div> 
+                            <div>
                                 <label htmlFor='fileUpload'>Image</label>
                                 <input type="file" name="fichier" />
-                            </div> 
-                            
-                            <div>
-                                <label>Prestation</label>
-                                <textarea type="texte" name="description" value={produit.description} onChange={(e)=>handleChange(e,'description')} placeholder="votre description ..."></textarea>
-                            </div>
-                            <div>
+                           </div>
+                           
+                           <div>
+                                <label>Prestation
+                                <p>maximum 500 caratcteres</p>
+                                </label>
+                                <textarea type="textarea" maxLength="500" name="description" value={produit.description} onChange={(e)=>handleChange(e,'description')} placeholder="votre description ..."></textarea>
+                           </div>
+                           
+                           <div>
                                 <label>Prix</label>
-                                <input type="number" name="price" value={produit.price} onChange={(e)=>handleChange(e,'price')} placeholder="votre prix ..." />
+                                <input type="number" min="10" max="100" name="price" value={produit.price} onChange={(e)=>handleChange(e,'price')} placeholder="votre prix ..." />
                             </div>
-                            <div className="boutton">
+                            <div>
                                     <button type="submit">Envoyer le produit</button>
-                            </div>
+                           </div>
                         </fieldset>
                     </form>
                     }

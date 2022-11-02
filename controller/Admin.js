@@ -1,11 +1,19 @@
 import pool from '../config/database.js'
 import fs from 'fs'
 
-const admin = (req, res) => {
-    
-     
-}
+const Adminmess = (req, res) => {
 
-export default admin
+        { /* constante sql pour requete à la bdd */}
+       let sql = 'SELECT COUNT(*) AS nb FROM contact'
+       
+            pool.query(sql, (err, result) => {
+                if (err)throw err
+                    res.json({response: true,SQL:result })
+            })
+            
+}        
+
+
+export default Adminmess
 
   
