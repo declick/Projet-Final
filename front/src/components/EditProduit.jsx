@@ -2,7 +2,7 @@
 
 import React from 'react'
 import axios from 'axios'
-import { BASE_URL,BASE_IMG,config } from '../config.js'
+import { BASE_URL} from '../config.js'
 import { NavLink,useNavigate, useParams}  from 'react-router-dom'
 
 const EditProduit = (req, res) => {
@@ -88,7 +88,7 @@ const EditProduit = (req, res) => {
                         
                             <div>
                              <label>Titre</label>
-                             <input type="text" name="title" maxLength="255" value={produit.title} onChange={(e)=>handleChange(e,'title')} placeholder="Titre du produit" />
+                             <input type="text" name="title" maxLength="255" value={produit.title || ''} onChange={(e)=>handleChange(e,'title')} />
                              </div>
                              
                             <div>
@@ -100,12 +100,12 @@ const EditProduit = (req, res) => {
                                 <label>Prestation
                                 <p>maximum 500 caratcteres</p>
                                 </label>
-                                <textarea type="textarea" maxLength="500" name="description" value={produit.description} onChange={(e)=>handleChange(e,'description')} placeholder="votre description ..."></textarea>
+                                <textarea type="textarea" maxLength="500" name="description" value={produit.description || ''} onChange={(e)=>handleChange(e,'description')}></textarea>
                            </div>
                            
                            <div>
                                 <label>Prix</label>
-                                <input type="number" min="10" max="100" name="price" value={produit.price} onChange={(e)=>handleChange(e,'price')} placeholder="votre prix ..." />
+                                <input type="number" min="10" max="100" name="price" value={produit.price || ''} onChange={(e)=>handleChange(e,'price')}/>
                             </div>
                             <div>
                                     <button type="submit">Envoyer le produit</button>

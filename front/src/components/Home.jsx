@@ -1,7 +1,7 @@
-import {useContext, useEffect} from "react"
+
 import React from "react"
 import axios from 'axios'
-import { BASE_URL,BASE_IMG,config } from '../config.js'
+import { BASE_URL,BASE_IMG } from '../config.js'
 import {useNavigate} from "react-router-dom"
 import { NavLink } from "react-router-dom"
 import Carousel from "./Carousel"
@@ -13,9 +13,6 @@ const Home = () => {
 
     const navigate = useNavigate()
 
-    const [state, dispatch] = React.useContext(ReducerContext)
-
-    const [user,setUser] = React.useState('')
     const [prestation, setPrestation] = React.useState([])
     
     const handleClick = (e) => {
@@ -35,6 +32,7 @@ const Home = () => {
           setPrestation(res.data.SQL)
         })
         .catch((err) => {
+            console.log(err)
         })
         
     },[])
@@ -109,9 +107,9 @@ const images = [
                 <div className="text_intro">
                 <h2>PRESTATIONS</h2>
                 <p>Je vous propose plusieurs prestations afin de satisfaire vos envies. </p>
-                <p>Optez pour les extensions de cils pour mettre en valeur votre regard, </p>
+                <p>Optez pour les extensions de cils afin de mettre en valeur votre regard, </p>
                 <p>le rehaussement pour un effet naturel, et le brow lift pour structurer vos sourcils.</p> 
-                <p>Venez découvrir les prestations, des conseils avisés permettront de vous orienter en cas de doute</p>
+                <p>Venez découvrir les prestations, des conseils avisés permettront de vous orienter en cas de doute.</p>
 
              </div>    
                     
@@ -208,7 +206,7 @@ const images = [
                 <h2>KIT D'ENTRETIEN</h2>
                 <p>Ce kit sera votre allié au quotidien pour l'entretien de vos cils et vos sourcils.</p> 
                 <p>Spécialement étudié et conçu pour vous offrir un soin professionnel à domicile.</p> 
-                <p>Il vous permettra d' optimiser et prolonger la tenue de votre pose d'Extension/Brow lift. </p>
+                <p>Il vous permettra d'optimiser et prolonger la tenue de votre pose d'Extension/Brow lift. </p>
 
              </div> 
                 <div className="container_home">
@@ -232,17 +230,17 @@ const images = [
                         <div className="text_qualiter">
                             <GrDiamond className="diamond" />
                             <div className="text_intro">
-                                <p>Tous les produits utilisés sont des produits professionnel  </p>
-                                <p>haut de gamme soumis à de stricts contrôles de qualité afin de vous </p> 
-                                <p>offrir une sécurité optimal et une hygiène irréprochable </p>
+                                <p>Tous les produits utilisés sont des produits professionnel</p>
+                                <p>haut de gamme soumis à de stricts contrôles de qualité afin de vous</p> 
+                                <p>offrir une sécurité optimal et une hygiène irréprochable.</p>
                             </div>
                         </div>
                             <div className="text_qualiter">
                               <GrDiamond className="diamond" />
                                 <div className="text_intro">
                                     <p>Les extensions de cils utilisées sont certifiées  </p>
-                                    <p>non testées sur les animaux. La non cruauté des animaux  </p>
-                                    <p>est une priorité dans le choix des produits utilisés. </p>
+                                    <p>non testées sur les animaux. La non cruauté des animaux</p>
+                                    <p>est une priorité dans le choix des produits utilisés.</p>
                             </div>
                         </div>
                     </div>
@@ -252,7 +250,7 @@ const images = [
                             <div className="text_intro">
                                 <p>Un entretien personnalisé est réalisé gratuitement pour tout</p>
                                 <p>nouveau rendez-vous. Le but étant de vous conseiller, vous orienter</p>
-                                <p>et vous offrir un résultat à la hauteur de vos attentes </p>
+                                <p>et vous offrir un résultat à la hauteur de vos attentes.</p>
                             </div>
                         </div>
                             <div className="text_qualiter">
@@ -261,7 +259,7 @@ const images = [
                                     <p>Toutes les techniques sont réalisées dans le strict</p>
                                     <p>respect des procédures. Un suivi régulier de formation de perfectionnement</p>
                                     <p>me permettra de vous proposer un travail de qualité avec un</p>
-                                    <p>partage de connaissances approfondies   </p>
+                                    <p>partage de connaissances approfondies.</p>
                             </div>
                         </div>
                          </div>

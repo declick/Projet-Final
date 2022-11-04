@@ -4,10 +4,11 @@ import { NavLink } from "react-router-dom"
 import React, { useState,useEffect } from "react"
 import axios from 'axios'
 import {CONNEXION, ADMIN, USER} from './config/constance.js'
-import { BASE_URL,config } from '../config.js'
+import { BASE_URL } from '../config.js'
 import {ReducerContext} from "./reducer/reducer"
-import { FaSun,FaMoon } from 'react-icons/fa';
-import { useNavigate,useParams } from 'react-router-dom'
+import { FaSun,FaMoon } from 'react-icons/fa'
+import { useParams } from 'react-router-dom'
+import { useLocation } from "react-router-dom"
 
 const Navbar = () => {
     
@@ -16,12 +17,10 @@ const Navbar = () => {
     // Crée une variable d'état appelée theme. 
     // La variable de thème suit le thème actuel de l'application, que le code définit par défaut sur "light"
     const [theme, setTheme] = useState(
-        
         // l'API localStorage inclut la possibilité de conserver le thème après l'actualisation de la page.
         localStorage.getItem('theme') || 'light')
         
         const [checkbox, setCheckbox] = useState(
-       
        localStorage.getItem('checkbox') || 'light')
    
           const toggleTheme = () => {
@@ -51,6 +50,7 @@ const Navbar = () => {
         const params = useParams()
         const [user, setUser] = React.useState("")
 
+        // Permet de stocker le Jwt en local storage à la connexion
         useEffect(() => {
             const token = localStorage.getItem("jwtToken")
             if(!state.connexion && token){
@@ -68,6 +68,14 @@ const Navbar = () => {
                 })
             }
         },[])
+
+    
+    // la const et le useEffect à mettre dans un composant   
+    const { pathname } = useLocation()
+    
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    },[pathname])
         
         // const [isActive, setActive] = React.useState(false)
         

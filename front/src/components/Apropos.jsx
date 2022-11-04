@@ -1,8 +1,6 @@
 // import de modules
 
 import React from "react"
-import axios from 'axios'
-import { BASE_URL,BASE_IMG,config } from '../config.js'
 
 const Apropos = () => {
     
@@ -29,9 +27,9 @@ const Apropos = () => {
                                 <div className="text_intro">
                                     <h3>Un peu de Moi</h3>
                                  </div>
-                                    <p>Mettez du rêve dans votre vie à “My Little Lashes” ! Cet institut de beauté à Rezé (Loire-Atlantique), situé à proximité du centre commercial Leclerc Océane, est dédié à la beauté du regard. Claire est une prothésiste ciliaire hors pair et elle s’est donnée pour mission de sublimer vos yeux. Attentive et dévouée, elle vous accueille du lundi au samedi.</p>
+                                    <p>Mettez du rêve dans votre vie à “My Little Lashes” ! Cet institut de beauté à Rezé (Loire-Atlantique), situé à proximité du centre commercial Leclerc Océane, est dédié à la beauté du regard. Claire est une prothésiste ciliaire hors paire et elle sait donner pour mission de sublimer vos yeux. Attentive et dévouée, elle vous accueille du Lundi au Samedi.</p>
                                     
-                                    <p>Pour un regard intense, osez les extensions de cils. Des yeux parfaitement maquillés dès le réveil, c’est possible. Contrairement aux idées reçues, les extensions ne demandent pas beaucoup d’entretien. Simplement, nettoyez vos faux-cils avec une mousse spéciale tous les jours (comme vous le feriez pour vos cils naturels d’ailleurs) et brossez-les tous les matins. Pour le reste, admirez-vous dans chaque miroir rencontré.</p>
+                                    <p>Pour un regard intense, osez les extensions de cils. Des yeux parfaitement maquillés dès le réveil, c’est possible. Contrairement aux idées reçues, les extensions ne demandent pas beaucoup d’entretien. Simplement, nettoyez vos faux-cils avec une mousse spéciale tous les jours (comme vous le feriez pour vos cils naturels) et brossez les tous les matins. Pour le reste, admirez-vous dans chaque miroir rencontré.</p>
                             </div>
                         </div>
                     </div>

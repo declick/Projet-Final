@@ -9,7 +9,7 @@ import React from 'react'
         useEffect(() => {
           // Après chaque rendu, enregistrez le dernier rappel dans notre ref.
             savedCallback.current = callback
-        })
+        },[callback])
     
       // Ce code gère toutes les transitions possibles : changement de délai, pause ou la reprise d'un intervalle 
       
@@ -29,7 +29,8 @@ import React from 'react'
         },
             [delay])
     }
-    
+
+
     //Carousel
 const Carousel = (props) => {
   
@@ -41,7 +42,7 @@ const Carousel = (props) => {
   // Autoplay
   useInterval(() => {
         setActive((activeIndex + 1) % len)
-    }, 5000)
+    }, 3000)
 
   // Style de retour accorder selon l'index
   const getStyle = (idx) => {

@@ -25,8 +25,8 @@ const EditPrestation = () => {
           setPrestation(res.data.SQL)
         })
         .catch((err) => {
+             console.log(err)
         })
-        
         
     },[params])
    
@@ -46,11 +46,9 @@ const EditPrestation = () => {
         dataFile.append('files', files[0], files[0].name)
         }
         
-                
          if (prestation.description >= 1 && prestation.description <= 500 ) {
         setErrorMessage("Il manque un titre, une description ou un prix")
         }else{
-            
             
         axios.post(`${BASE_URL}/EditPrestation/${params.id}`, dataFile)
         
@@ -91,7 +89,7 @@ const EditPrestation = () => {
                           
                             <div>
                              <label>Titre</label>
-                            <input type='text' maxLength="255" name='title' value={prestation.title} onChange={(e)=>handleChange(e,'title')} />
+                            <input type='text' maxLength="255" name='title' value={prestation.title || ''} onChange={(e)=>handleChange(e,'title')} />
                              </div>
                              
                             <div>
@@ -99,16 +97,16 @@ const EditPrestation = () => {
                                 <input type="file" name="fichier" />
                            </div>
                            
-                                <div>
+                             <div>
                                 <label htmlFor="msg">prestation :
                                 <p>maximum 500 caratcteres</p>
                                 </label>
-                                <textarea name="description" maxLength="500" id="text" type="textarea" rows="5" cols="33" value={prestation.description} onChange={(e)=> handleChange(e,'description')}></textarea>
-                                </div>
-                                
-                                <div>
+                                <textarea name="description" maxLength="500" id="text" type="textarea" rows="5" cols="33" value={prestation.description || ''} onChange={(e)=> handleChange(e,'description')}></textarea>
+                            
+                             </div>   
+                             <div>
                                 <label htmlFor="categories">Choisie une categorie:</label>
-                                <select name="categorie_id" id="categories_id" value={prestation.categorie_id} onChange ={(e)=>handleChange(e, 'categorie_id')}>
+                                <select name="categorie_id" id="categories_id" value={prestation.categorie_id || ''} onChange ={(e)=>handleChange(e,'categorie_id')}>
                                     <option value="">--Merci de choisir une categorie--</option>
                                     <option value={1}>Extension cil à cil</option>
                                     <option value={2}>Extension mixte</option>
@@ -117,10 +115,10 @@ const EditPrestation = () => {
                                     <option value={5}>Rehaussement de cil</option>
                                     <option value={6}>Brow lift</option>
                                 </select>
-                                </div>
+                               </div>
                                 <div>
                                     <button type="submit">Envoyer le message</button>
-                            </div> 
+                                </div>    
                             </fieldset>
                         </form>
                       }
