@@ -25,7 +25,7 @@ const Produit = () => {
             <div className="container">
                 <div className="background">
                     <div className="text_intro">
-                        <h2> Nos Produits </h2>
+                        <h1> Nos Produits </h1>
                         <p>Chaque kit contient le nécessaire pour l'entretien de vos extensions ou de votre brow lift.</p> 
                         <p>Choisissez votre kit After Care, et repartez avec lors de votre prochain rendez-vous. <u>(Kit disponible uniquement sur réservation)</u> </p>
                     </div>

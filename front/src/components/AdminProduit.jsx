@@ -46,7 +46,7 @@ const AdminProduit = () => {
             <div className="container">
             
                <div>
-                <h2 className="title"><u>Administration Produit</u></h2>
+                <h1 className="title"><u>Administration Produit</u></h1>
                 <NavLink className="lien_admin" to="/AddProduit"> -> <u>Ajouter un Produit</u></NavLink>
                 </div>
                  <NavLink to="/Admin">RETOUR</NavLink>

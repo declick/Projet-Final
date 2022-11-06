@@ -80,7 +80,7 @@ const images = [
                 <div className="container_qualiter">
                 
                     <div className="text_intro">
-                        <h1 className="intro_title">MY LITTLE LASHES</h1>
+                        <h2 className="intro_title">MY LITTLE LASHES</h2>
                         <p>studio privé situé à Rezé et spécialisé dans la mise en beauté de votre  Regard</p>
                     </div> 
                     

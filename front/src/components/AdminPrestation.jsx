@@ -45,7 +45,7 @@ const AdminPrestation = () => {
             <div className="container">
             
                <div>
-                 <h2 className="title"><u>Administration Prestation</u></h2>
+                 <h1 className="title"><u>Administration Prestation</u></h1>
                     <NavLink className="lien_admin" to="/AddPrestation"> -> <u>Ajouter une Prestation</u></NavLink>
                 </div>
                 

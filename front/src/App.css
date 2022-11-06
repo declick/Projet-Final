@@ -27,7 +27,7 @@ html {
 
 body {
   background:#dee1e2;
-  min-height : 100vh;
+  height : 100vh;
   overflow-x: hidden;
 	font-size: 1.6rem; /* on remets la taille du texte par défaut pour le body à 16px en utilisant les rem comme unité) */
 
@@ -49,6 +49,8 @@ h2{
   letter-spacing: 0.3em;
   text-transform: uppercase;
   text-align: center;
+  
+  color:#f7c8cf;
 }
 /* *****************************************************************
 CONTAINER
@@ -656,7 +658,6 @@ CARD HOME / PRESTATION
   height: 31vh;
   margin: 0px auto;
   border-radius: 33px;
-  
   margin:13px;
 }
 
@@ -1076,10 +1077,7 @@ A PROPOS
 .photo{
   display:flex;
 }
-.blog_card img{
-  width:30vh;
-  height: 40.5vh;
-}
+
 .blog_card .description {
   padding: 1rem;
   position: relative;

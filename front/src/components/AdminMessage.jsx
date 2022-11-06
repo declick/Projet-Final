@@ -41,10 +41,13 @@ const AdminMessage = () => {
         <React.Fragment>
         
             <div className="text_intro">
+                <h1 className="title"><u>Administration Message</u></h1>
                 <NavLink to="/Admin">RETOUR</NavLink>
             </div>  
+
                 <div className="container">
                     <div className="container_home">
+
                        {message.map((e,i)=>{
                             return (
                                 <div className="card_admin"  key={i}>

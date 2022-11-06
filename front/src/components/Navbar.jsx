@@ -77,15 +77,14 @@ const Navbar = () => {
         window.scrollTo(0, 0)
     },[pathname])
         
+        // // Permet de changer de police, size, ect
         // const [isActive, setActive] = React.useState(false)
         
         // const toggClass = () => {
         //     setActive (!isActive)
         // }
-
-        //  className={isActive ? '' : null} onClick={toggClass}
-        
-        
+ 
+        //     <button className={isActive ? 'link *' : null} onClick={toggClass} ></button>
     return(
         
         <React.Fragment> 
@@ -102,10 +101,11 @@ const Navbar = () => {
                             <input type="checkbox" id="idCheckbox" onClick={toggleTheme} />  
                             <div className="slider round"><div className="icon_switch"> <FaSun />  <FaMoon /></div></div>
                     </label>
+                    
+                   
 
                 { /* Menu Burger */ }
-                
-                <input type="checkbox" id="tabnav" className="tabnav" />
+                <input type="checkbox" id="tabnav" className="tabnav" /> 
                 <label htmlFor="tabnav" className="label">
                     <label><p>Menu</p></label>
                     <div id="burg1" className="burger"></div>
@@ -118,16 +118,16 @@ const Navbar = () => {
                     { /* NavLink doit matcher avec le path définit dans le composant Route */ }
                     <li> <NavLink to="/">Accueil</NavLink></li>
                     <li> <NavLink to="/Prestation">Préstation</NavLink></li>
-                    <li> <NavLink to="/Produit" >Produits</NavLink></li>
-                    <li> <NavLink to="/Apropos" >A propos</NavLink></li>
+                    <li> <NavLink to="/Produit">Produits</NavLink></li>
+                    <li> <NavLink to="/Apropos">A propos</NavLink></li>
                     {!state.connexion && 
-                        <li> <NavLink to="/Connexion" >Connexion</NavLink></li> }
+                        <li> <NavLink to="/Connexion">Connexion</NavLink></li> }
                 </React.Fragment> 
                     {state.connexion && (
                 <React.Fragment> 
                     <li> <NavLink to="/Reserver">Rendez-vous</NavLink></li>
-                    <li> <NavLink to="/Contact" >Contact</NavLink></li>
-                    <li> <NavLink to="/Profil" >Profil</NavLink></li>
+                    <li> <NavLink to="/Contact">Contact</NavLink></li>
+                    <li> <NavLink to="/Profil">Profil</NavLink></li>
                     <li> <NavLink to="/Logout">Logout</NavLink></li>
                 </React.Fragment> 
                     )}{state.admin && (
