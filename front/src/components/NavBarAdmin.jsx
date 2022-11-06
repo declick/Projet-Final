@@ -22,6 +22,8 @@ const NavBarAdmin = () => {
                        
                         <li> <NavLink className="lien_admin" to="/AdminProduit"> <MdProductionQuantityLimits /> <u>Produits</u></NavLink></li>
                         
+                        <li> <NavLink className="lien_admin" to="/AdminImage"> <MdProductionQuantityLimits /> <u>Images</u></NavLink></li>
+                        
                      </ul>  
                 </div>
             </nav>

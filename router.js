@@ -12,6 +12,7 @@ import AproposController from './controller/Apropos.js'
 import HomeController from './controller/Home.js'
 import PrestationController from './controller/Prestation.js'
 import ProduitController from './controller/Produit.js'
+import RealisationController from './controller/Realisation.js'
 
 import Adminmess from './controller/Admin.js'
 
@@ -25,6 +26,9 @@ import {EditProduitController,EditAddProduitController} from './controller/EditP
 
 import {MessageController,DeleteMessageController} from './controller/AdminMessage.js'
 import {UsersController,DeleteUserController} from './controller/AdminUsers.js'
+
+import {ImageControllerAdmin,DeleteImage} from './controller/AdminImage.js'
+import AddImageController from './controller/AddImage.js'
 
 import IsLogged from "./controller/IsLogged.js"
 
@@ -70,6 +74,9 @@ router.post("/api/Contact",SubmitContactController)
 //** route a propos **/
 router.get("/api/Apropos",AproposController)
 
+//** route Realisation **/
+router.get("/api/Realisation",RealisationController)
+
 //** routes Connexion **/
 router.post("/api/Inscription",SubmitInscriptionController)
 router.post("/api/Connexion",SubmitConnectionController)
@@ -110,5 +117,13 @@ router.post("/api/AdminMessage/:id",DeleteMessageController)
 router.get("/api/AdminUsers",UsersController)
 //** route DELETE User **/
 router.post("/api/AdminUsers/:id",DeleteUserController)
+
+//** route GET Image **/
+router.get("/api/AdminImage", ImageControllerAdmin)
+//** route DELETE Image **/
+router.post("/api/AdminImage/:id",DeleteImage)
+//** route ADD Image **/
+router.post("/api/AddImage" ,AddImageController)
+
 
 export default router

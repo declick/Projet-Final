@@ -40,7 +40,7 @@ h1{
   display: flex;
   justify-content: center;
   text-align: center;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
 }
 
 h2{
@@ -103,6 +103,13 @@ text-align: center;
     align-items: center;
     justify-content: center;
 }
+
+.container_realisation {
+	max-width: 100rem;
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+
 
 /* *****************************************************************
 POPUP
@@ -1216,6 +1223,37 @@ display: flex;
   background-color:grey;
   color:#fff;
   padding: 1px;
+}
+/* *****************************************************************
+REALISATION
+***************************************************************** */
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	/* Compenser la marge excédentaire sur les éléments flexibles de la galerie externe */
+	margin: -1rem -1rem;
+}
+
+.gallery_item {
+	/* Largeur minimale de 24 rem et croissance pour s'adapter à l'espace disponible */
+	flex: 1 0 24rem;
+	/* La valeur de la marge doit être la moitié de la valeur de l'écart de grille car les marges sur les éléments flexibles ne s'effondrent pas */
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+.gallery_image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease-out;
+}
+
+.gallery_image:hover {
+	transform: scale(1.15);
 }
 
 /* *****************************************************************

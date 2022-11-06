@@ -17,6 +17,7 @@ const AdminUsers = () => {
           setUser(res.data.SQL)
         })
         .catch((err) => {
+            console.log(err)
         })
         
     },[])

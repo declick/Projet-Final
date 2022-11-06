@@ -1,7 +1,6 @@
 import Home from "../Home"
 import Connexion from "../Connexion"
 import Inscription from "../Inscription"
-import Navbar from "../Navbar"
 import Profil from "../Profil"
 import Logout from "../Logout"
 import Prestation from "../Prestation"
@@ -9,6 +8,7 @@ import Produit from "../Produit"
 import Apropos from "../Apropos"
 import Contact from "../Contact"
 import Reserver from "../Reserver"
+import Realisation from "../Realisation"
 import PageNotFound from "../PageNotFound"
 
 import MentionsLegales from "../MentionsLegales"
@@ -27,6 +27,9 @@ import EditProduit from "../EditProduit"
 import AdminMessage from "../AdminMessage"
 import AdminUsers from "../AdminUsers"
 
+import AdminImage from "../AdminImage"
+import AddImage from "../AddImage"
+
 export const routes = [
     
     { path:'/', element:<Home /> },
@@ -35,6 +38,7 @@ export const routes = [
     { path:'/Apropos', element:<Apropos /> },
     { path:'/Contact', element:<Contact /> },
     { path:'/Reserver', element:<Reserver /> },
+    { path:'/Realisation', element:<Realisation /> },
     { path:'/Inscription', element:<Inscription /> },
     { path:'/Connexion', element:<Connexion /> },
     
@@ -55,6 +59,9 @@ export const routes = [
     {path: '/AdminMessage', element:<AdminMessage />},
     // Admin User
     {path: '/AdminUsers', element:<AdminUsers />},
+    // Admin Image
+    {path: '/AdminImage', element:<AdminImage />},
+    {path: '/AddImage', element:<AddImage />},
     
     { path:'*', element:<PageNotFound /> },
     
@@ -82,7 +89,10 @@ export const adminPath = [
     '/EditProduit',
     
     '/AdminMessage',
-    '/AdminUsers'
+    '/AdminUsers',
+    
+    '/AdminImage',
+    '/AddImage'
 ]
 
 

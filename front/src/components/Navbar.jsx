@@ -89,6 +89,8 @@ const Navbar = () => {
         
         <React.Fragment> 
             <nav className="nav_checkbox">
+            
+            <div className="container_home">
                 <div>
                     <NavLink to="/"><img className="logo_noir" src="../image/noir.png" alt="Logo MyLittleLashes"></img></NavLink>
                     <NavLink to="/"><img className="logo_blanc" src="../image/blanc.jpg" alt="Logo MyLittleLashes"></img></NavLink>
@@ -101,7 +103,7 @@ const Navbar = () => {
                             <input type="checkbox" id="idCheckbox" onClick={toggleTheme} />  
                             <div className="slider round"><div className="icon_switch"> <FaSun />  <FaMoon /></div></div>
                     </label>
-                    
+            </div>
                    
 
                 { /* Menu Burger */ }
@@ -119,14 +121,15 @@ const Navbar = () => {
                     <li> <NavLink to="/">Accueil</NavLink></li>
                     <li> <NavLink to="/Prestation">Préstation</NavLink></li>
                     <li> <NavLink to="/Produit">Produits</NavLink></li>
+                    <li> <NavLink to="/Realisation">Réalisations</NavLink></li>
                     <li> <NavLink to="/Apropos">A propos</NavLink></li>
                     {!state.connexion && 
                         <li> <NavLink to="/Connexion">Connexion</NavLink></li> }
                 </React.Fragment> 
                     {state.connexion && (
                 <React.Fragment> 
-                    <li> <NavLink to="/Reserver">Rendez-vous</NavLink></li>
                     <li> <NavLink to="/Contact">Contact</NavLink></li>
+                    <li> <NavLink to="/Reserver">Rendez-vous</NavLink></li>
                     <li> <NavLink to="/Profil">Profil</NavLink></li>
                     <li> <NavLink to="/Logout">Logout</NavLink></li>
                 </React.Fragment> 
