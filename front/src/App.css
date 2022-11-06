@@ -30,6 +30,10 @@ body {
   min-height : 100vh;
   overflow-x: hidden;
 	font-size: 1.6rem; /* on remets la taille du texte par défaut pour le body à 16px en utilisant les rem comme unité) */
+
+/* Permet de faire une transition du body en douceur */
+  transition-duration: 1s;
+  transition-timing-function: linear;
 }
 
 h1{
@@ -77,7 +81,12 @@ CONTAINER
 }
 .container_qualiter{
  padding:33px;
-    
+ 
+ z-index: 1;
+}
+.container_prestation{
+text-align: center;
+   
 }
 .container_privacy{
   margin-left: auto;
@@ -299,6 +308,21 @@ TEXTE DEFILEMENT HEADER
     transform: translate(-100%);
   }
 }
+
+/**************header tache************************/
+.main_block_decor {
+    position: absolute;
+    left: 0;
+    top: 36%;
+    width: 38.4%;
+    z-index: 0;
+}
+    @media screen and (max-width: 767px){
+.main_block_decor {
+    display: none;
+}  
+}
+
 /* *****************************************************************
 NAVIGATION
 ***************************************************************** */
@@ -315,6 +339,10 @@ NAVIGATION
   width:100%;
   z-index: 999;
   box-shadow: 0px 5px 20px #999;
+  
+  /* Permet de faire une transition de la nav. en douceur */
+  transition-duration: 1s;
+  transition-timing-function: linear;
 }
 
 /* LOGO */
@@ -329,7 +357,7 @@ NAVIGATION
   height: 8vh;
 }
 
-.tab-nav{
+.tabnav{
   outline: none;
   display: none;
 }
@@ -493,6 +521,7 @@ NAVIGATION ADMIN
 /* *****************************************************************
 SWITCH COLOR TEMPLATE
 ***************************************************************** */
+
 /* la boîte autour du curseur */
 .switch {
   position: relative;
@@ -574,6 +603,7 @@ COLOR THEME
    background-color: #333;
 }
 .dark .nav_checkbox{
+  
   background-color: #333;
 }
 .dark .nav_checkbox a{
@@ -781,52 +811,6 @@ textarea:required:invalid {
   border-color: #c00000;
 }
 
-/* *****************************************************************
-TOP SCROLL
-***************************************************************** */
-.top_btm{
-  position: relative;
-}
-.icon_position{
-  position: fixed;
-  bottom: 40px;
-  right: 25px;
-  z-index: 20;
-}
-.icon_style{
-  background-color: #53af57;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  color: #fff;
-  cursor: pointer;
-  animation: movebtn 3s ease-in-out infinite;
-  transition: all .5s ease-in-out;
-}
-.icon_style:hover{
-  animation: none;
-  background: #fff;
-  color: #53af57;
-  border: 2px solid #53af57;
-}
-@keyframes movebtn {
-  0%{
-    transform: translateY(0px);
-  }
-  25%{
-    transform: translateY(20px);
-  }
-  50%{
-    transform: translateY(0px);
-  }
-  75%{
-    transform: translateY(-20px);
-  }
-  100%{
-    transform: translateY(0px);
-  }
-}
 /* *****************************************************************
 HOME
 ***************************************************************** */
@@ -1221,6 +1205,22 @@ font-weight: 700;
 }
 
 /* *****************************************************************
+PRESTATION
+***************************************************************** */
+.text_prestation{
+display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin:5px;
+    border-bottom: 1px solid rgb(229, 229, 229);
+}
+.background_slide_prestation{
+  background-color:grey;
+  color:#fff;
+  padding: 1px;
+}
+
+/* *****************************************************************
 CONTACT
 ***************************************************************** */
 .text_contact{
@@ -1457,8 +1457,7 @@ FOOTER
   margin-bottom: 3px;
 }
 .icon_insta{
-
- color:blueviolet;
+ color:rgba(250,150,8);
 
 }
  .light .icons_footer a {

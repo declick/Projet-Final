@@ -19,7 +19,7 @@ const Footer = () => {
                     <NavLink to="/PolitiqueDeDonnees"><p>Politique des données personnel</p></NavLink>
                 </div> 
                 
-                  <h4>© 2022 MyLittleLashes. All rights reserved.</h4>
+                  <h4>© {new Date().getFullYear()} MyLittleLashes. All rights reserved.</h4>
                   
             </div>
         </React.Fragment>

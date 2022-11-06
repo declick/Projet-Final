@@ -70,7 +70,7 @@ const Navbar = () => {
         },[])
 
     
-    // la const et le useEffect à mettre dans un composant   
+    // Permet au chagement de page d'etre au top UU
     const { pathname } = useLocation()
     
     useEffect(() => {
@@ -84,6 +84,8 @@ const Navbar = () => {
         // }
 
         //  className={isActive ? '' : null} onClick={toggClass}
+        
+        
     return(
         
         <React.Fragment> 
@@ -103,8 +105,8 @@ const Navbar = () => {
 
                 { /* Menu Burger */ }
                 
-                <input type="checkbox" id="tab-nav" className="tab-nav" />
-                <label htmlFor="tab-nav" className="label">
+                <input type="checkbox" id="tabnav" className="tabnav" />
+                <label htmlFor="tabnav" className="label">
                     <label><p>Menu</p></label>
                     <div id="burg1" className="burger"></div>
                     <div id="burg0" className="burger"></div>
@@ -116,14 +118,14 @@ const Navbar = () => {
                     { /* NavLink doit matcher avec le path définit dans le composant Route */ }
                     <li> <NavLink to="/">Accueil</NavLink></li>
                     <li> <NavLink to="/Prestation">Préstation</NavLink></li>
-                    <li> <NavLink to="/Produit" >Produit</NavLink></li>
+                    <li> <NavLink to="/Produit" >Produits</NavLink></li>
                     <li> <NavLink to="/Apropos" >A propos</NavLink></li>
-                    <li> <NavLink to="/Reserver">Rendez-vous</NavLink></li>
                     {!state.connexion && 
                         <li> <NavLink to="/Connexion" >Connexion</NavLink></li> }
                 </React.Fragment> 
                     {state.connexion && (
                 <React.Fragment> 
+                    <li> <NavLink to="/Reserver">Rendez-vous</NavLink></li>
                     <li> <NavLink to="/Contact" >Contact</NavLink></li>
                     <li> <NavLink to="/Profil" >Profil</NavLink></li>
                     <li> <NavLink to="/Logout">Logout</NavLink></li>

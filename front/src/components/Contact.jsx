@@ -109,7 +109,7 @@ const Contact = () => {
           
             <p><AiOutlineMail />cminz@gmail.fr</p>
             
-            <p><GoLocation /> 28 Av. Françoise Héritier, 44400 Rezé </p>
+            <p><GoLocation /> Av. Françoise Héritier, 44400 Rezé </p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d86809.60439991592!2d-1.607079704137313!3d47.16176865636322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d47.161826999999995!2d-1.5369899999999999!5e0!3m2!1sfr!2sfr!4v1667574124247!5m2!1sfr!2sfr" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div> 

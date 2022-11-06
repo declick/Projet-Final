@@ -1,11 +1,14 @@
 import React from "react"
 import axios from 'axios'
 import { BASE_URL,BASE_IMG} from '../config.js'
+import {ReducerContext} from "./reducer/reducer"
+import { NavLink } from "react-router-dom"
 
 const Prestation = () => {
 
     const [prestation, setPrestation] = React.useState([])
-
+     const [state, dispatch] = React.useContext(ReducerContext)
+     
     React.useEffect(()=> {
         
         axios.get(`${BASE_URL}/Prestation`)
@@ -13,6 +16,7 @@ const Prestation = () => {
           setPrestation(res.data.SQL)
         })
         .catch((err) => {
+            console.log(err)
         })
         
     },[])
@@ -22,7 +26,7 @@ const Prestation = () => {
             <React.Fragment>
               
                 <div className="container">
-                      <div className="background_slide">
+                      <div className="background_slide_prestation">
                         <div className="text_intro">
                              <h2> Extension cil à cil </h2>
                             <p>Je souhaite un rendu naturel avec un effet "mascara".</p>
@@ -54,8 +58,26 @@ const Prestation = () => {
                                     )
                                 }
                             })}
+                            <div className="container_prestation">
+                                <div className="text_prestation">
+                                    <p>Cil à Cil</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Tarif: 70 €</p>
+                                    <p>Environ 2H15</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Remplissage à prevoir: 3 semaines</p>
+                                </div>
+                                {!state.connexion && 
+                                    <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                }
+                                {state.connexion && (
+                                    <NavLink to="/Reserver"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                )}
+                            </div>
                         </div>
-                        </div>
+                      </div>
                         
                         <div className="text_intro">
                              <h2> Extension mixte </h2>
@@ -88,9 +110,27 @@ const Prestation = () => {
                                     )
                                 }
                             })}
+                            <div className="container_prestation">
+                                <div className="text_prestation">
+                                    <p>Mixte</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Tarif: 80 €</p>
+                                    <p>Environ 2H45</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Remplissage à prevoir: 3 semaines</p>
+                                </div>
+                                {!state.connexion && 
+                                    <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                }
+                                {state.connexion && (
+                                    <NavLink to="/Reserver"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                )}
+                            </div>
                         </div>  
                         
-                        <div className="background_slide">
+                        <div className="background_slide_prestation">
                         <div className="text_intro">
                              <h2> Extension volume</h2>
                             <p>Je souhaite un regard glamour et j' opte pour un effet plus sophistiqué. </p>
@@ -124,6 +164,24 @@ const Prestation = () => {
                                     )
                                 }
                             })}
+                            <div className="container_prestation">
+                                <div className="text_prestation">
+                                    <p>Volume</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Tarif: Des 85 €</p>
+                                    <p>Environ 3H</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Remplissage à prevoir: 3 semaines</p>
+                                </div>
+                                {!state.connexion && 
+                                    <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                }
+                                {state.connexion && (
+                                    <NavLink to="/Reserver"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                )}
+                            </div>
                         </div> 
                         </div> 
                    
@@ -158,9 +216,27 @@ const Prestation = () => {
                                     )
                                 }
                             })}
+                            <div className="container_prestation">
+                                <div className="text_prestation">
+                                    <p>Effet wet</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Tarif: 85 €</p>
+                                    <p>Environ 2H15</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Remplissage à prevoir: 3 semaines</p>
+                                </div>
+                                {!state.connexion && 
+                                    <NavLink to="/Inscription" ><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                }
+                                {state.connexion && (
+                                    <NavLink to="/Reserver"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                )}
+                            </div>
                     </div>
                         
-                         <div className="background_slide">
+                         <div className="background_slide_prestation">
                         <div className="text_intro">
                              <h2> Rehaussement de cil</h2>
                             <p>Je souhaite ouvrir mon regard sans contrainte, effet naturel garanti. </p>
@@ -192,6 +268,24 @@ const Prestation = () => {
                                     )
                                 }
                             })}
+                            <div className="container_prestation">
+                                <div className="text_prestation">
+                                    <p>Rehaussement de cil</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Tarif: Des 40 €</p>
+                                    <p>Environ 1H15</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Tenue: 6 à 8 semaines</p>
+                                </div>
+                                {!state.connexion && 
+                                    <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                }
+                                {state.connexion && (
+                                    <NavLink to="/Reserver"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                )}
+                            </div>
                         </div>
                         </div>
                         
@@ -226,6 +320,24 @@ const Prestation = () => {
                                     )
                                 }
                             })}
+                            <div className="container_prestation">
+                                <div className="text_prestation">
+                                    <p>Brow lift</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Tarif: Des 40€</p>
+                                    <p>Environ 1H10</p>
+                                </div>
+                                <div className="text_prestation">
+                                    <p>Tenue: 3 à 4 semaines</p>
+                                </div>
+                                {!state.connexion && 
+                                    <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                }
+                                {state.connexion && (
+                                    <NavLink to="/Reserver"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
+                                )}
+                            </div>
                     </div>
                 </div>
             </React.Fragment>

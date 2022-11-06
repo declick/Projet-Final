@@ -8,13 +8,13 @@ import Carousel from "./Carousel"
 import {ReducerContext} from "./reducer/reducer"
 import {GrDiamond} from "react-icons/gr"
 
-
 const Home = () => {
 
     const navigate = useNavigate()
 
     const [prestation, setPrestation] = React.useState([])
-    
+     const [state, dispatch] = React.useContext(ReducerContext)
+     
     const handleClick = (e) => {
         e.preventDefault()
         navigate('/Prestation')
@@ -24,8 +24,8 @@ const Home = () => {
         e.preventDefault()
         navigate('/Produit')
     }
+    
      React.useEffect(()=> {
-        
         axios.get(`${BASE_URL}/Home`)
         
         .then((res) => {
@@ -57,9 +57,11 @@ const images = [
             <section>
                 <div className="container">
                     <div className="container_home">
-                    
 
                         <div className="header">
+                                            
+                           <img src="./image/main-block-decor.png" alt="header" className="main_block_decor" />
+                
                             <div className="text_header">
                                 <h1>MY LITTLE LASHES</h1>
                                 <p>BROW AND LASH ARTIST</p>
@@ -71,7 +73,7 @@ const images = [
                     </div>
                 </div>      
             </section>
-
+            
             <section>
             
              <div className="container_home">
@@ -120,7 +122,7 @@ const images = [
                             return(
                             
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension cil à cil" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -134,7 +136,7 @@ const images = [
                             return(
                             
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension mixte" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -147,7 +149,7 @@ const images = [
                             return(
                             
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension volume" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -160,7 +162,7 @@ const images = [
                             return(
                             
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension effet wet" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -173,7 +175,7 @@ const images = [
                             return(
                             
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Rehaussement de cil" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -186,7 +188,7 @@ const images = [
                             return(
                             
                                 <div className="card" key={i}>
-                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="" /></div>
+                                    <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Brow lift" /></div>
                                     <div className="card_body">
                                     <div className="card_title">
                                     </div>
@@ -213,19 +215,21 @@ const images = [
                     <div className="produit_intro">
                     
                         <div className="produit_intro_prix">
-                            <img className="card_img_produit" src="../image/produit.jpg" alt="logo" />
+                            <img className="card_img_produit" src="../image/produit.jpg" alt="produit" />
                                 <p>KIT D'ENTRETIEN</p>
                                     <button className="card_button" onClick ={handleClick2}>KIT LASHES</button>
                         </div>
                         <div className="produit_intro_prix">
-                            <img className="card_img_produit"src="../image/produit.jpg" alt="logo" />
+                            <img className="card_img_produit"src="../image/produit.jpg" alt="produit" />
                                 <p>KIT D'ENTRETIEN</p>
                                     <button className="card_button" onClick ={handleClick2}>KIT BROW</button>
                         </div>
                     </div>
             </div>
+            
              <div className="container_qualiter">
                  <div className="container_home">
+                 
                   <div>
                         <div className="text_qualiter">
                             <GrDiamond className="diamond" />
@@ -244,7 +248,8 @@ const images = [
                             </div>
                         </div>
                     </div>
-                  <div>
+                    
+                    <div>
                         <div className="text_qualiter">
                             <GrDiamond className="diamond" />
                             <div className="text_intro">
@@ -254,7 +259,7 @@ const images = [
                             </div>
                         </div>
                             <div className="text_qualiter">
-                              <GrDiamond className="diamond" />
+                              <GrDiamond className="diamond" /> 
                                 <div className="text_intro">
                                     <p>Toutes les techniques sont réalisées dans le strict</p>
                                     <p>respect des procédures. Un suivi régulier de formation de perfectionnement</p>
@@ -262,8 +267,9 @@ const images = [
                                     <p>partage de connaissances approfondies.</p>
                             </div>
                         </div>
-                         </div>
-                     </div>
+                    </div>
+                    
+                  </div>
                 </div>    
             </section>
     
@@ -273,7 +279,7 @@ const images = [
                         <h2>LOOK BOOK</h2>
                     </div> 
                     
-                        <Carousel images={images} />
+                        <Carousel images={images} alt="prestation" />
                         
                     <div className="text_intro">
                     <h2>Elle ont testé et validé</h2>
@@ -282,7 +288,6 @@ const images = [
             </section>
 
             <section>
-
                       <div className="container_home"> 
                     <div className="text_intro">
                         <h2>RESERVEZ VOTRE PRESTATION</h2>
@@ -290,15 +295,18 @@ const images = [
                             <fieldset>
                                 <div className="container_intro"> 
                                 <div className="wrap">
-                                    <NavLink to="/Reserver" className="button"><button type="submit">Prendre Rendez-Vous</button></NavLink>
+                                {!state.connexion && 
+                                    <NavLink to="/Inscription" className="button"><button type="submit">Prendre Rendez-Vous</button></NavLink>
+                                }
+                                {state.connexion && (
+                                <NavLink to="/Reserver" className="button"><button type="submit">Prendre Rendez-Vous</button></NavLink>
+                                )}
                                 </div></div>
                             </fieldset>
                           </div>
                     
-                      
                     <div className="container_intro">
 
-                 
                             <div itemProp="openingHours" content="Sa 09:15-12:00;Mo 09:15-18:00;Tu 09:15-18:00;Th 09:15-18:00;Fr 09:15-18:00;We 09:15-12:00" className="openingHours">
                                 
                                 <h3 className="titre_horaire">Horaires d'ouverture</h3>
@@ -365,7 +373,7 @@ const images = [
                                     </li>
                                     <li className="">
                                         <div>Dimanche </div>
-                                        <div className="css-1ck74d5">Fermé</div>
+                                        <div className="">Fermé</div>
                                     </li>
                                 </ul>
                          </div>

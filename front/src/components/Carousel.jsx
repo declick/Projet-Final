@@ -42,7 +42,7 @@ const Carousel = (props) => {
   // Autoplay
   useInterval(() => {
         setActive((activeIndex + 1) % len)
-    }, 3000)
+    }, 5000)
 
   // Style de retour accorder selon l'index
   const getStyle = (idx) => {
@@ -80,7 +80,7 @@ const Carousel = (props) => {
               <div className="card_container">
                   {images.map(({ imgUrl }, index) => (
                     <div className="card_carousel" key={index} onClick={() => setActive(index)} style={getStyle(index)}>
-                      <img src={imgUrl} alt="look book" />
+                      <img src={imgUrl} alt="Look Book" />
                     </div>
                   ))}
                   </div>

@@ -51,7 +51,6 @@ const Connexion = () => {
                         }
                     })
                     .catch((err) => {
-                        console.log(10)
                         console.log(err)
                     })
                 }
