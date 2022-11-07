@@ -52,6 +52,9 @@ h2{
   
   color:#f7c8cf;
 }
+h3{
+   color:#f7c8cf;
+}
 /* *****************************************************************
 CONTAINER
 ***************************************************************** */
@@ -118,8 +121,57 @@ text-align: center;
   justify-content: center;
   text-align:center;
 }
+/* *****************************************************************
+TOP TO C COOL
+***************************************************************** */
+.top_button{
+  position: relative;
+}
 
+.button_position{
+  position: fixed;
+  bottom: 40px;
+  right: 25px;
+  z-index: 20;
+}
 
+.button_style{
+  background-color: #f7c8cf;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  /* animation du bouton */
+  animation: movebutton 3s ease-in-out infinite;
+  transition: all .5s ease-in-out;
+}
+
+.button_style:hover{
+  animation: none;
+  background: #fff;
+  color: #f7c8cf;
+  border: 2px solid #f7c8cf;
+}
+
+@keyframes movebutton {
+  0%{
+    transform: translateY(0px);
+  }
+  25%{
+    transform: translateY(20px);
+  }
+  50%{
+    transform: translateY(0px);
+  }
+  75%{
+    transform: translateY(-20px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
 /* *****************************************************************
 POPUP
 ***************************************************************** */
@@ -352,7 +404,7 @@ NAVIGATION
   align-items: center;
   justify-items: end;
   justify-content: space-between;
-  padding: 15px 25px;
+  padding: 0 25px;
   background: #fff;
   width:100%;
   z-index: 999;
@@ -366,13 +418,11 @@ NAVIGATION
 /* LOGO */
 .logo_noir{
   position: absolute;
-  width: 8vh;
-  height: 8vh;
+  height: 10vh;
 }
 .logo_blanc{
   position: relative;
-  width: 8vh;
-  height: 8vh;
+  height: 10vh;
 }
 
 .tabnav{
@@ -653,14 +703,12 @@ color:white;
 .light .logo_noir{
   position: absolute;
   visibility:hidden;
-  width: 8vh;
-  height: 8vh;
+  height: 10vh;
 }
 .dark .logo_blanc{
   position: relative;
   visibility:hidden;
-  width: 8vh;
-  height: 8vh;
+  height: 10vh;
 }
 
 /* *****************************************************************

@@ -53,11 +53,10 @@ const images = [
     return(
            
         <React.Fragment>
-
+         
             <section>
                 <div className="container">
                     <div className="container_home">
-
                         <div className="header">
                                             
                            <img src="./image/main-block-decor.png" alt="header" className="main_block_decor" />
