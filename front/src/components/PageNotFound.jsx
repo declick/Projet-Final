@@ -1,11 +1,12 @@
 import React from 'react'
+import { NavLink } from "react-router-dom"
 
 const PageNotFound = () => {
     
     return(
         
         <React.Fragment>
-            <div>
+            <div className="container_404">
                 <h1>404 Error</h1>
                 <h1> Page not found</h1>
                 
@@ -14,6 +15,7 @@ const PageNotFound = () => {
              
                 <h2>Sinon que faire ?</h2>
                 <p>Vous pouvez éteindre votre kiwi et manger un ordinateur.</p>
+                <NavLink to="/"><button type="submit" className="card_button">Accueil</button></NavLink>
             </div>
         </React.Fragment>
        

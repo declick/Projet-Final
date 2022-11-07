@@ -110,6 +110,15 @@ text-align: center;
 	padding: 0 2rem 2rem;
 }
 
+.container_404 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+}
+
 
 /* *****************************************************************
 POPUP
@@ -1472,6 +1481,9 @@ PolitiqueDeCookie
   
 }
 
+/* *****************************************************************
+404
+***************************************************************** */
 
 /* *****************************************************************
 FOOTER
