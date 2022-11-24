@@ -92,7 +92,7 @@ export const adminPath = [
     '/AdminUsers',
     
     '/AdminImage',
-    '/AddImage'
+    '/AddImage',
 ]
 
 

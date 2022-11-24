@@ -87,10 +87,21 @@ const Profil = () => {
     return(
         
         <React.Fragment>
-            <h1>Dashboard Utilisateur</h1>
-            <div className="center">
-            
+        
+          <h1>Bienvenu sur ton dashboard {profil.prenom}</h1>
+          
+            <div className="text_intro">
+              <p>Ici tu peux personaliser ton profil :</p>
+              <p>nom, prenom, email.</p>
+            </div>
+            <div className="text_intro">
+              <p>Ou supprimer ton compte.</p>
+            </div>
+        
             { profil && 
+            
+            <div className="center">
+  
             
            <form encType="multipart/form-data" onSubmit={submitForm} className="formulaire" action='' method='post'>
                     <label>
@@ -113,8 +124,8 @@ const Profil = () => {
                            <input type="submit" id="del" onClick={(e) => handleDelete(e,state.id)} value="supprimer" />
                       </label>  
                 </form>
-            }
             </div>
+            }
         </React.Fragment>
     )
 }

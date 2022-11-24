@@ -44,11 +44,11 @@ const Produit = () => {
                                         
                                         <p> {e.price}  €</p>
                                       
-                                                <a href="#popup7"><u>PLUS D'INFORMATION</u></a>
+                                                <a href="#popup7" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                             <div id="popup7" className="overlay">
                                             	<div className="popup">
                                             		<h2>KIT CIL</h2>
-                                            		<a className="close" href="#7">&times;</a>
+                                            		<a className="close" href="#7" aria-label="popup">&times;</a>
                                             		<div className="content">
                                             			<p>{e.description}</p>
                                             		</div>
@@ -70,11 +70,11 @@ const Produit = () => {
                                         <div className="card_body">
                                        
                                         <p> {e.price}  €</p>
-                                                <a href="#popup8"><u>PLUS D'INFORMATION</u></a>
+                                                <a href="#popup8" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                             <div id="popup8" className="overlay">
                                             	<div className="popup">
                                             		<h2>KIT SOURCIL</h2>
-                                            		<a className="close" href="#8">&times;</a>
+                                            		<a className="close" href="#8" aria-label="popup">&times;</a>
                                             		<div className="content">
                                             			<p>{e.description}</p>
                                             		</div>

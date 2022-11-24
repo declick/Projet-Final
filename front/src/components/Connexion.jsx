@@ -28,10 +28,11 @@ const Connexion = () => {
         }
         
         e.preventDefault()
-        
+                // Je verifie si les champs sont vides 
                 if (email === "" || mdp === "") {
             setErrorMessage("Merci de compléter correctement le formulaire.")
             }else{
+                // Je verifie la longueur du champ email
                 if (email.length > 255){
                     setErrorMessage("Merci de compléter correctement le formulaire.")
                 } else {

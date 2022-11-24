@@ -77,14 +77,14 @@ const Navbar = () => {
         window.scrollTo(0, 0)
     },[pathname])
         
-        // // Permet de changer de police, size, ect
-        // const [isActive, setActive] = React.useState(false)
+        //  Permet de changer de police, size, ect
+        //  const [isActive, setActive] = React.useState(false)
         
-        // const toggClass = () => {
-        //     setActive (!isActive)
-        // }
+        //  const toggClassName = () => {
+        //      setActive (!isActive)
+        //  }
  
-        //     <button className={isActive ? 'link *' : null} onClick={toggClass} ></button>
+            // <button className={isActive ? '' : null} onClick={toggClassName} ></button>
     return(
         
         <React.Fragment> 
@@ -92,23 +92,23 @@ const Navbar = () => {
             
             <div className="container_home">
                 <div>
-                    <NavLink to="/"><img className="logo_noir" src="../image/noir.png" alt="Logo MyLittleLashes"></img></NavLink>
-                    <NavLink to="/"><img className="logo_blanc" src="../image/blanc.jpg" alt="Logo MyLittleLashes"></img></NavLink>
+                    <NavLink to="/"  aria-label="page"><img className="logo_noir" src="../image/noir.png" alt="Logo MyLittleLashes"></img></NavLink>
+                    <NavLink to="/"  aria-label="page"><img className="logo_blanc" src="../image/blanc.jpg" alt="Logo MyLittleLashes"></img></NavLink>
                 </div>
 
                     <label className="switch">
                         { /* bouton qui bascule entre les modes clair et sombre */ }
-                        <div className={`App ${theme}`}></div>
+                        <div className={`App ${theme}`} id="idCheckbox"></div>
                             { /*  inclut une fonction toggleTheme pour changer la variable d'état du thème entre clair et sombre */ }
-                            <input type="checkbox" id="idCheckbox" onClick={toggleTheme} />  
+                            <input type="checkbox" onClick={toggleTheme} />  
                             <div className="slider round"><div className="icon_switch"> <FaSun />  <FaMoon /></div></div>
                     </label>
             </div>
                    
 
                 { /* Menu Burger */ }
-                <input type="checkbox" id="tabnav" className="tabnav" /> 
-                <label htmlFor="tabnav" className="label">
+                <input type="checkbox" id="tabnav" className='tabnav'  /> 
+                <label htmlFor="tabnav" className="label" >
                     <label><p>Menu</p></label>
                     <div id="burg1" className="burger"></div>
                     <div id="burg0" className="burger"></div>

@@ -23,13 +23,14 @@ const AddPrestation = ()=> {
 
         const dataFile = new FormData()
         const files = {...e.target.fichier.files}
-
+        // Ajouter d'input au formulaire
         dataFile.append('categorie_id',categories_id)
         dataFile.append('title',title)
         dataFile.append('description',description)
+        // L'image
         dataFile.append('files', files[0], files[0].name)
-        
-  if (categories_id === '' || title <= 255 && title >= 1  || description === '' || description >= 1 && description <= 500 ) {
+        // Je verifie si les champs sont vides ou de la bonne longueur
+        if (categories_id === '' || description === '' || description >= 1 || description <= 500 || title <= 255 || title >= 1 ) {
         setErrorMessage("erreur de saisie")
         }else{
          axios.post(`${BASE_URL}/AddPrestation`,dataFile)

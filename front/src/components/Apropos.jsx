@@ -34,21 +34,21 @@ const Apropos = () => {
                     
                    
                     <div className="blog_card">
-                    <div className="background_slide">
-                     <div className="image">
-                        <img className="card_img" src="../image/photo-de-claire.png" alt="claire minziere" />
-                    </div>
-                
-                     <div className="title_intro">
-                                <div className="text_intro">
-                                    <h2>Un peu de Moi</h2>
-                                 </div>
-                                    <p>Mettez du rêve dans votre vie à “My Little Lashes” ! Cet institut de beauté à Rezé (Loire-Atlantique), situé à proximité du centre commercial Leclerc Océane, est dédié à la beauté du regard. Claire est une prothésiste ciliaire hors paire et elle sait donner pour mission de sublimer vos yeux. Attentive et dévouée, elle vous accueille du Lundi au Samedi.</p>
-                                    
-                                    <p>Pour un regard intense, osez les extensions de cils. Des yeux parfaitement maquillés dès le réveil, c’est possible. Contrairement aux idées reçues, les extensions ne demandent pas beaucoup d’entretien. Simplement, nettoyez vos faux-cils avec une mousse spéciale tous les jours (comme vous le feriez pour vos cils naturels) et brossez les tous les matins. Pour le reste, admirez-vous dans chaque miroir rencontré.</p>
-                            </div>
-                        
-                    </div> 
+                        <div className="background_slide">
+                         <div className="image">
+                            <img className="card_img" src="../image/photo-de-claire.png" alt="claire minziere" />
+                        </div>
+                    
+                         <div className="title_intro">
+                                    <div className="text_intro">
+                                        <h2>Un peu de Moi</h2>
+                                     </div>
+                                        <p>Mettez du rêve dans votre vie à “My Little Lashes” ! Cet institut de beauté à Rezé (Loire-Atlantique), situé à proximité du centre commercial Leclerc Océane, est dédié à la beauté du regard. Claire est une prothésiste ciliaire hors paire et elle sait donner pour mission de sublimer vos yeux. Attentive et dévouée, elle vous accueille du Lundi au Samedi.</p>
+                                        
+                                        <p>Pour un regard intense, osez les extensions de cils. Des yeux parfaitement maquillés dès le réveil, c’est possible. Contrairement aux idées reçues, les extensions ne demandent pas beaucoup d’entretien. Simplement, nettoyez vos faux-cils avec une mousse spéciale tous les jours (comme vous le feriez pour vos cils naturels) et brossez les tous les matins. Pour le reste, admirez-vous dans chaque miroir rencontré.</p>
+                                </div>
+                            
+                        </div> 
                     </div>
                 </div> 
             </div>  

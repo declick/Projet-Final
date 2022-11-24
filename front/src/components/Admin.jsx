@@ -5,6 +5,7 @@ import NavBarAdmin from "./NavBarAdmin"
 import axios from "axios"
 import { BASE_URL} from '../config.js'
 import {TiMessages } from "react-icons/ti"
+import { NavLink } from "react-router-dom"
 
 const Admin = (req,res) => {
     
@@ -36,10 +37,9 @@ const Admin = (req,res) => {
             </div>
             
             <div className="container_intro" >
-                <p><TiMessages  className="img_icon"/>
-                vous avez <b>{contact}</b> messages</p>
+                <NavLink className="lien_admin" to="/AdminMessage"><TiMessages  className="img_icon"/>
+                <p>vous avez <b>{contact}</b> messages</p></NavLink>
             </div>
-
         </React.Fragment>
     ) 
 }

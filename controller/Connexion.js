@@ -1,38 +1,3 @@
-// // Import des modules 
-
-// import pool from '../config/database.js'
-// import bcrypt from 'bcrypt'
-// import {asyncQuery} from '../config/database.js';
-// import {generateToken} from "../controllers/token.js"
-
-// const SubmitConnectionController = (req, res) => {
-
-//     const validRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-
-//         // Requete à la base de données
-    
-//     let connection = "SELECT * FROM user WHERE user.email = (?)"
-//     pool.query(connection, [req.body.email], (err, user) =>{
-//         if (err) throw err
-//         if(user[0]){
-//                 bcrypt.compare(req.body.mdp,user[0].mdp, (err, result) => {
-//                     if (err) throw err
-//                         if(result){
-                         
-                                
-//                                 const admin = user[0].role_id === 1
-                                
-            
-//                                 res.json({response:true, message:"connecter",admin, user })
-                  
-//                 })
-//         }else{
-//              res.json({response:false})
-//         }
-//     })
-// }
-// export default SubmitConnectionController
-
 
 import bcrypt from 'bcrypt';
 import {asyncQuery} from '../config/database.js';

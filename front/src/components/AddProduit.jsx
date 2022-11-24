@@ -22,13 +22,14 @@ const AddProduit = ()=> {
 
         const dataFile = new FormData()
         const files = {...e.target.fichier.files}
-
+        // Ajouter d'input au formulaire
         dataFile.append('title',title)
         dataFile.append('description',description)
+        // L'image
         dataFile.append('files', files[0], files[0].name)
         dataFile.append('price',price)
-        
- if (title === "" ||  description === "" || price === "" || description >= 1 || description <= 500) {
+        // Je verifie si les champs sont vides
+        if (title === "" ||  description === "" || price === "" || description >= 1 || description <= 500) {
         setErrorMessage("Il manque un titre, une description ou un prix")
         }else{
          

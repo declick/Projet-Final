@@ -43,11 +43,11 @@ const Prestation = () => {
                                         <h3>{e.title}</h3>
                                             <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension cil à cil" /></div>
                                             <div className="card_body">
-                                                    <a href="#popup1"><u>PLUS D'INFORMATION</u></a>
+                                                    <a href="#popup1" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                 <div id="popup1" className="overlay">
                                                 	<div className="popup">
                                                 		<h2>Extension cil à cil</h2>
-                                                		<a className="close" href="#1">&times;</a>
+                                                		<a className="close" href="#1" aria-label="popup">&times;</a>
                                                 		<div className="content">
                                                 			<p>{e.description}</p>
                                                 		</div>
@@ -95,11 +95,11 @@ const Prestation = () => {
                                                 <h3>{e.title}</h3>
                                             <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension mixte" /></div>
                                             <div className="card_body">
-                                                    <a href="#popup2"><u>PLUS D'INFORMATION</u></a>
+                                                    <a href="#popup2" aria-label="popup" ><u>PLUS D'INFORMATION</u></a>
                                                 <div id="popup2" className="overlay">
                                                 	<div className="popup">
                                                 		<h2>Extension mixte</h2>
-                                                		<a className="close" href="#2">&times;</a>
+                                                		<a className="close" href="#2" aria-label="popup">&times;</a>
                                                 		<div className="content">
                                                 			<p>{e.description}</p>
                                                 		</div>
@@ -148,12 +148,12 @@ const Prestation = () => {
                                             <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension volume" /></div>
                                             <div className="card_body">
                                             
-                                                    <a href="#popup3"><u>PLUS D'INFORMATION</u></a>
+                                                    <a href="#popup3" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                     
                                                 <div id="popup3" className="overlay">
                                                 	<div className="popup">
                                                 		<h2>Extension volume</h2>
-                                                		<a className="close" href="#3">&times;</a>
+                                                		<a className="close" href="#3" aria-label="popup">&times;</a>
                                                 		<div className="content">
                                                 			<p>{e.description}</p>
                                                 		</div>
@@ -201,11 +201,11 @@ const Prestation = () => {
                                     <h3>{e.title}</h3>
                                             <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension effet wet" /></div>
                                             <div className="card_body">
-                                                    <a href="#popup4"><u>PLUS D'INFORMATION</u></a>
+                                                    <a href="#popup4" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                 <div id="popup4" className="overlay">
                                                 	<div className="popup">
                                                 		<h2>Extension effet wet</h2>
-                                                		<a className="close" href="#4">&times;</a>
+                                                		<a className="close" href="#4" aria-label="popup">&times;</a>
                                                 		<div className="content">
                                                 			<p>{e.description}</p>
                                                 		</div>
@@ -253,12 +253,12 @@ const Prestation = () => {
                                      <h3>{e.title}</h3>
                                             <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Rehaussement de cil" /></div>
                                             <div className="card_body">
-                                                    <a href="#popup5"><u>PLUS D'INFORMATION</u></a>
+                                                    <a href="#popup5" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                 <div id="popup5" className="overlay">
                                                 	<div className="popup">
                                                 		<h2>Rehaussement de cil</h2>
                                                 		<a className="close" href="#5">&times;</a>
-                                                		<div className="content">
+                                                		<div className="content" aria-label="popup">
                                                 			<p>{e.description}</p>
                                                 		</div>
                                                 	</div>
@@ -305,11 +305,11 @@ const Prestation = () => {
                                     <h3>{e.title}</h3>
                                             <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Brow lift" /></div>
                                             <div className="card_body">
-                                                    <a href="#popup6"><u>PLUS D'INFORMATION</u></a>
+                                                    <a href="#popup6" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                 <div id="popup6" className="overlay">
                                                 	<div className="popup">
                                                 		<h2>Brow lift</h2>
-                                                		<a className="close" href="#6">&times;</a>
+                                                		<a className="close" href="#6" aria-label="popup">&times;</a>
                                                 		<div className="content">
                                                 			<p>{e.description}</p>
                                                 		</div>

@@ -41,10 +41,11 @@ const Inscription = () => {
             }
 
           e.preventDefault()
-          
+            // Je verifie si les champs sont vides et sans espaces
             if (prenom.trim() === "" || nom.trim() === "" || email.trim() === "" || mdp.trim() === "" || isChecked === false  ) {
         		  setErrorMessage("Merci de ne pas laisser de champ vide.")
-              }else{   
+              }else{  
+                // Je verifie la longueur des champs 
                 if (prenom.length <= 255 && nom.length <= 255 && email.length <= 255 && mdp.length >= 8 && email != validRegex){
 
                   axios.post(`${BASE_URL}/Inscription`, data)

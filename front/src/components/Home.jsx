@@ -4,7 +4,7 @@ import axios from 'axios'
 import { BASE_URL,BASE_IMG } from '../config.js'
 import {useNavigate} from "react-router-dom"
 import { NavLink } from "react-router-dom"
-import Carousel from "./Carousel"
+import {Carousel,Images} from "./Carousel"
 import {ReducerContext} from "./reducer/reducer"
 import {GrDiamond} from "react-icons/gr"
 
@@ -37,18 +37,6 @@ const Home = () => {
         
     },[])
     
-//Les images du carousel
-const images = [
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' },
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' },
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' },
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' },
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' },
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' },
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' },
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' },
-  { imgUrl: 'https://st3.depositphotos.com/thumbs/8132176/vector/35167/351677116/api_thumb_450.jpg?forcejpeg=true' }
-]
 
     return(
            
@@ -80,7 +68,7 @@ const images = [
                 
                     <div className="text_intro">
                         <h2 className="intro_title">MY LITTLE LASHES</h2>
-                        <p>studio privé situé à Rezé et spécialisé dans la mise en beauté de votre  Regard</p>
+                        <p>studio privé situé à Rezé et spécialisé dans la mise en beauté de votre Regard</p>
                     </div> 
                     
                         <div className="text_intro">
@@ -246,9 +234,8 @@ const images = [
                                     <p>est une priorité dans le choix des produits utilisés.</p>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div>
+                     </div>
+                      <div>
                         <div className="text_qualiter">
                             <GrDiamond className="diamond" />
                             <div className="text_intro">
@@ -260,14 +247,12 @@ const images = [
                             <div className="text_qualiter">
                               <GrDiamond className="diamond" /> 
                                 <div className="text_intro">
-                                    <p>Toutes les techniques sont réalisées dans le strict</p>
-                                    <p>respect des procédures. Un suivi régulier de formation de perfectionnement</p>
-                                    <p>me permettra de vous proposer un travail de qualité avec un</p>
-                                    <p>partage de connaissances approfondies.</p>
+                                    <p>Toutes les techniques sont réalisées dans le respect des procédures. </p>
+                                    <p>Un suivi de formation de perfectionnementme permettra de vous</p>
+                                    <p>proposer un travail de qualité avec un partage de connaissances .</p>
                             </div>
                         </div>
                     </div>
-                    
                   </div>
                 </div>    
             </section>
@@ -278,7 +263,7 @@ const images = [
                         <h2>LOOK BOOK</h2>
                     </div> 
                     
-                        <Carousel images={images} alt="prestation" />
+                        <Carousel Images={Images} alt="prestation" />
                         
                     <div className="text_intro">
                     <h2>Elle ont testé et validé</h2>

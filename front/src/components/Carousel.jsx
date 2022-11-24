@@ -9,7 +9,7 @@ import React from 'react'
         useEffect(() => {
           // Après chaque rendu, enregistrez le dernier rappel dans notre ref.
             savedCallback.current = callback
-        },[callback])
+        })
     
       // Ce code gère toutes les transitions possibles : changement de délai, pause ou la reprise d'un intervalle 
       
@@ -26,20 +26,29 @@ import React from 'react'
                 let id = setInterval(tick, delay)
                 return () => clearInterval(id)
             }
-        },
-            [delay])
+        },[delay])
     }
 
+//Les images du carousel
+const Images = [
+  { imgUrl: 'https://i.ibb.co/4T4Bmf6/gallery1.jpg' },  
+  { imgUrl: 'https://i.ibb.co/4T4Bmf6/gallery1.jpg' },
+  { imgUrl: 'https://i.ibb.co/4T4Bmf6/gallery1.jpg' },
+  { imgUrl: 'https://i.ibb.co/4T4Bmf6/gallery1.jpg' },
+  { imgUrl: 'https://i.ibb.co/4T4Bmf6/gallery1.jpg' },
+  { imgUrl: 'https://i.ibb.co/4T4Bmf6/gallery1.jpg' },
+  { imgUrl: 'https://i.ibb.co/4T4Bmf6/gallery1.jpg' }
+]
 
     //Carousel
 const Carousel = (props) => {
   
-  const { images } = props
-  const len = images.length
+  const { Images } = props
+  const len = Images.length
   
   const [activeIndex, setActive] = useState(0)
   
-  // Autoplay
+ //Autoplay
   useInterval(() => {
         setActive((activeIndex + 1) % len)
     }, 5000)
@@ -64,7 +73,7 @@ const Carousel = (props) => {
       styleObj.left = distance > 0 ? `${16.7 + distance * 40}%` : `${50 + distance * 40}%`
     }
 
-    //La distance n'est pas inférieure à 2, cachez
+    //La distance n'est pas inférieure à 2, on le cache
     if (Math.abs(distance) >= 2) {
       styleObj.opacity = 0
       styleObj.transform = "scale(0)"
@@ -78,7 +87,7 @@ const Carousel = (props) => {
         <React.Fragment>
           <div className="carousel">
               <div className="card_container">
-                  {images.map(({ imgUrl }, index) => (
+                  {Images.map(({ imgUrl }, index) => (
                     <div className="card_carousel" key={index} onClick={() => setActive(index)} style={getStyle(index)}>
                       <img src={imgUrl} alt="Look Book" />
                     </div>
@@ -86,7 +95,7 @@ const Carousel = (props) => {
                   </div>
                 
                   <div className="rects">
-                  {images.map((value, index) => (
+                  {Images.map((value, index) => (
                     <div key={index} className={activeIndex === index ? "rect active" : "rect"} onClick={() => setActive(index)} />
                   ))}
               </div>
@@ -96,4 +105,4 @@ const Carousel = (props) => {
 }
     
 
-export default Carousel
+export {Carousel,Images}

@@ -36,16 +36,16 @@ const EditPrestation = () => {
 
         const dataFile = new FormData()
         const files = {...e.target.fichier.files}
-        
+        // input du formulaire
         dataFile.append('categorie_id',prestation.categorie_id)
         dataFile.append('title',prestation.title)
         dataFile.append('description',prestation.description)
         dataFile.append('id',params.id)
         if(files[0]){
-            
+            // L'image
         dataFile.append('files', files[0], files[0].name)
         }
-        
+         // Je verifie qu'un moins un caratctere est saisie dans le texte area et de moins de 500 caracteres  
          if (prestation.description >= 1 && prestation.description <= 500 ) {
         setErrorMessage("Il manque un titre, une description ou un prix")
         }else{

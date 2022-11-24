@@ -17,7 +17,7 @@ const AddImage = ()=> {
 
         const dataFile = new FormData()
         const files = {...e.target.fichier.files}
-
+        // L'image
         dataFile.append('files', files[0], files[0].name)
         
          axios.post(`${BASE_URL}/AddImage`,dataFile)
