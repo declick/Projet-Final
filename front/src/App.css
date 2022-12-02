@@ -148,7 +148,6 @@ TOP TO C COOL
   color: #fff;
   cursor: pointer;
   /* animation du bouton */
-  animation: movebutton 3s ease-in-out infinite;
   transition: all .5s ease-in-out;
 }
 
@@ -1291,6 +1290,64 @@ font-weight: 700;
 /* *****************************************************************
 PRESTATION
 ***************************************************************** */
+.tabs {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.tabs label {
+  -webkit-box-ordinal-group: 1;
+  -moz-box-ordinal-group: 1;
+  -ms-flex-order: 1;
+  -webkit-order: 1;
+  order: 1;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 20px 0;
+  cursor: pointer;
+  border-bottom: 1px #cccccc solid;
+  text-align: center;
+  text-transform: uppercase;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.tabs_content {
+  -webkit-box-ordinal-group: 99;
+  -moz-box-ordinal-group: 99;
+  -ms-flex-order: 99;
+  -webkit-order: 99;
+  order: 99;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  padding: 20px 0;
+}
+.tabs input[type=radio] {
+  display: none;
+}
+.tabs input[type=radio]:checked + label {
+  border-bottom: 5px green solid;
+  color: green;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.tabs input[type=radio]:checked + label + .tabs_content {
+  display: block;
+}
+
 .text_prestation{
 display: flex;
     gap: 30px;
