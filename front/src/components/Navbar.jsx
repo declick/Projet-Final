@@ -100,7 +100,7 @@ const Navbar = () => {
                         { /* bouton qui bascule entre les modes clair et sombre */ }
                         <div className={`App ${theme}`} id="idCheckbox"></div>
                             { /*  inclut une fonction toggleTheme pour changer la variable d'état du thème entre clair et sombre */ }
-                            <input type="checkbox" onClick={toggleTheme} />  
+                            <input type="checkbox" onClick={toggleTheme}  aria-label="toggleTheme"/>  
                             <div className="slider round"><div className="icon_switch"> <FaSun />  <FaMoon /></div></div>
                     </label>
             </div>

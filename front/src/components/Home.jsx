@@ -50,7 +50,7 @@ const Home = () => {
                            <img src="./image/main-block-decor.png" alt="header" className="main_block_decor" />
                 
                             <div className="text_header">
-                                <h1>MY LITTLE LASHES</h1>
+                                <h1 className="acceuil">MY LITTLE LASHES</h1>
                                 <p>BROW AND LASH ARTIST</p>
                                 <div className="marquee_header">
                                     <p>* -15% de remise sur vos poses complètes d'extensions de cils sur présentation de votre carte étudiante.</p>

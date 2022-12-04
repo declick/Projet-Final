@@ -41,6 +41,7 @@ h1{
   justify-content: center;
   text-align: center;
   letter-spacing: 0.2em;
+  color:#223843;
 }
 
 h2{
@@ -50,10 +51,10 @@ h2{
   text-transform: uppercase;
   text-align: center;
   
-  color:#ff9eab;
+  color:#223843;
 }
 h3{
-   color:#ff9eab;
+   color:#223843;
 }
 /* *****************************************************************
 CONTAINER
@@ -140,7 +141,7 @@ TOP TO C COOL
 }
 
 .button_style{
-  background-color: #f7c8cf;
+  background-color: #DBD3D8;
   border: 2px solid #fff;
   border-radius: 50%;
   height: 50px;
@@ -154,8 +155,8 @@ TOP TO C COOL
 .button_style:hover{
   animation: none;
   background: #fff;
-  color: #f7c8cf;
-  border: 2px solid #f7c8cf;
+  color: #DBD3D8;
+  border: 2px solid #DBD3D8;
 }
 
 @keyframes movebutton {
@@ -711,7 +712,25 @@ color:white;
   background-color: #fff;
   color: #333;
 }
-
+.dark .background_slide {
+    background-color: grey;
+}
+.dark .acceuil {
+    color: #223843;
+}
+.dark h1 {
+    color: #D8B4A0;
+}
+.dark h2 {
+    color: #D8B4A0;
+}
+.dark h3 {
+    color: #D8B4A0;
+}
+.dark .tabs input[type=radio]:checked + label {
+    color: #D8B4A0;
+    border-bottom: 5px #D8B4A0 solid;
+}
 /* LOGO */
 .light .logo_noir{
   position: absolute;
@@ -722,6 +741,10 @@ color:white;
   position: relative;
   visibility:hidden;
   height: 10vh;
+}
+.light .text_contact{
+
+    background-color: #D8B4A0;
 }
 
 /* *****************************************************************
@@ -904,10 +927,16 @@ HOME
     justify-content: center;
   margin:0;
   padding:0;
-  background:url("../public/image/header.jpg") no-repeat center fixed;
+  background:url("../public/image/header.jpg") fixed;
  background-size: cover;
- width:1200%;
+ width:100%;
  height:50vh;
+}
+@media screen and (max-width: 1200px){  
+.header {
+     background:url("../public/image/header.jpg") right fixed;
+      background-size: cover;
+}
 }
 .text_header{
   letter-spacing: 1em;
@@ -947,8 +976,7 @@ font-size:48px;
 }
 
 .background_slide{
-  background-color:grey;
-  color:#fff;
+  background-color:#D8B4A0;
   padding: 33px;
 }
 
@@ -1290,6 +1318,31 @@ font-weight: 700;
 /* *****************************************************************
 PRESTATION
 ***************************************************************** */
+.card_prestation {
+  display: flex;
+  align-items: center;
+ flex-direction: column;
+  width: 60vh;
+  height: 45vh;
+  margin: 0px auto;
+  border-radius: 33px;
+  margin:13px;
+}
+.card_image_prestation > img {
+  width: 41vh;
+  border-radius: 24px;
+  box-shadow: 0px 5px 20px #999;
+  cursor:zoom-out;
+    transition: all 1s;
+}
+.card_image_prestation > img:hover { 
+  -webkit-transform:scale(1.25); /* Safari et Chrome */
+  -moz-transform:scale(1.25); /* Firefox */
+  -ms-transform:scale(1.25); /* Internet Explorer 9 */
+  -o-transform:scale(1.25); /* Opera */
+  transform:scale(1.25);
+  cursor:zoom-in;
+}
 .tabs {
   display: -webkit-box;
   display: -moz-box;
@@ -1336,8 +1389,8 @@ PRESTATION
   display: none;
 }
 .tabs input[type=radio]:checked + label {
-  border-bottom: 5px green solid;
-  color: green;
+  border-bottom: 5px #223843 solid;
+  color: #223843;
   -moz-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -1356,7 +1409,7 @@ display: flex;
     border-bottom: 1px solid rgb(229, 229, 229);
 }
 .background_slide_prestation{
-  background-color:grey;
+  background-color:#D8B4A0;
   color:#fff;
   padding: 1px;
 }
@@ -1405,12 +1458,8 @@ CONTACT
   width: 380px;
   padding: 40px;
   border-radius: 0 25px 25px 0;
-  color:#fff;
 }
-.light .text_contact{
 
-    background-color: #333;
-}
 /* *****************************************************************
 Google map
 ***************************************************************** */
@@ -1627,10 +1676,13 @@ FOOTER
     justify-content: space-around;
     padding: 5px;
     height: 100px;
-    background-color: grey;
+    background-color: #D8B4A0;
     align-items: center;
     flex-direction: row-reverse;
     flex-wrap: wrap;
+}
+.dark .footer  {
+  background-color: grey;
 }
 #container_footer .icons_footer{
   text-decoration:none;
@@ -1690,8 +1742,8 @@ FOOTER
   text-align: center;
     display: flex;
     padding: 5px;
-    height: 245px;
-    background-color: grey;
+    height: 234px;
+    background-color: #D8B4A0;
    justify-content: flex-start;
     align-items: center;
     flex-direction: column;

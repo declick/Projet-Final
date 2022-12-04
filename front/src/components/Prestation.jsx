@@ -33,9 +33,13 @@ const Prestation = () => {
                   <div className="tabs_content">
                    <div className="">
                                         <div className="text_intro">
-                                             <h2> Extension cil à cil </h2>
-                                            <p>Je souhaite un rendu naturel avec un effet "mascara".</p>
-                                        </div>   
+                                             <h2> Extension cil à cil </h2></div>
+                                         <div className="text_intro">   
+                                            <p>Cette pose vous garantira un effet mascara. Idéal pour les personnes n'ayant pas l' habitude de se maquiller ou voulant un rendu naturel.</p>
+                                            <p>Cette technique consiste à poser chaque extension sur un cil naturel. Un Diagnostic permettra de choisir la courbure, </p>
+                                            <p>la longueur et la forme qui vous conviendra le mieux tout en respectant votre cil naturel.</p>
+                                        
+                                        </div>    
                                    
                                         <div className="container_home">
                     
@@ -44,9 +48,9 @@ const Prestation = () => {
                                                 
                                                     return ( 
                                                     
-                                                    <div className="card" key={i}>
+                                                    <div className="card_prestation" key={i}>
                                                         <h3>{e.title}</h3>
-                                                            <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension cil à cil" /></div>
+                                                            <div className="card_image_prestation"><img src={`${BASE_IMG}/${e.image}`} alt="Extension cil à cil" /></div>
                                                             <div className="card_body">
                                                                     <a href="#popup1" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                                 <div id="popup1" className="overlay">
@@ -89,8 +93,13 @@ const Prestation = () => {
                   <label htmlFor="tab_2">Extension mixte</label>
                   <div className="tabs_content">
                      <div className="text_intro">
-                                             <h2> Extension mixte </h2>
-                                            <p>Je souhaite un rendu un peu plus fourni en soulignant mon regard de façon naturel. </p>
+                                             <h2> Extension mixte </h2></div>
+                      <div className="text_intro">                       
+                                            <p>Mélange de deux techniques. (cil à cil et volume)</p>
+                                            <p>Cette technique permet d’avoir un résultat plus fourni que le cil à cil. </p>
+                                            <p>Cette technique combine la technique du cil à cil et du volume ce qui va créer de la densité,</p>
+                                            <p>pour souligner le regard, tout en restant assez naturel.</p>
+                                            <p>L idéal pour  les clientes souhaitant allier densité naturel.</p>
                                         </div>   
                                    
                                         <div className="container_home">
@@ -100,9 +109,9 @@ const Prestation = () => {
                                                 
                                                     return ( 
                                                     
-                                                    <div className="card" key={i}>
+                                                    <div className="card_prestation" key={i}>
                                                                 <h3>{e.title}</h3>
-                                                            <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension mixte" /></div>
+                                                            <div className="card_image_prestation"><img src={`${BASE_IMG}/${e.image}`} alt="Extension mixte" /></div>
                                                             <div className="card_body">
                                                                     <a href="#popup2" aria-label="popup" ><u>PLUS D'INFORMATION</u></a>
                                                                 <div id="popup2" className="overlay">
@@ -145,8 +154,10 @@ const Prestation = () => {
                   <div className="tabs_content">
                     <div className="">
                                         <div className="text_intro">
-                                             <h2> Extension volume</h2>
+                                             <h2> Extension volume</h2> </div>  
+                                        <div className="text_intro">     
                                             <p>Je souhaite un regard glamour et j' opte pour un effet plus sophistiqué. </p>
+                                            <p>Application de bouquets d'extensions par cil naturel pour un effet plus ou moins intense.</p>
                                         </div>   
                                    
                                         <div className="container_home">
@@ -156,9 +167,9 @@ const Prestation = () => {
                                                 
                                                     return ( 
                                                     
-                                                    <div className="card" key={i}>
+                                                    <div className="card_prestation" key={i}>
                                                             <h3>{e.title}</h3>
-                                                            <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension volume" /></div>
+                                                            <div className="card_image_prestation"><img src={`${BASE_IMG}/${e.image}`} alt="Extension volume" /></div>
                                                             <div className="card_body">
                                                             
                                                                     <a href="#popup3" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
@@ -203,8 +214,11 @@ const Prestation = () => {
                   <label htmlFor="tab_4">Extension effet wet</label>
                   <div className="tabs_content">
                     <div className="text_intro">
-                                             <h2> Extension effet wet </h2>
-                                            <p>Je souhaite un regard effet "mouillé" avec un effet plus ou moins soutenu. </p>
+                                             <h2> Extension effet wet </h2> </div>  
+                            <div className="text_intro">                 
+                                            <p>Cette technique est identique à celle du volume. </p>
+                                            <p>Les bouquets d'extensions sont "fermés" afin de donner cet aspect effet "mouillé" LE rendu varie en fonction de la densité choisie. </p>
+                                            <p>Cette méthode est l' idéal pour les personne souhaitant souligner leur regard et ayant une base cil moyenne à dense. </p>
                                         </div>  
                                         
                                         <div className="container_home">
@@ -214,9 +228,9 @@ const Prestation = () => {
                                                 
                                                     return ( 
                                                      
-                                                    <div className="card" key={i}>
+                                                    <div className="card_prestation" key={i}>
                                                     <h3>{e.title}</h3>
-                                                            <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Extension effet wet" /></div>
+                                                            <div className="card_image_prestation"><img src={`${BASE_IMG}/${e.image}`} alt="Extension effet wet" /></div>
                                                             <div className="card_body">
                                                                     <a href="#popup4" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                                 <div id="popup4" className="overlay">
@@ -255,12 +269,17 @@ const Prestation = () => {
                   </div>
                 
                     <input type="radio" name="tabs" id="tab_5" />
-                  <label htmlFor="tab_5">Extension effet wet</label>
+                  <label htmlFor="tab_5">Rehaussement de cil</label>
                   <div className="tabs_content">
                     <div className="">
                                         <div className="text_intro">
-                                             <h2> Rehaussement de cil</h2>
-                                            <p>Je souhaite ouvrir mon regard sans contrainte, effet naturel garanti. </p>
+                                             <h2> Rehaussement de cil</h2> </div>   
+                                        <div className="text_intro">     
+                                            <p>Cette technique est l'alternative incontournable au recourbe cils ! </p>
+                                            <p>Il permet de courber joliment vos cils naturels pour une durée de 6 à 8 semaines. </p>
+                                            <p>Le cil est nourrit en profondeur grâce à un soin révolutionnaire. Vos cils paraissent plus longs et sublimes. </p>
+                                            <p>Cette méthode convient à tous types de cils.</p>
+                                        
                                         </div>   
                                    
                                         <div className="container_home">
@@ -270,9 +289,9 @@ const Prestation = () => {
                                                 
                                                     return ( 
                                                     
-                                                    <div className="card" key={i}>
+                                                    <div className="card_prestation" key={i}>
                                                      <h3>{e.title}</h3>
-                                                            <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Rehaussement de cil" /></div>
+                                                            <div className="card_image_prestation"><img src={`${BASE_IMG}/${e.image}`} alt="Rehaussement de cil" /></div>
                                                             <div className="card_body">
                                                                     <a href="#popup5" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                                 <div id="popup5" className="overlay">
@@ -314,8 +333,10 @@ const Prestation = () => {
                   <label htmlFor="tab_6">Brow lift</label>
                   <div className="tabs_content">
                     <div className="text_intro">
-                                             <h2> Brow lift </h2>
-                                            <p>Je souhaite avoir des sourcils disciplinés, j'opte pour un effet structuré. </p>
+                                             <h2> Brow lift </h2> </div>   
+                             <div className="text_intro">                 
+                                            <p>Le brow lift sera votre allié parfait si vous sourcils refusent la discipline ou si vous souhaitez un effet structuré. </p>
+                                            <p>La teinture des sourcils seul ou en combo donnera de la dimension à votre regard.</p>
                                         </div>  
                                         
                                         <div className="container_home">
@@ -325,9 +346,9 @@ const Prestation = () => {
                                                 
                                                     return ( 
                                                      
-                                                    <div className="card" key={i}>
+                                                    <div className="card_prestation" key={i}>
                                                     <h3>{e.title}</h3>
-                                                            <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="Brow lift" /></div>
+                                                            <div className="card_image_prestation"><img src={`${BASE_IMG}/${e.image}`} alt="Brow lift" /></div>
                                                             <div className="card_body">
                                                                     <a href="#popup6" aria-label="popup"><u>PLUS D'INFORMATION</u></a>
                                                                 <div id="popup6" className="overlay">
