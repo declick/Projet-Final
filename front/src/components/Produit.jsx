@@ -30,16 +30,16 @@ const Produit = () => {
                         <p>Choisissez votre kit After Care, et repartez avec lors de votre prochain rendez-vous. <u>(Kit disponible uniquement sur réservation)</u> </p>
                     </div>
                     
-                <div className="container_home">
+                <div className="kit">
 
                         { produit.map((e,i)=>{
                             if(e.title === "KIT CIL"){  
                             
                                 return ( 
                                 
-                                <div className="card" key={i}>
+                                <div className="card_produit" key={i}>
                                 <h3>{e.title}</h3>
-                                        <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="produit" /></div>
+                                        <div className="card_service"><img src={`${BASE_IMG}/${e.image}`} alt="produit" /></div>
                                         <div className="card_body">
                                         
                                         <p> {e.price}  €</p>
@@ -64,9 +64,9 @@ const Produit = () => {
                         if(e.title === "KIT SOURCIL"){
                             return ( 
                            
-                                <div className="card" key={i}>
+                                <div className="card_produit" key={i}>
                                 <h3>{e.title}</h3>
-                                        <div className="card_image"><img src={`${BASE_IMG}/${e.image}`} alt="produit" /></div>
+                                        <div className="card_service"><img src={`${BASE_IMG}/${e.image}`} alt="produit" /></div>
                                         <div className="card_body">
                                        
                                         <p> {e.price}  €</p>

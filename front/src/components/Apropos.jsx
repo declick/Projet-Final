@@ -27,7 +27,7 @@ const Apropos = () => {
                             </div>
                                 <p>A “My Little Lashes”, Claire est là pour vous conseiller sur le type d’extensions qui vous ira le mieux, en fonction de la courbure de vos yeux. Vous pouvez choisir entre une pose cil à cil qui agrandit légèrement le regard, une pose mixte, un volume un peu plus épais 2D/3D ou même un volume russe 4D/6D pour un effet maximum. N’oubliez pas de prendre rendez-vous dès à présent pour le remplissage.</p>
                                 
-                                <p>De plus, votre institut de beauté à Rezé vous propose également le brow lift pour discipliner vos sourcils. Avec ou sans teinture, cette technique lisse, galbe et donne de l’épaisseur aux sourcils pendant plusieurs semaines. Enfin, entre deux extensions, vous pouvez effectuer la transition avec un rehaussement de cils et/ou une teinture, voire un lash bot-ox qui nourrit les cils en profondeur. Alors, prête à papillonner des yeux ?</p>
+                                <p>De plus, votre institut de beauté à Rezé vous propose également le brow lift pour discipliner vos sourcils. Avec ou sans teinture, cette technique lisse, galbe et donne de l’épaisseur aux sourcils pendant plusieurs semaines. Enfin, entre deux extensions, vous pouvez effectuer la transition avec un rehaussement de cils et/ou une teinture, voire un lash botox qui nourrit les cils en profondeur. Alors, prête a papillonner des yeux ?</p>
                         </div>
                         </div>
                     </div>

@@ -29,9 +29,9 @@ const Prestation = () => {
                 
                 <div className="tabs">
                   <input type="radio" name="tabs" id="tab_1" defaultChecked="checked" />
-                  <label htmlFor="tab_1">EXTENSION CIL À CIL</label>
-                  <div className="tabs_content">
-                   <div className="">
+                                  <label htmlFor="tab_1">EXTENSION CIL À CIL</label>
+                                  <div className="tabs_content">
+                                   <div className="">
                                         <div className="text_intro">
                                              <h2> Extension cil à cil </h2></div>
                                          <div className="text_intro">   
@@ -72,11 +72,11 @@ const Prestation = () => {
                                                     <p>Cil à Cil</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Tarif: 70 €</p>
+                                                    <p>Tarif : 70 €</p>
                                                     <p>Environ 2H15</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Remplissage à prevoir: 3 semaines</p>
+                                                    <p>Remplissage à prevoir : 3 semaines</p>
                                                 </div>
                                                 {!state.connexion && 
                                                     <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
@@ -87,14 +87,14 @@ const Prestation = () => {
                                             </div>
                                         </div>
                                       </div>
-                  </div>
-                
-                  <input type="radio" name="tabs" id="tab_2" />
-                  <label htmlFor="tab_2">Extension mixte</label>
-                  <div className="tabs_content">
-                     <div className="text_intro">
-                                             <h2> Extension mixte </h2></div>
-                      <div className="text_intro">                       
+                                  </div>
+                                
+                                  <input type="radio" name="tabs" id="tab_2" />
+                                  <label htmlFor="tab_2">Extension mixte</label>
+                                  <div className="tabs_content">
+                                     <div className="text_intro">
+                                                             <h2> Extension mixte </h2></div>
+                                      <div className="text_intro">                       
                                             <p>Mélange de deux techniques. (cil à cil et volume)</p>
                                             <p>Cette technique permet d’avoir un résultat plus fourni que le cil à cil. </p>
                                             <p>Cette technique combine la technique du cil à cil et du volume ce qui va créer de la densité,</p>
@@ -133,11 +133,11 @@ const Prestation = () => {
                                                     <p>Mixte</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Tarif: 80 €</p>
+                                                    <p>Tarif : 80 €</p>
                                                     <p>Environ 2H45</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Remplissage à prevoir: 3 semaines</p>
+                                                    <p>Remplissage à prevoir : 3 semaines</p>
                                                 </div>
                                                 {!state.connexion && 
                                                     <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
@@ -147,16 +147,16 @@ const Prestation = () => {
                                                 )}
                                             </div>
                                         </div>  
-                  </div>
-                
-                  <input type="radio" name="tabs" id="tab_3" />
-                  <label htmlFor="tab_3">Extension volume</label>
-                  <div className="tabs_content">
-                    <div className="">
+                                      </div>
+                                    
+                                      <input type="radio" name="tabs" id="tab_3" />
+                                      <label htmlFor="tab_3">Extension volume</label>
+                                      <div className="tabs_content">
+                                        <div className="">
                                         <div className="text_intro">
                                              <h2> Extension volume</h2> </div>  
                                         <div className="text_intro">     
-                                            <p>Je souhaite un regard glamour et j' opte pour un effet plus sophistiqué. </p>
+                                            <p>Je souhaite un regard glamour et j'opte pour un effet plus sophistiqué. </p>
                                             <p>Application de bouquets d'extensions par cil naturel pour un effet plus ou moins intense.</p>
                                         </div>   
                                    
@@ -193,11 +193,11 @@ const Prestation = () => {
                                                     <p>Volume</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Tarif: Des 85 €</p>
+                                                    <p>Tarif : Dès 85 €</p>
                                                     <p>Environ 3H</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Remplissage à prevoir: 3 semaines</p>
+                                                    <p>Remplissage à prevoir : 3 semaines</p>
                                                 </div>
                                                 {!state.connexion && 
                                                     <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
@@ -208,12 +208,12 @@ const Prestation = () => {
                                             </div>
                                         </div> 
                                         </div> 
-                  </div>
-                
-                  <input type="radio" name="tabs" id="tab_4" />
-                  <label htmlFor="tab_4">Extension effet wet</label>
-                  <div className="tabs_content">
-                    <div className="text_intro">
+                                      </div>
+                                    
+                                      <input type="radio" name="tabs" id="tab_4" />
+                                      <label htmlFor="tab_4">Extension effet wet</label>
+                                      <div className="tabs_content">
+                                        <div className="text_intro">
                                              <h2> Extension effet wet </h2> </div>  
                             <div className="text_intro">                 
                                             <p>Cette technique est identique à celle du volume. </p>
@@ -252,11 +252,11 @@ const Prestation = () => {
                                                     <p>Effet wet</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Tarif: 85 €</p>
+                                                    <p>Tarif : 85 €</p>
                                                     <p>Environ 2H15</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Remplissage à prevoir: 3 semaines</p>
+                                                    <p>Remplissage à prevoir : 3 semaines</p>
                                                 </div>
                                                 {!state.connexion && 
                                                     <NavLink to="/Inscription" ><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
@@ -266,12 +266,12 @@ const Prestation = () => {
                                                 )}
                                             </div>
                                     </div>
-                  </div>
-                
-                    <input type="radio" name="tabs" id="tab_5" />
-                  <label htmlFor="tab_5">Rehaussement de cil</label>
-                  <div className="tabs_content">
-                    <div className="">
+                                  </div>
+                                
+                                    <input type="radio" name="tabs" id="tab_5" />
+                                  <label htmlFor="tab_5">Rehaussement de cil</label>
+                                  <div className="tabs_content">
+                                    <div className="">
                                         <div className="text_intro">
                                              <h2> Rehaussement de cil</h2> </div>   
                                         <div className="text_intro">     
@@ -313,11 +313,11 @@ const Prestation = () => {
                                                     <p>Rehaussement de cil</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Tarif: Des 40 €</p>
+                                                    <p>Tarif : Dès 40 €</p>
                                                     <p>Environ 1H15</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Tenue: 6 à 8 semaines</p>
+                                                    <p>Tenue : 6 à 8 semaines</p>
                                                 </div>
                                                 {!state.connexion && 
                                                     <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>
@@ -328,11 +328,11 @@ const Prestation = () => {
                                             </div>
                                         </div>
                                         </div>
-                  </div>
-                    <input type="radio" name="tabs" id="tab_6" />
-                  <label htmlFor="tab_6">Brow lift</label>
-                  <div className="tabs_content">
-                    <div className="text_intro">
+                                      </div>
+                                        <input type="radio" name="tabs" id="tab_6" />
+                                      <label htmlFor="tab_6">Brow lift</label>
+                                      <div className="tabs_content">
+                                        <div className="text_intro">
                                              <h2> Brow lift </h2> </div>   
                              <div className="text_intro">                 
                                             <p>Le brow lift sera votre allié parfait si vous sourcils refusent la discipline ou si vous souhaitez un effet structuré. </p>
@@ -370,11 +370,11 @@ const Prestation = () => {
                                                     <p>Brow lift</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Tarif: Des 40€</p>
+                                                    <p>Tarif : Dès 40€</p>
                                                     <p>Environ 1H10</p>
                                                 </div>
                                                 <div className="text_prestation">
-                                                    <p>Tenue: 3 à 4 semaines</p>
+                                                    <p>Tenue : 3 à 4 semaines</p>
                                                 </div>
                                                 {!state.connexion && 
                                                     <NavLink to="/Inscription"><button  className="card_button" type="submit">Reservez votre prestation</button></NavLink>

@@ -108,7 +108,7 @@ text-align: center;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 60px;
     margin: 33px;
 }
 
@@ -141,7 +141,7 @@ TOP TO C COOL
 }
 
 .button_style{
-  background-color: #DBD3D8;
+  background-color: #223843;
   border: 2px solid #fff;
   border-radius: 50%;
   height: 50px;
@@ -155,8 +155,8 @@ TOP TO C COOL
 .button_style:hover{
   animation: none;
   background: #fff;
-  color: #DBD3D8;
-  border: 2px solid #DBD3D8;
+  color: #223843;
+  border: 2px solid #223843;
 }
 
 @keyframes movebutton {
@@ -754,11 +754,12 @@ CARD HOME / PRESTATION
   display: flex;
   align-items: center;
  flex-direction: column;
-  width: 23vh;
+   width: 23vh;
   height: 31vh;
   margin: 0px auto;
   border-radius: 33px;
   margin:13px;
+  
 }
 
 .card:hover .card_image .img { 
@@ -1413,6 +1414,41 @@ display: flex;
   color:#fff;
   padding: 1px;
 }
+
+
+/* *****************************************************************
+PRODUIT
+***************************************************************** */
+.kit{
+    display:flex;
+  justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+.card_service>img{
+height:250px;
+
+
+}
+.card_service{
+      height: 270px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    letter-spacing: 0.05rem;
+    
+}
+.card_produit{
+  display: flex;
+  align-items: center;
+ flex-direction: column;
+  width: 45vh;
+  height: 45vh;
+      margin-top: 3rem;
+  border-radius: 33px;
+
+}
 /* *****************************************************************
 REALISATION
 ***************************************************************** */
@@ -1464,7 +1500,7 @@ CONTACT
 Google map
 ***************************************************************** */
 iframe{
-  width: 34vh;
+  width: 50vh;
   height: 35vh;
   border:0;
 }

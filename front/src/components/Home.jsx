@@ -68,7 +68,7 @@ const Home = () => {
                 
                     <div className="text_intro">
                         <h2 className="intro_title">MY LITTLE LASHES</h2>
-                        <p>studio privé situé à Rezé et spécialisé dans la mise en beauté de votre Regard</p>
+                        <p>studio privé situé à Rezé et spécialisé dans la mise en beauté de votre regard</p>
                     </div> 
                     
                         <div className="text_intro">
@@ -266,7 +266,7 @@ const Home = () => {
                         <Carousel Images={Images} alt="prestation" />
                         
                     <div className="text_intro">
-                    <h2>Elle ont testé et validé</h2>
+                    <h2>ELLES ONT TESTÉES ET VALIDÉES</h2>
                  </div>    
                 </div>  
             </section>

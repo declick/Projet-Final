@@ -119,7 +119,7 @@ const Navbar = () => {
                 <React.Fragment> 
                     { /* NavLink doit matcher avec le path définit dans le composant Route */ }
                     <li> <NavLink to="/">Accueil</NavLink></li>
-                    <li> <NavLink to="/Prestation">Préstation</NavLink></li>
+                    <li> <NavLink to="/Prestation">Prestation</NavLink></li>
                     <li> <NavLink to="/Produit">Produits</NavLink></li>
                     <li> <NavLink to="/Realisation">Réalisations</NavLink></li>
                     <li> <NavLink to="/Apropos">A propos</NavLink></li>
