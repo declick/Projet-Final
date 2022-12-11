@@ -3,7 +3,7 @@
 
 // Site vitrine pour l'entreprise: "MY LITTLE LASHES" (entreprise expert dans la beauté du regard)
 
-// langagues:   Html, Css, React, Sql, Node 
+// langagues:   Html, Css, React, Sql, Node (Axios)
 
 
 // PSEUDOCODE:
@@ -20,7 +20,7 @@
 
 // Creation du fichier config pour la base_url (API)
 
-// Mise en place du fichier Token utilisé pour le processus de persistance et d'autorisation envoyé dans les demandes d'API afin d'identifier qui est l'expéditeur de la demande et de confirmer qu'il dispose d'une autorisation appropriée.JWT sera stocké dans localStorage.
+// Mise en place du fichier Token utilisé pour le processus de persistance et d'autorisation envoyé dans les demandes d'API afin d'identifier qui est l'expéditeur de la demande et de confirmer qu'il dispose d'une autorisation appropriée.JWT sera stocké dans localStorage. (state = localstorage dans le useEffect)
 
 // Mise en place des securiter:
     -connexion: Verification des informations (input) + token
@@ -43,14 +43,14 @@
 
 // Creation du fichier router.js
 
-// Mise en place du fichier Token utilisé pour le processus de persistance et d'autorisation envoyé dans les demandes d'API afin d'identifier qui est l'expéditeur de la demande et de confirmer qu'il dispose d'une autorisation appropriée.JWT sera stocké dans localStorage.
+// Mise en place du fichier Token utilisé pour le processus de persistance et d'autorisation envoyé dans les demandes d'API afin d'identifier qui est l'expéditeur de la demande et de confirmer qu'il dispose d'une autorisation appropriée.JWT sera stocké dans localStorage. (state = localstorage dans le useEffect)
 
 // Creation du fichier isLogged.js pour verifier le token
 
 // Gestion des routes avec les methodes GET/POST/DELETE (requete SQL --> pool.query)
 
 // Mise en place des securiter:
-    -connexion: Verification des informations (input) + token
+    -connexion: Verification des informations (input) + token + Encryptage des mdp avec Bcrypte
     -logout: delete token du localStorage
     -contact: Verification des informations (input)
     -Mise en place du Middleware et du fichier path.js pour proteger les routes Admin et user

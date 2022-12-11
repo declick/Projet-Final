@@ -42,7 +42,6 @@ const Home = () => {
 
         <React.Fragment>
 
-            <section>
                 <div className="container">
                     <div className="container_home">
                         <div className="header">
@@ -59,9 +58,6 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section>
 
                 <div className="container_home">
                     <div className="container_qualiter">
@@ -89,9 +85,6 @@ const Home = () => {
                     </div>
                 </div>
 
-            </section>
-
-            <section>
                 <div className="background_slide">
                     <div className="text_intro">
                         <h2>PRESTATIONS</h2>
@@ -188,9 +181,7 @@ const Home = () => {
 
                     </div>
                 </div>
-            </section>
 
-            <section>
                 <div className="text_intro">
                     <h2>KIT D'ENTRETIEN</h2>
                     <p>Ce kit sera votre allié au quotidien pour l'entretien de vos cils et vos sourcils.</p>
@@ -255,9 +246,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <section>
                 <div className="background_slide">
                     <div className="text_intro">
                         <h2>LOOK BOOK</h2>
@@ -269,9 +258,7 @@ const Home = () => {
                         <h2>ELLES ONT TESTÉES ET VALIDÉES</h2>
                     </div>
                 </div>
-            </section>
 
-            <section>
                 <div className="container_home">
                     <div className="text_intro">
                         <h2>RESERVEZ VOTRE PRESTATION</h2>
@@ -363,7 +350,6 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
 
         </React.Fragment>
     )
