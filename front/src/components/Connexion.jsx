@@ -1,51 +1,51 @@
-import React,{useContext} from "react"
+import React, { useContext } from "react"
 import axios from 'axios'
-import { BASE_URL} from '../config.js'
-import {ReducerContext} from "./reducer/reducer"
-import {CONNEXION,ADMIN} from './config/constance.js'
+import { BASE_URL } from '../config.js'
+import { ReducerContext } from "./reducer/reducer"
+import { CONNEXION, ADMIN } from './config/constance.js'
 import { useNavigate } from 'react-router-dom'
 import { NavLink } from "react-router-dom"
-import {AiOutlineEyeInvisible,AiOutlineEye} from "react-icons/ai"
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
 
 const Connexion = () => {
-   
+
     const navigate = useNavigate()
-   
+
     const [email, setEmail] = React.useState("")
     const [mdp, setMdp] = React.useState("")
     const [state, dispatch] = useContext(ReducerContext)
-    
+
     const [showmdp, setShowmdp] = React.useState(false)
-    
+
     const [errorMessage, setErrorMessage] = React.useState("")
 
-        { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
+    { /*empêcher le comportement par défaut qui aurait dû se manifester lorsqu'une action a eu lieu */ }
     const submit = (e) => {
-        
+
         const dataUser = {
             email,
             mdp
         }
-        
+
         e.preventDefault()
-                // Je verifie si les champs sont vides 
-                if (email === "" || mdp === "") {
+        // Je verifie si les champs sont vides 
+        if (email === "" || mdp === "") {
             setErrorMessage("Merci de compléter correctement le formulaire.")
-            }else{
-                // Je verifie la longueur du champ email
-                if (email.length > 255){
-                    setErrorMessage("Merci de compléter correctement le formulaire.")
-                } else {
-                         
-                    axios.post(`${BASE_URL}/Connexion`, dataUser)
+        } else {
+            // Je verifie la longueur du champ email
+            if (email.length > 255) {
+                setErrorMessage("Merci de compléter correctement le formulaire.")
+            } else {
+
+                axios.post(`${BASE_URL}/Connexion`, dataUser)
                     .then((res) => {
                         // si tout ce passe bien :
-                        if(res.data.response) {
+                        if (res.data.response) {
                             console.log(res.data)
                             localStorage.setItem('jwtToken', res.data.token)
-                            axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token
-                            res.data.user_id && dispatch({type:CONNEXION, payload:res.data.user_id})
-                            res.data.admin && dispatch({type:ADMIN})
+                            axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token
+                            res.data.user_id && dispatch({ type: CONNEXION, payload: res.data.user_id })
+                            res.data.admin && dispatch({ type: ADMIN })
                             navigate("/")
                         } else {
                             window.alert(res.data.message)
@@ -54,45 +54,45 @@ const Connexion = () => {
                     .catch((err) => {
                         console.log(err)
                     })
-                }
             }
+        }
     }
-            
-            const showMdp = (e) => {
-                e.preventDefault()
-                setShowmdp(!showmdp)
-            }
-    
-    return(
-        
-            <React.Fragment>
-                <h1>Connexion</h1>
+
+    const showMdp = (e) => {
+        e.preventDefault()
+        setShowmdp(!showmdp)
+    }
+
+    return (
+
+        <React.Fragment>
+            <h1>Connexion</h1>
             <div className="center">
-                   <form className="formulaire">
-                   
-                      <div> 
-                        <input type="email" placeholder="@EMAIL :" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required /> 
-                      </div>
+                <form className="formulaire">
 
-                      <div>
-                          <input type={showmdp ? "text" : "password"} placeholder="MOT DE PASSE :" name="mdp" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required /> 
-                          </div> <div>
-                          <button className="button_look" onClick={showMdp} > {showmdp ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</button>
-                      </div>
+                    <div>
+                        <input type="email" placeholder="@EMAIL :" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    </div>
 
-                        <div>
+                    <div>
+                        <input type={showmdp ? "text" : "password"} placeholder="MOT DE PASSE :" name="mdp" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required />
+                    </div> <div>
+                        <button className="button_look" onClick={showMdp} > {showmdp ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</button>
+                    </div>
+
+                    <div>
                         <input type="submit" onClick={submit} value="Valider" />
-                        </div>
-                        
+                    </div>
+
                     <label>
                         Pas encore membre ? <NavLink to='/Inscription'><u>Crée un compte ici.</u></NavLink>
                     </label>
-                     
+
                     <h3>{errorMessage}</h3>
-                    
-                    </form>
-                </div>
-            </React.Fragment>
+
+                </form>
+            </div>
+        </React.Fragment>
     )
 }
 

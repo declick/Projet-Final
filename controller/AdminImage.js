@@ -28,5 +28,3 @@ const DeleteImage = (req, res) => {
 }
 
 export {ImageControllerAdmin,DeleteImage}
-
-  

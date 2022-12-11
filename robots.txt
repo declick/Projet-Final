@@ -1,2 +1,21 @@
 User-agent: *
+Disallow: /controller/
+Disallow: /config/
+Disallow: /reducer/
+
+Disallow: /context
+Disallow: /Admin
+Disallow: /AdminPrestation
+Disallow: /AddPrestation
+Disallow: /EditPrestation
+Disallow: /AdminProduit
+Disallow: /AddProduit
+Disallow: /EditProduit
+Disallow: /AdminMessage
+Disallow: /AdminUsers
+Disallow: /AdminImage
+Disallow: /AddImage
+
 Allow: /
+
+Sitemap: http://quentinminziere.sites.3wa.io:9001/sitemap.xml
