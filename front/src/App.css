@@ -871,6 +871,7 @@ CARD HOME / PRESTATION
 
   height: auto;
   width: 100%;
+  z-index: 15;
 
 }
 .card_image>img{

@@ -14,7 +14,7 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Si vous souhaitez commencer à mesurer les performances de votre application, passez une fonction
+// pour consigner les résultats (par exemple : reportWebVitals(console.log))
+// ou envoyer à un point de terminaison d'analyse.
 reportWebVitals()

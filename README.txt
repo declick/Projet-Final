@@ -1,5 +1,3 @@
-# Projet-Final
-
 
 // Site vitrine pour l'entreprise: "MY LITTLE LASHES" (entreprise expert dans la beauté du regard)
 
@@ -107,7 +105,7 @@
                         
                          // Images
                 
-                        -lire, créer, supprimer les images
+                        --lire, créer, supprimer les images
                         
                         
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -261,4 +259,3 @@
                 ● manipulation du DOM sans jquery
                 ● API HTML5 (FileAPI, WebGL, AudioAPI, etc…)
                 ● Fonctionnalités originales (ex : animation poussée)
-

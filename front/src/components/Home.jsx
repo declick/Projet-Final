@@ -68,7 +68,7 @@ const Home = () => {
 
                         <div className="text_intro">
                             <h2 className="intro_title">MY LITTLE LASHES</h2>
-                            <p>studio privé situé à Rezé et spécialisé dans la mise en beauté de votre regard</p>
+                            <p>Studio privé situé à Rezé et spécialisé dans la mise en beauté de votre regard</p>
                         </div>
 
                         <div className="text_intro">
