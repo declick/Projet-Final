@@ -64,7 +64,7 @@
                         // Visiteurs
                 
                         -Acceuil
-                        -Présentations
+                        -Prestations
                         -Produits
                         -A Propos
                         -Connexion
@@ -74,7 +74,7 @@
                         // Utilisateurs
                 
                         -Acceuil
-                        -Présentation 
+                        -Prestations
                         -Produits
                         -Réalisations
                         -A Propos
@@ -88,7 +88,7 @@
                         // Administrateur
                 
                         -Acceuil
-                        -Présentation 
+                        -Prestations
                         -Produits
                         -Réalisations
                         -A Propos

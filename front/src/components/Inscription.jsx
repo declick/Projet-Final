@@ -21,13 +21,13 @@ const Inscription = () => {
     const [isChecked, setIsChecked] = React.useState(false)
     const [showmdp, setShowmdp] = React.useState(false)
     { /* définir quel type de validation nous allons utiliser */ }
-    const [validate, setValidate] = React.useState({ hasLow: false, hasCap: false, hasNumber: false, has8digit: false });
+    const [validate, setValidate] = React.useState({ hasLow: false, hasCap: false, hasNumber: false, has8digit: false })
 
     const validRegex = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g
 
 
     { /* une condition est remplie, nous signalerons la valeur comme true dans un élément spécifique de l'objet */ }
-    const strength = Object.values(validate).reduce((a, item) => a + item, 0);
+    const strength = Object.values(validate).reduce((a, item) => a + item, 0)
     const feedback = {
         1: "Le mot de passe est trop faible!",
         2: "C'est encore faible !",
@@ -37,7 +37,7 @@ const Inscription = () => {
 
     const handleChangePassword = (e) => {
         setMdp(e.target.value);
-        validatePassword(e.target.value);
+        validatePassword(e.target.value)
     };
 
     { /* 
@@ -146,21 +146,17 @@ const Inscription = () => {
                             <input type="email" placeholder="@EMAIL :" name="email" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required />
                         </div>
                     </label>
-
-                    <label>
-                        <div>
-                            <p>minimum 8 caratcteres</p>
+                       
+                            <label> <p>minimum 8 caratcteres</p></label>
+                            <div class="container_password">
                             <input type={showmdp ? "text" : "password"} placeholder="MOT DE PASSE :" name="mdp" className="input_password" value={mdp} onChange={(e) => handleChangePassword(e)} required />
 
-                            {strength > 0 ? (
+                        <div onClick={showMdp} className="button_look"> <span>{showmdp ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</span></div>
+                        </div>
+                         {strength > 0 ? (
                                 <progress hidden={mdp.length === 0} className={`password strength_${strength}`} value={strength} max="4" />) : null}
 
                             <div className={`feedback strength_${strength}`} hidden={mdp.length === 0}> {feedback} </div>
-
-                        </div>
-                    </label>
-
-                    <button className="button_look" onClick={showMdp} > {showmdp ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</button>
                     <div>
                         <input type="submit" onClick={submit} value="Envoyer" />
                     </div>

@@ -255,7 +255,7 @@ const Home = () => {
                     <Carousel Images={Images} alt="prestation" />
 
                     <div className="text_intro">
-                        <h2>ELLES ONT TESTÉES ET VALIDÉES</h2>
+                        <h2>ELLES ONT TESTÉ ET VALIDÉ</h2>
                     </div>
                 </div>
 

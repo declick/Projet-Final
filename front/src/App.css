@@ -143,11 +143,18 @@ CONTAINER
 
 .container_404 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+.container_password{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 /* *****************************************************************
@@ -570,7 +577,7 @@ input[type=checkbox]:checked~.label #burg2 {
 NAVIGATION ADMIN
 ***************************************************************** */
 .sidebar {
-    background-color: grey;
+    background-image: grey;
     width: 100%;
     height: auto;
     padding: 33px;
@@ -589,7 +596,6 @@ NAVIGATION ADMIN
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
-
 /* *****************************************************************
 SWITCH COLOR TEMPLATE
 ***************************************************************** */
@@ -1029,7 +1035,13 @@ textarea {
     margin-left: auto;
     margin-right: auto;
 }
-
+.button_look span{
+color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
 /* *****************************************************************
 TOOLS
 ***************************************************************** */
@@ -1657,6 +1669,13 @@ iframe {
 /* *****************************************************************
 404
 ***************************************************************** */
+.container_404 img {
+    height: 300px;
+    width: 300px;
+}
+.text_404{
+    margin-bottom: 30px;
+}
 
 /* *****************************************************************
 FOOTER

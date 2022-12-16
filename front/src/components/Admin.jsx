@@ -29,8 +29,9 @@ const Admin = (req, res) => {
         <React.Fragment>
 
             <div className="sidebar">
+ 
                 <nav className="navigation">
-                    <ul>
+                    <ul> 
                         <li><NavBarAdmin /> </li>
                     </ul>
                 </nav>
