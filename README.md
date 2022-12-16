@@ -194,7 +194,7 @@
 
                         // Body:        module1: Formulaire (prenom,nom,email,txt,captcha si possible)
 
-                        module12: contact info + iframe google map
+                        module2: contact info + iframe google map
                                         
                         // Footer:      logo facebook/instagramme + mentions obligatoire + copyright                
 
@@ -211,6 +211,12 @@
                          module: Formulaire (prenom,nom,email,button supp. profil)
                                         
                         // Footer:      logo facebook/instagramme + mentions obligatoire + copyright
+                        
+//CONNEXION:               
+
+                        // Body:        module: Formulaire (email,mdp, ect ...)
+                                        
+                        // Footer:      logo facebook/instagramme + mentions obligatoire + copyright                        
                         
 
 //404:                  
