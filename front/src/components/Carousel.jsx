@@ -1,7 +1,6 @@
 import React from 'react'
 
 const { useState, useRef, useEffect } = React
-    // Le hook useInterval prend deux arguments : callback et delay. Le rappel est la fonction qui sera exécutée dans le délai spécifié. 
     // Le délai est le temps en millisecondes entre chaque exécution de la fonction de rappel.
 const useInterval = (callback, delay) => {
     // useRef pour enregistrer une référence à la fonction de rappel. 
@@ -35,12 +34,9 @@ const useInterval = (callback, delay) => {
 
 //Les images du carousel 
 const Images = [
-    { imgUrl: 'http://quentinminziere.sites.3wa.io:9001/image/gallery1.png' },
-    { imgUrl: 'http://quentinminziere.sites.3wa.io:9001/image/gallery2.png' },
-    { imgUrl: 'http://quentinminziere.sites.3wa.io:9001/image/gallery3.png' },
-    { imgUrl: 'http://quentinminziere.sites.3wa.io:9001/image/gallery4.png' },
-    { imgUrl: 'http://quentinminziere.sites.3wa.io:9001/image/gallery5.png' },
-    { imgUrl: 'http://quentinminziere.sites.3wa.io:9001/image/gallery6.png' }
+    { imgUrl: 'https://www.mylittlelashes.fr/img/gallery1/gallery3.WebP' },
+    { imgUrl: 'https://www.mylittlelashes.fr/img/gallery1/gallery1.WebP' },
+    { imgUrl: 'https://www.mylittlelashes.fr/img/gallery1/gallery7.WebP' }
 ]
 
 //Carousel utilise 
@@ -50,19 +46,19 @@ const Carousel = (props) => {
     const { Images } = props
     const len = Images.length
 
-    // Le composant utilise le hook useState pour suivre l'index de l'image active
+    // Le composant utilise useState pour suivre l'index de l'image active
     const [activeIndex, setActive] = useState(0)
 
     //Autoplay 
     // le hook useInterval pour faire défiler automatiquement les images toutes les 5 secondes
-    // Le composant utilise le crochet useState pour suivre l'index actif de l'image actuellement active, et il utilise le crochet useInterval pour configurer la fonction de lecture automatique.
+    // Le composant utilise useState pour suivre l'index actif de l'image actuellement active, et il utilise useInterval pour configurer la fonction de lecture automatique.
     useInterval(() => {
+        //  tous les 5000 millisecondes, qui met à jour 'activeIndex' en incrémentant sa valeur de 1 modulo 'len' (c'est-à-dire en la ramenant à 0 si elle atteint 'len').
         setActive((activeIndex + 1) % len)
     }, 5000)
 
-    // Style de retour accorder selon l'index 
-    //. La fonction getStyle est utilisée pour déterminer le style de chaque image du carrousel, en fonction de sa distance par rapport à l'image active. 
-    //Lorsqu'une image est cliquée, la fonction setActive est appelée pour définir la nouvelle image active.
+    // getStyle est utilisée pour déterminer le style de chaque image du carrousel, en fonction de sa distance par rapport à l'image active. 
+    // Lorsqu'une image est cliquée, la fonction setActive est appelée pour définir la nouvelle image active.
     
     // Carousel possède également une fonction getStyle qui calcule le style approprié pour chaque image en fonction de son index et de l'activeIndex. 
     // La fonction getStyle détermine la distance entre l'index de l'image et l'activeIndex, et utilise cette distance pour calculer les styles de gauche et d'opacité appropriés pour l'image. 

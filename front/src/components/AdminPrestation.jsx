@@ -64,7 +64,7 @@ const AdminPrestation = () => {
                                     <tr key={i}>
                                         <td>{e.catetitle}</td>
                                         <td>{e.title}</td>
-                                        <td><img className="img_admin" src={`${BASE_IMG}/${e.image}`} alt={"image"} /></td>
+                                        <td><img className="img_admin" src={`${BASE_IMG}/${e.image}`} alt="prestations" /></td>
                                         <td>{e.description}</td>
                                         <td> <button type='submit' id="" onClick={(el) => handleDelete(el, e.id)} value='supprimer'>supprimer</button></td>
                                         <td> <NavLink className="lien_admin" to={`/EditPrestation/${e.id}`}><button className=""> Modifier  </button></NavLink></td>

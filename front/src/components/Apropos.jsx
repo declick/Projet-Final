@@ -16,8 +16,8 @@ const Apropos = () => {
             <div className="container_home">
                 <div className="container">
 
-                     <img src="./image/main-block-decor.png" alt="header" className="main_block_decor" />
-                     <img src="./image/main-block-decor2.png" alt="header" className="main_block_decor2" />
+                     <img src="./image/main-block-decor.png" alt="plante" className="main_block_decor1" />
+                     <img src="./image/main-block-decor2.png" alt="plante" className="main_block_decor2" />
 
                     <div className="blog_card">
                         <div className="background_slide">

@@ -12,7 +12,7 @@ const AdminProduit = () => {
 
     // Affichage Prestation
     React.useEffect(() => {
-
+        // requête HTTP GET à l'URL ${BASE_URL}/AdminProduit pour obtenir les informations sur les produits à partir de la base de données. Ces informations sont affichées dans un tableau HTML.
         axios.get(`${BASE_URL}/AdminProduit`)
 
             .then((res) => {
@@ -24,6 +24,8 @@ const AdminProduit = () => {
     }, [])
 
     // Suppression Prestation
+    // handleDelete qui est appelée lorsqu'un utilisateur clique sur le bouton "supprimer" à côté d'un produit dans le tableau. 
+    // Cette fonction envoie une requête HTTP POST à l'URL ${BASE_URL}/AdminProduit/${id} avec l'ID du produit à supprimer, puis met à jour le tableau en enlevant le produit qui vient d'être supprimé.
     const handleDelete = (e, id) => {
         e.preventDefault()
 
@@ -63,7 +65,7 @@ const AdminProduit = () => {
                                 return (
                                     <tr key={i}>
                                         <td>{e.title}</td>
-                                        <td><img className="img_admin" src={`${BASE_IMG}/${e.image}`} alt={"image"} /></td>
+                                        <td><img className="img_admin" src={`${BASE_IMG}/${e.image}`} alt="photos produits" /></td>
                                         <td>{e.description}</td>
                                         <td>{e.price} €</td>
                                         <td> <button type='submit' id="" onClick={(el) => handleDelete(el, e.id)} value='supprimer'>supprimer</button></td>

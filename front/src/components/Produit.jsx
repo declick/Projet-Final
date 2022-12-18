@@ -5,9 +5,10 @@ import { BASE_URL, BASE_IMG } from '../config.js'
 const Produit = () => {
 
     const [produit, setProduit] = React.useState([])
-
+    // React.useEffect() pour mettre à jour le state de produit chaque fois que le composant est rendu
     React.useEffect(() => {
-
+        // requête HTTP GET sur l'URL ${BASE_URL}/Produit pour récupérer les données des produits à partir d'un serveur. 
+        // Ces données sont ensuite stockées dans le state du composant avec setProduit().
         axios.get(`${BASE_URL}/Produit`)
             .then((res) => {
                 setProduit(res.data.SQL)
@@ -31,7 +32,7 @@ const Produit = () => {
                     </div>
 
                     <div className="kit">
-
+                        {/* le composant affiche chaque produit en utilisant la fonction map() sur l'array de produits dans le state */}
                         {produit.map((e, i) => {
                             if (e.title === "KIT CIL") {
 

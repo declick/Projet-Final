@@ -5,7 +5,7 @@ import { BASE_URL, BASE_IMG, config } from '../config.js'
 import { ReducerContext } from "./reducer/reducer"
 import { useNavigate } from 'react-router-dom'
 import { NavLink } from "react-router-dom"
-
+// AddProduit" affiche un formulaire permettant à l'utilisateur de saisir un titre, une image, une description et un prix d'un produit. 
 const AddProduit = () => {
 
     const navigate = useNavigate()
@@ -30,15 +30,18 @@ const AddProduit = () => {
         dataFile.append('price', price)
         // Je verifie si les champs sont vides
         if (title === "" || description === "" || price === "" || description >= 1 || description <= 500) {
+            // Si le titre, la description ou le prix est vide ou si la description dépasse 500 caractères, un message d'erreur est affiché à l'utilisateur.
             setErrorMessage("Il manque un titre, une description ou un prix")
         } else {
-
+            //// Lorsque l'utilisateur soumet le formulaire, ces données sont envoyées via une requête HTTP POST à l'URL spécifiée dans l'axios.post() avec une instance de FormData qui contient les données du formulaire.
             axios.post(`${BASE_URL}/AddProduit`, dataFile)
 
                 .then((res) => {
                     if (res.data.response === true) {
+                        // Si la requête réussie, l'utilisateur est redirigé vers la page "Admin"
                         navigate("/Admin")
                     } else {
+                        // Sinon, l'utilisateur reste sur la page "AddProduit" et une erreur est affichée dans la console.
                         navigate("/AddProduit")
                         console.log(res)
                     }

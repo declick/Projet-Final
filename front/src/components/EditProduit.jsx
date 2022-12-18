@@ -45,7 +45,7 @@ const EditProduit = (req, res) => {
             dataFile.append('files', files[0], files[0].name)
         }
 
-        // Je verifie qu'un moins un caratctere est saisie dans le texte area et de moins de 500 caracteres  
+        // Je verifie qu'au moins un caratctere est saisie dans le texte area et de moins de 500 caracteres  
         if (produit.description >= 1 && produit.description <= 500) {
             setErrorMessage("Il manque un titre, une description ou un prix")
         } else {
@@ -64,7 +64,7 @@ const EditProduit = (req, res) => {
                 })
         }
     }
-
+    // handleChange" qui gère les changements de valeur dans les champs du formulaire. Cette fonction met à jour la valeur de l'objet "produit" en fonction de la propriété de l'objet qui est modifiée.
     const handleChange = (e, type) => {
         e.preventDefault()
         const data = { ...produit }
@@ -77,18 +77,20 @@ const EditProduit = (req, res) => {
         <React.Fragment>
             <div className="container_home">
                 <div className="container">
-
+                    {/* navigation qui redirige vers la page "/Admin" lorsqu'il est cliqué */}
                     <NavLink to="/Admin">RETOUR</NavLink>
 
                     <h2><u>Editer un produit</u></h2>
-
+                    {/* Si l'objet "produit" existe et n'est pas nul */}
                     {produit &&
-
+                        // Un formulaire qui envoie les données du formulaire au serveur lorsqu'il est soumis
                         <form encType="multipart/form-data" onSubmit={submitForm} action='' method='post'>
                             <fieldset>
 
                                 <div>
                                     <label>Titre</label>
+                                     {/* La valeur de l'input est définie sur la valeur de la propriété "title" de l'objet "produit", ou sur une chaîne vide si cette propriété n'existe pas ou est nulle */}
+                                     {/*  Lorsque la valeur de l'input est modifiée, la fonction "handleChange" est appelée avec les événements "e" et "type" en tant que paramètres */}
                                     <input type="text" name="title" maxLength="255" value={produit.title || ''} onChange={(e) => handleChange(e, 'title')} />
                                 </div>
 

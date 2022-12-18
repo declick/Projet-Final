@@ -46,8 +46,8 @@ const Home = () => {
                     <div className="container_home">
                         <div className="header">
 
-                            <img src="./image/main-block-decor.png" alt="header" className="main_block_decor" />
-                            <img src="./image/main-block-decor2.png" alt="header" className="main_block_decor2" />
+                            <img src="./image/main-block-decor.png" alt="plante" className="main_block_decor" />
+                            <img src="./image/main-block-decor2.png" alt="plante" className="main_block_decor2" />
                             <div className="text_header">
                                 <h1 className="acceuil">MY LITTLE LASHES</h1>
                                 <p>BROW AND LASH ARTIST</p>
@@ -252,7 +252,7 @@ const Home = () => {
                         <h2>LOOK BOOK</h2>
                     </div>
 
-                    <Carousel Images={Images} alt="prestation" />
+                    <Carousel Images={Images} alt="images du carasoul, prestation lashes" />
 
                     <div className="text_intro">
                         <h2>ELLES ONT TESTÉ ET VALIDÉ</h2>

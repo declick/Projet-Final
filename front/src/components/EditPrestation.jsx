@@ -15,9 +15,11 @@ const EditPrestation = () => {
     const [errorMessage, setErrorMessage] = React.useState("")
 
     // Affichage Prestation
+    // utilise l'hook useEffect de React pour envoyer une requête GET à l'API lorsque le composant est monté, afin de récupérer les informations de la prestation à partir de la base de données et de les afficher dans le formulaire.
     React.useEffect((id) => {
 
         axios.defaults.timeout = 5000
+        // useParams pour récupérer l'ID de la prestation à partir des paramètres de l'URL.
         axios.get(`${BASE_URL}/EditPrestation/${params.id}`)
 
             .then((res) => {
@@ -31,6 +33,8 @@ const EditPrestation = () => {
     }, [params])
 
     // Update Prestation
+    // Lorsque le formulaire est soumis, le composant envoie une requête POST à l'API avec les données du formulaire et un éventuel fichier image joint. 
+    // Si la mise à jour de la prestation est réussie, le composant utilise la fonction navigate pour naviguer vers la route "/Admin".
     const submitForm = (e) => {
         e.preventDefault()
 
@@ -55,6 +59,7 @@ const EditPrestation = () => {
                 .then((res) => {
                     console.log(res)
                     if (res.data.response === true) {
+                        //useNavigate pour naviguer vers une autre route lorsque la mise à jour de la prestation est terminée.
                         navigate("/Admin")
                     }
                 })

@@ -148,7 +148,7 @@ const Inscription = () => {
                     </label>
                        
                             <label> <p>minimum 8 caratcteres</p></label>
-                            <div class="container_password">
+                            <div className="container_password">
                             <input type={showmdp ? "text" : "password"} placeholder="MOT DE PASSE :" name="mdp" className="input_password" value={mdp} onChange={(e) => handleChangePassword(e)} required />
 
                         <div onClick={showMdp} className="button_look"> <span>{showmdp ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</span></div>

@@ -74,7 +74,7 @@ const Connexion = () => {
                         <input type="email" placeholder="@EMAIL :" maxLength="255" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
 
-                    <div class="container_password">
+                    <div className="container_password">
                         <input type={showmdp ? "text" : "password"} placeholder="MOT DE PASSE :" name="mdp" maxLength="255" value={mdp} onChange={(e) => setMdp(e.target.value)} required />
                         <div onClick={showMdp} className="button_look"> <span>{showmdp ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</span></div>
                     </div>

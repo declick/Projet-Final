@@ -152,7 +152,7 @@ CONTAINER
 .container_password{
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 63%;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -247,7 +247,7 @@ POPUP
 
 .popup h2 {
     margin-top: 0;
-    color: var(primary_color);
+    color: var(--primary_color);
     font-family: Tahoma, Arial, sans-serif;
 }
 
@@ -437,6 +437,13 @@ TEXTE DEFILEMENT HEADER
     width: 25%;
     z-index: 0;
 }
+.main_block_decor1 {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    width: 25%;
+    z-index: 0;
+}
 .main_block_decor2 {
     position: absolute;
     left: 0;
@@ -492,7 +499,7 @@ NAVIGATION
 }
 
 .label p {
-    color: var(primary_color);
+    color: var(--primary_color);
 }
 
 .burger {
@@ -612,6 +619,10 @@ SWITCH COLOR TEMPLATE
     display: flex;
     justify-content: space-between;
     margin: 2px;
+    color: var(--second_color);
+}
+.dark .icon_switch{
+    color: var(--primary_color);
 }
 
 .icon_switch svg {
@@ -1035,8 +1046,15 @@ textarea {
     margin-left: auto;
     margin-right: auto;
 }
-.button_look span{
-color: white;
+.dark .button_look span{
+    color: var(second_color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+.light .button_look span{
+    color: var(primary_color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1818,18 +1836,85 @@ tbody tr:nth-child(even) {
 /************************************Admin Message ****************************************/
 
 .card_admin {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 40vh;
-    /* height: 38vh; */
-    margin: 0px auto;
-    /* border-radius: 33px; */
-    overflow: scroll;
-    margin: 13px;
+    float: left;
+    width: 31%;
+    padding: 10px;
 }
 
+.card_msg {
+    list-style-type: none;
+    border: 2px solid #eef;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
 
+.card_msg:hover {
+    box-shadow: 0 8px 11px 0 rgba(0,0,0,0.5);
+}
+
+.card_msg .entete {
+    background-color: #444;
+    color: white;
+    font-size: 25px;
+}
+.light .card_msg .entete {
+    background-color: #D8B4A0;
+    color: white;
+    font-size: 25px;
+}
+
+.card_msg li {
+    border-bottom: 1px solid #eef;
+    padding: 18px;
+    text-align: center;
+}
+.light .card_msg li{
+    border-bottom: 1px solid var(--primary_color);
+
+}
+.light .card_msg{
+    border: 2px solid var(--primary_color);
+}
+
+/************************************Admin Utilisateurs ****************************************/
+.card_user {
+    list-style-type: none;
+    border: 2px solid #eef;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.card_user:hover {
+    box-shadow: 0 8px 11px 0 rgba(0,0,0,0.5);
+}
+
+.card_user .entete {
+    background-color: #444;
+    color: white;
+    font-size: 25px;
+}
+.light .card_user .entete {
+    background-color: #D8B4A0;
+    color: white;
+    font-size: 25px;
+}
+
+.card_user li {
+    border-bottom: 1px solid #eef;
+    padding: 18px;
+    text-align: center;
+}
+.light .card_user li{
+    border-bottom: 1px solid var(--primary_color);
+
+}
+.light .card_user{
+    border: 2px solid var(--primary_color);
+}
 /* *****************************************************************
 PolitiqueDeCookie
 ***************************************************************** */
@@ -1981,6 +2066,11 @@ MEDIA QUERY
         text-align: center;
         border: 1px solid;
     }
+            
+    .card_admin {
+        width: 100%;
+    }
+
 
 /* *****************************************************************
 NAVIGATION BURGER
@@ -1996,6 +2086,7 @@ NAVIGATION BURGER
         display: grid;
         justify-content: end;
         cursor: pointer;
+        justify-items: center;
         grid-column: 3;
         padding-right: 10px;
     }
@@ -2012,6 +2103,7 @@ NAVIGATION BURGER
 
     .nav_checkbox input:checked~.content_nav {
         max-height: 1280px;
+        
     }
 
     .content_nav li {
@@ -2068,13 +2160,11 @@ NAVIGATION BURGER
         height: 40vh;
         border: 0;
     }
+
 }
 
 @media screen and (max-width: 767px) {
-    .main_block_decor {
-        display: none;
-    }
-    .main_block_decor2 {
+    .main_block_decor, .main_block_decor1, .main_block_decor2{
         display: none;
     }
 }

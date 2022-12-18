@@ -52,12 +52,13 @@ const AdminMessage = () => {
                     {message.map((e, i) => {
                         return (
                             <div className="card_admin" key={i}>
-                                <h3>{e.prenom}</h3>
-                                <h3>{e.nom}</h3>
-                                <h3>{e.email}</h3>
-                                <h3>{e.text}</h3>
-                                <h3>{e.registration_date}</h3>
-                                <button type='submit' id="" onClick={(el) => handleDelete(el, e.id)} value='supprimer'>supprimer</button>
+                              <ul className="card_msg">
+                                <li className="entete"><h3>Message de {e.nom} {e.prenom}</h3></li>
+                                <li>{e.text}</li>
+                                <li>Email : {e.email}</li>
+                                <li>Date d'enregistrement : {e.registration_date}</li>
+                                <li><button type='submit' id="" onClick={(el) => handleDelete(el, e.id)} value='supprimer'>supprimer</button></li>
+                              </ul>
                             </div>
                         )
                     })}

@@ -54,13 +54,13 @@ const AdminUsers = () => {
                     {user.map((e, i) => {
                         return (
 
-                            <div className="card" key={i}>
-
-                                <h3>{e.prenom}</h3>
-                                <h3>{e.nom}</h3>
-                                <h3>{e.email}</h3>
-                                <h3>{e.registration_date}</h3>
-                                <button type='submit' id="" onClick={(el) => handleDelete(el, e.id)} value='supprimer'>supprimer</button>
+                            <div className="card_admin" key={i}>
+                              <ul className="card_user">
+                                <li className="entete"><h3>{e.nom} {e.prenom}</h3></li>
+                                <li>Email : {e.email}</li>
+                                <li>Date d'enregistrement : {e.registration_date}</li>
+                                <li><button type='submit' id="" onClick={(el) => handleDelete(el, e.id)} value='supprimer'>supprimer</button></li>
+                              </ul>
                             </div>
                         )
                     })}
